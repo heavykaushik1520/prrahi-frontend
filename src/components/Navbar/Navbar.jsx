@@ -10,6 +10,7 @@ import {
   RiCloseLine,
   RiUser3Line,
 } from "react-icons/ri";
+import WavesAnimation from "../waves/WavesAnimation";
 import { useCart } from "../../context/CartContext";
 import WavesAnimation from "../waves/WavesAnimation";
 
