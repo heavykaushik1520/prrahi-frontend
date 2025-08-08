@@ -7,6 +7,7 @@ import {
   updateCart,
   deleteCartItem,
 } from "../../services/cartServices"; // Corrected import path
+import { useCart } from "../../context/CartContext";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -19,7 +20,10 @@ const Cart = () => {
     return !!localStorage.getItem("jwtToken");
   };
 
-  const fetchCart = useCallback(async () => {
+  const { fetchCart } = useCart();
+
+
+  const fetchCartData = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
@@ -40,7 +44,7 @@ const Cart = () => {
   }, []);
 
   useEffect(() => {
-    fetchCart();
+    fetchCartData();
   }, []);
 
   const handleUpdateQuantity = async (productId, currentQuantity, delta) => {
@@ -51,7 +55,7 @@ const Cart = () => {
       setLoading(false);
       const isLoggedIn = checkLoginStatus(); // Get actual login status
       await updateCart(productId, newQuantity, isLoggedIn);
-      await fetchCart();
+      await fetchCartData();
     } catch (err) {
       console.error("Error updating cart item quantity:", err);
       setError("Failed to update item quantity. Please try again.");
@@ -64,9 +68,19 @@ const Cart = () => {
     setLoading(true);
     try {
       setLoading(false);
+
+      // Optimistically remove item from UI
+      setCart((prevCart) => ({
+        ...prevCart,
+        products: prevCart.products.filter((item) => item.id !== productId),
+      }));
+
       const isLoggedIn = checkLoginStatus();
       await deleteCartItem(productId, isLoggedIn);
+
+      // Refresh count in Navbar
       await fetchCart();
+
     } catch (err) {
       console.error("Error removing item from cart:", err);
       setError("Failed to remove item. Please try again.");
@@ -97,7 +111,7 @@ const Cart = () => {
     return (
       <div className="cart-container error-state">
         <p className="error-message">{error}</p>
-        <button onClick={fetchCart} className="retry-button">
+        <button onClick={fetchCartData} className="retry-button">
           Retry
         </button>
       </div>
@@ -187,12 +201,10 @@ const Cart = () => {
 
           <div className="cart-summary-card">
             <div className="summary-content">
-              
-              <h5 className="summary-total-text">TOTAL : ₹{total.toFixed(2)} 
+              <h5 className="summary-total-text">TOTAL : ₹{total.toFixed(2)}
                 <br></br>
                 <p>(INCL. OF ALL TAXES)</p>
               </h5>
-            
               <button
                 onClick={handleProceedToCheckout}
                 className="checkout-button"
