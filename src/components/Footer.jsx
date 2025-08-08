@@ -82,14 +82,14 @@ function Footer() {
                   <FaPhoneAlt />
                   <div>
                     <h5>Phone</h5>
-                    <p>+1 (555) 123-4567</p>
+                    <p>+91 99540 22020</p>
                   </div>
                 </div>
                 <div className="contact-item">
                   <MdEmail />
                   <div>
                     <h5>Email</h5>
-                    <p>info@praahi.com</p>
+                    <p>care@prrahi.in</p>
                   </div>
                 </div>
               </div>
@@ -100,7 +100,7 @@ function Footer() {
         <div className="row mt-5">
           <div className="col-12">
             <div className="newsletter-section">
-              <h4 className="newsletter-title">Subscribe to Our Newsletter</h4>
+              <h4 className="newsletter-title">Brand owned and Marketed by:</h4>
               <p className="newsletter-description">
                 Stay updated with our latest news and offers
               </p>

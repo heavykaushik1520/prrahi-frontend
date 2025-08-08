@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Collection from "../components/products/Collection";
 import { Carousel } from "bootstrap";
+import WavesAnimation from "../components/waves/WavesAnimation";
 
 function Main() {
   const carouselEl = useRef(null);
@@ -33,7 +34,7 @@ function Main() {
             }
             timeoutId = setTimeout(() => {
               setCurrentIndex(1); 
-            }, 800000); // 8 sec video
+            }, 8000); // 8 sec video
           }
           
           else if (currentIndex === 1) {
@@ -77,11 +78,13 @@ function Main() {
 
   return (
     <>
+      
       {/* BANNER SECTION */}
       <section
         id="up"
         className="page-head container-fluid p-0 position-relative"
       >
+        <WavesAnimation/>
         <div
           id="customCarousel"
           ref={carouselEl}

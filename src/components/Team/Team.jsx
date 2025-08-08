@@ -7,11 +7,13 @@ import { FaYoutube } from "react-icons/fa";
 import { FaAddressCard } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import WavesAnimation from "../waves/WavesAnimation";
 
 function Team() {
   return (
     <>
       <section className="team-section text-center" id="teams">
+        <WavesAnimation/>
         
         <div className="container mt-5">
           <div className="team-member-row">

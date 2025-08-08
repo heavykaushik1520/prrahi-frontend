@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import api from "../../services/api"; // Assuming the api.js file is in this path
 import { updateCart } from '../../services/cartServices';
 import { useAuth} from '../../context/AuthContext'
+import WavesAnimation from "../waves/WavesAnimation";
 
 function Collection() {
   const [products, setProducts] = useState([]);
@@ -62,6 +63,7 @@ function Collection() {
 
   return (
     <>
+     <WavesAnimation/>
       <section
         className="collection-section text-center"
         id="collection-component"

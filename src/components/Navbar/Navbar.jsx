@@ -10,6 +10,7 @@ import {
   RiCloseLine,
   RiUser3Line,
 } from "react-icons/ri";
+import WavesAnimation from "../waves/WavesAnimation";
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -32,6 +33,11 @@ function Navbar() {
 
           <nav className={`navbar-links ${isMobileMenuOpen ? "active" : ""}`}>
             <ul>
+              <li>
+                <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+                  Home
+                </Link>
+              </li>
               <li>
                 <Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>
                   About
@@ -70,18 +76,19 @@ function Navbar() {
           <div className="navbar-icons flex items-center gap-8 pr-4">
             {isAuthenticated ? (
               <>
-                <Link to="/my-profile" className="profile-icon">
+                <Link to="/my-profile" onClick={() => setIsMobileMenuOpen(false)} className="profile-icon">
                   <RiUser3Line />
                 </Link>
               </>
             ) : (
-              <Link to="/sign-in" className="login-button">
+              <Link to="/sign-in" onClick={() => setIsMobileMenuOpen(false)} className="login-button">
                 LOGIN
               </Link>
             )}
           </div>
         </div>
       </header>
+      
 
     </>
   );

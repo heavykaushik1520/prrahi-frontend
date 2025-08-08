@@ -1,8 +1,12 @@
 import React from "react";
+import WavesAnimation from "../waves/WavesAnimation";
 
 function About() {
   return (
+    <>
+     <WavesAnimation/>
     <section className="about-section text-center">
+     
       <div className="container mt-4">
         <div className="container mt-4">
           <h3 className="about-title poppins-semibold">
@@ -53,6 +57,7 @@ function About() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 

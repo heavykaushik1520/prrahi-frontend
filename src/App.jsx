@@ -17,6 +17,7 @@ import About from "./components/about/About";
 import MyOrders from "./components/my-orders/MyOrders";
 import ResetPassword from "./components/resetPassword/ResetPassword";
 import ContactPage from "./components/contact/Contact";
+import WavesAnimation from "./components/waves/WavesAnimation";
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -42,6 +43,7 @@ function AppContent() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/contact-us" element={<ContactPage />} />
+        <Route path="/waves" element={<WavesAnimation/>}/>
 
         <Route
           path="/my-profile"
