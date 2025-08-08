@@ -17,6 +17,7 @@ import About from "./components/about/About";
 import MyOrders from "./components/my-orders/MyOrders";
 import ResetPassword from "./components/resetPassword/ResetPassword";
 import ContactPage from "./components/contact/Contact";
+import { CartProvider } from "./context/CartContext";
 import WavesAnimation from "./components/waves/WavesAnimation";
 
 const PrivateRoute = ({ children }) => {
@@ -84,7 +85,9 @@ function App() {
   return (
     <>
       <AuthProvider>
-        <AppContent />
+        <CartProvider>
+          <AppContent />
+        </CartProvider>
       </AuthProvider>
     </>
   );

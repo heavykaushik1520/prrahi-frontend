@@ -37,7 +37,7 @@ export const getCart = async (isLoggedIn) => {
     if (guestCartId) {
       return await api(`/guest-cart/${guestCartId}`, "GET"); // Explicitly GET
     } else {
-      const createCartResponse = await api("/guest-cart", "POST"); 
+      const createCartResponse = await api("/guest-cart", "POST");
       const newGuestCartId = createCartResponse.guestCartId; 
       localStorage.setItem("guestCartId", newGuestCartId);
       return await api(`/guest-cart/${newGuestCartId}`, "GET"); 
@@ -55,6 +55,7 @@ export const updateCart = async (productId, quantity, isLoggedIn) => {
       return await api(`/guest-cart/${guestCartId}`, "POST", data);
     } else {
       const createCartResponse = await api("/guest-cart", "POST");
+      console.log("New guest cart created:", createCartResponse);
       const newGuestCartId = createCartResponse.guestCartId;
       localStorage.setItem("guestCartId", newGuestCartId);
 
@@ -64,6 +65,8 @@ export const updateCart = async (productId, quantity, isLoggedIn) => {
 };
 
 export const deleteCartItem = async (productId, isLoggedIn) => {
+  console.log("Deleting item from cart:", productId);
+  console.log("Is user logged in?", isLoggedIn);
   if (isLoggedIn) {
     return await api(`/cart/${productId}`, "DELETE", null, true);
   } else {
