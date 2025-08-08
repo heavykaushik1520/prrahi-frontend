@@ -12,8 +12,6 @@ import {
 } from "react-icons/ri";
 import { useCart } from "../../context/CartContext";
 import WavesAnimation from "../waves/WavesAnimation";
-import { useCart } from "../../context/CartContext";
-import WavesAnimation from "../waves/WavesAnimation";
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

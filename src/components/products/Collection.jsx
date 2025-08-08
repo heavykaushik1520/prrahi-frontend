@@ -6,8 +6,6 @@ import { updateCart } from '../../services/cartServices';
 import { useAuth  } from '../../context/AuthContext'
 import { useCart } from "../../context/CartContext";
 import WavesAnimation from "../waves/WavesAnimation";
-import { useCart } from "../../context/CartContext";
-import WavesAnimation from "../waves/WavesAnimation";
 
 function Collection() {
   const [products, setProducts] = useState([]);

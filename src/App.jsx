@@ -19,8 +19,6 @@ import ResetPassword from "./components/resetPassword/ResetPassword";
 import ContactPage from "./components/contact/Contact";
 import { CartProvider } from "./context/CartContext";
 import WavesAnimation from "./components/waves/WavesAnimation";
-import { CartProvider } from "./context/CartContext";
-import WavesAnimation from "./components/waves/WavesAnimation";
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
