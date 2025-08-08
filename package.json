@@ -2,7 +2,7 @@
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://artiststation.co.in/prrahi/",
+  "homepage": "https://artiststation.co.in/prrahi-frontend/",
   "type": "module",
   "scripts": {
     "dev": "vite",

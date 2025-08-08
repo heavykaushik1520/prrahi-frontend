@@ -3,6 +3,11 @@ import React, { useEffect, useRef, useState } from "react";
 import Collection from "../components/products/Collection";
 import { Carousel } from "bootstrap";
 import WavesAnimation from "../components/waves/WavesAnimation";
+import bannerVideo from "../assets/videos/banner-video.mp4";
+import banner2 from "../assets/images/banner/banner-2.jpeg";
+import banner3 from "../assets/images/banner/banner-3.jpeg";
+import team1 from '../assets/images/team/team-1.png';
+import team2 from '../assets/images/team/team-2.png';
 
 function Main() {
   const carouselEl = useRef(null);
@@ -12,7 +17,7 @@ function Main() {
 
   useEffect(() => {
     let bootstrapCarousel = null;
-    let timeoutId = null; 
+    let timeoutId = null;
 
     const initializeCarousel = () => {
       if (carouselEl.current) {
@@ -24,7 +29,6 @@ function Main() {
         });
 
         const playLoop = () => {
-          
           if (timeoutId) clearTimeout(timeoutId);
 
           if (currentIndex === 0) {
@@ -33,22 +37,17 @@ function Main() {
               videoRef.current.play();
             }
             timeoutId = setTimeout(() => {
-              setCurrentIndex(1); 
+              setCurrentIndex(1);
             }, 8000); // 8 sec video
-          }
-          
-          else if (currentIndex === 1) {
+          } else if (currentIndex === 1) {
             timeoutId = setTimeout(() => {
-              setCurrentIndex(2); 
-            }, 4000); 
-
+              setCurrentIndex(2);
+            }, 4000);
           } else if (currentIndex === 2) {
             timeoutId = setTimeout(() => {
-              setCurrentIndex(0); 
-            }, 4000); 
-
+              setCurrentIndex(0);
+            }, 4000);
           }
-            
         };
 
         playLoop(); // Start the sequence initially
@@ -78,13 +77,12 @@ function Main() {
 
   return (
     <>
-      
       {/* BANNER SECTION */}
       <section
         id="up"
         className="page-head container-fluid p-0 position-relative"
       >
-        <WavesAnimation/>
+        <WavesAnimation />
         <div
           id="customCarousel"
           ref={carouselEl}
@@ -95,7 +93,7 @@ function Main() {
             <div
               className={`carousel-item ${currentIndex === 0 ? "active" : ""}`}
             >
-              <video
+              {/* <video
                 id="introVideo"
                 ref={videoRef}
                 className="d-block w-100"
@@ -105,31 +103,41 @@ function Main() {
               >
                 <source src="assets/videos/banner-video.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
+              </video> */}
+              <video
+                id="introVideo"
+                ref={videoRef}
+                className="d-block w-100"
+                muted
+                playsInline
+              >
+                <source src={bannerVideo} type="video/mp4" />
+                Your browser does not support the video tag.
               </video>
             </div>
 
-            
             <div
               className={`carousel-item ${currentIndex === 1 ? "active" : ""}`}
             >
-              <img
+              {/* <img
                 src="assets/images/banner/banner-2.jpeg"
                 className="d-block w-100"
                 alt="Image 1"
-              />
+              /> */}
+              <img src={banner2} className="d-block w-100" alt="Image 1" />
+
             </div>
 
             <div
               className={`carousel-item ${currentIndex === 2 ? "active" : ""}`}
             >
-              <img
+              {/* <img
                 src="assets/images/banner/banner-3.jpeg"
                 className="d-block w-100"
                 alt="Image 2"
-              />
+              /> */}
+              <img src={banner3} className="d-block w-100" alt="Image 2" />
             </div>
-
-              
           </div>
         </div>
       </section>
@@ -183,163 +191,164 @@ function Main() {
             </g>
           </svg>
         </div>
-       <div className="container mt-5">
-        <div className="team-member-row">
-          <div className="row align-items-center">
-            <div className="col-lg-6 col-md-12 mb-4">
-              <div className="team-image-container">
-                <img
-                  src="https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here"
-                  alt="Team Member 1"
-                  className="about-section-image"
-                />
-                <div className="team-image-overlay"></div>
+        <div className="container mt-5">
+          <div className="team-member-row">
+            <div className="row align-items-center">
+              <div className="col-lg-6 col-md-12 mb-4">
+                <div className="team-image-container">
+                  <img
+                    src="https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here"
+                    alt="Team Member 1"
+                    className="about-section-image"
+                  />
+                  <div className="team-image-overlay"></div>
+                </div>
+              </div>
+              <div className="col-lg-6 col-md-12 mb-4">
+                <div className="team-content">
+                  <h3 className="team-member-name poppins-semibold ">
+                    Discover PrRaHi Agarbatti – Your Divine Companion for Inner
+                    Peace and Spiritual Well-Being
+                  </h3>
+
+                  <div className="team-member-description">
+                    <p className="lead poppins-regular">
+                      Life is a beautiful journey, filled with growth,
+                      reflection, and transformation. In today’s fast-paced
+                      world, we all long for moments of calm, clarity, and
+                      emotional balance. That’s where <b>PrRaHi Agarbatti</b> –
+                      your premium <b>incense stick brand</b> – becomes more
+                      than just a fragrance. It becomes a{" "}
+                      <b>soulful companion,</b> guiding you toward{" "}
+                      <b>inner peace, mindfulness,</b> and spiritual awakening.
+                    </p>
+
+                    <p className="lead poppins-regular">
+                      <b> Crafted with purity and devotion,</b> each{" "}
+                      <b>PrRaHi incense stick</b> is made from natural
+                      ingredients and enriched with divine aromas that calm the
+                      mind, soothe the senses, and purify the air. Whether
+                      you're beginning your day with prayer, deepening your
+                      meditation practice, or simply creating a serene home
+                      environment, PrRaHi fills your space with{" "}
+                      <b>positive energy</b> and sacred vibrations.
+                    </p>
+                  </div>
+                  <button
+                    className="btn btn-primary read-more-team-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#teamModal1"
+                  >
+                    Read More
+                  </button>
+                </div>
               </div>
             </div>
-            <div className="col-lg-6 col-md-12 mb-4">
-              <div className="team-content">
-                <h3 className="team-member-name poppins-semibold ">
-                  Discover PrRaHi Agarbatti – Your Divine Companion for Inner
-                  Peace and Spiritual Well-Being
-                </h3>
+          </div>
+        </div>
 
-                <div className="team-member-description">
-                  <p className="lead poppins-regular">
-                    Life is a beautiful journey, filled with growth, reflection,
-                    and transformation. In today’s fast-paced world, we all long
-                    for moments of calm, clarity, and emotional balance. That’s
-                    where <b>PrRaHi Agarbatti</b> – your premium{" "}
-                    <b>incense stick brand</b> – becomes more than just a
-                    fragrance. It becomes a <b>soulful companion,</b> guiding
-                    you toward <b>inner peace, mindfulness,</b> and spiritual
-                    awakening.
-                  </p>
+        <div
+          className="modal fade"
+          id="teamModal1"
+          tabIndex="-1"
+          aria-labelledby="teamModal1Label"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog modal-lg">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="teamModal1Label">
+                  ABOUT US
+                </h5>
 
-                  <p className="lead poppins-regular">
-                    <b> Crafted with purity and devotion,</b> each{" "}
-                    <b>PrRaHi incense stick</b> is made from natural ingredients
-                    and enriched with divine aromas that calm the mind, soothe
-                    the senses, and purify the air. Whether you're beginning
-                    your day with prayer, deepening your meditation practice, or
-                    simply creating a serene home environment, PrRaHi fills your
-                    space with <b>positive energy</b> and sacred vibrations.
-                  </p>
-                </div>
                 <button
-                  className="btn btn-primary read-more-team-btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#teamModal1"
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body">
+                <div className="row">
+                  <div className="col-md-6">
+                    <img
+                      src="https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here"
+                      alt="John Smith"
+                      className="img-fluid rounded"
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <h4>
+                      Discover PrRaHi Agarbatti – Your Divine Companion for
+                      Inner Peace and Spiritual Well-Being
+                    </h4>
+                    <p className="lead poppins-regular">
+                      Life is a beautiful journey, filled with growth,
+                      reflection, and transformation. In today’s fast-paced
+                      world, we all long for moments of calm, clarity, and
+                      emotional balance. That’s where <b>PrRaHi Agarbatti</b> –
+                      your premium <b>incense stick brand</b> – becomes more
+                      than just a fragrance. It becomes a{" "}
+                      <b>soulful companion,</b> guiding you toward{" "}
+                      <b>inner peace, mindfulness,</b> and spiritual awakening.
+                    </p>
+
+                    <p className="lead poppins-regular">
+                      <b> Crafted with purity and devotion,</b> each{" "}
+                      <b>PrRaHi incense stick</b> is made from natural
+                      ingredients and enriched with divine aromas that calm the
+                      mind, soothe the senses, and purify the air. Whether
+                      you're beginning your day with prayer, deepening your
+                      meditation practice, or simply creating a serene home
+                      environment, PrRaHi fills your space with{" "}
+                      <b>positive energy</b> and sacred vibrations.
+                    </p>
+
+                    <h4>Why Choose PrRaHi Agarbatti?</h4>
+                    <ul className="text-justify poppins-medium">
+                      <li>100% natural, long-lasting fragrances</li>
+                      <li>
+                        Ideal for daily rituals, yoga, meditation & spiritual
+                        practices
+                      </li>
+                      <li>
+                        Available in soothing floral, woody, and traditional
+                        blends
+                      </li>
+                      <li>Enhances mood, focus, and emotional harmony</li>
+                    </ul>
+
+                    <p className="lead poppins-regular">
+                      PrRaHi is not just incense — it’s{" "}
+                      <b>your spiritual partner,</b> helping you reconnect with
+                      your higher self. Let every stick bring you closer to
+                      peace, clarity, and divine light.
+                    </p>
+                    <p className="lead poppins-semibold">
+                      <b>
+                        PrRaHi – The soul-soothing incense that silently
+                        supports your spiritual journey.
+                      </b>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-bs-dismiss="modal"
                 >
-                  Read More
+                  Close
                 </button>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div
-        className="modal fade"
-        id="teamModal1"
-        tabIndex="-1"
-        aria-labelledby="teamModal1Label"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-lg">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="teamModal1Label">
-                ABOUT US
-              </h5>
-
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">
-              <div className="row">
-                <div className="col-md-6">
-                  <img
-                    src="https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here"
-                    alt="John Smith"
-                    className="img-fluid rounded"
-                  />
-                </div>
-                <div className="col-md-6">
-                  <h4>
-                    Discover PrRaHi Agarbatti – Your Divine Companion for Inner
-                    Peace and Spiritual Well-Being
-                  </h4>
-                  <p className="lead poppins-regular">
-                    Life is a beautiful journey, filled with growth, reflection,
-                    and transformation. In today’s fast-paced world, we all long
-                    for moments of calm, clarity, and emotional balance. That’s
-                    where <b>PrRaHi Agarbatti</b> – your premium{" "}
-                    <b>incense stick brand</b> – becomes more than just a
-                    fragrance. It becomes a <b>soulful companion,</b> guiding
-                    you toward <b>inner peace, mindfulness,</b> and spiritual
-                    awakening.
-                  </p>
-
-                  <p className="lead poppins-regular">
-                    <b> Crafted with purity and devotion,</b> each{" "}
-                    <b>PrRaHi incense stick</b> is made from natural ingredients
-                    and enriched with divine aromas that calm the mind, soothe
-                    the senses, and purify the air. Whether you're beginning
-                    your day with prayer, deepening your meditation practice, or
-                    simply creating a serene home environment, PrRaHi fills your
-                    space with <b>positive energy</b> and sacred vibrations.
-                  </p>
-
-                  <h4>Why Choose PrRaHi Agarbatti?</h4>
-                  <ul className="text-justify poppins-medium">
-                    <li>100% natural, long-lasting fragrances</li>
-                    <li>
-                      Ideal for daily rituals, yoga, meditation & spiritual
-                      practices
-                    </li>
-                    <li>
-                      Available in soothing floral, woody, and traditional
-                      blends
-                    </li>
-                    <li>Enhances mood, focus, and emotional harmony</li>
-                  </ul>
-
-                  <p className="lead poppins-regular">
-                    PrRaHi is not just incense — it’s{" "}
-                    <b>your spiritual partner,</b> helping you reconnect with
-                    your higher self. Let every stick bring you closer to peace,
-                    clarity, and divine light.
-                  </p>
-                  <p className="lead poppins-semibold">
-                    <b>
-                      PrRaHi – The soul-soothing incense that silently supports
-                      your spiritual journey.
-                    </b>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              
-            </div>
-          </div>
-        </div>
-      </div>
       </section>
 
       {/* OUR COLLECTION */}
-     
+
       <section className="collection-section text-center" id="collection">
         <h2 className="about-heading poppins-extrabold mb-0 mt-0 py-3">
           OUR COLLECTION
@@ -388,7 +397,7 @@ function Main() {
             </g>
           </svg>
         </div>
-{/*  
+        {/*  
         <div className="row g-4 px-5 ">
           <div className="col-lg-4 col-md-6 col-12">
             <div className="product-card">
@@ -584,11 +593,10 @@ function Main() {
             </div>
           </div>
         </div>
-*/}        
-      <Collection/>
+*/}
+        <Collection />
       </section>
 
-      
       {/* TEAM */}
       <section className="team-section text-center" id="teams">
         <h2 className="about-heading poppins-extrabold mb-0 mt-0 py-3">
@@ -646,7 +654,7 @@ function Main() {
               <div className="col-lg-6 col-md-12 mb-4">
                 <div className="team-image-container">
                   <img
-                    src="assets/images/team/team-1.png"
+                    src={team1}
                     alt="Team Member 1"
                     className="team-image"
                   />
@@ -705,7 +713,7 @@ function Main() {
               <div className="col-lg-6 col-md-12 mb-4 order-lg-2 order-md-1">
                 <div className="team-image-container">
                   <img
-                    src="assets/images/team/team-2.png"
+                    src={team2}
                     alt="Team Member 2"
                     className="team-image"
                   />
@@ -787,7 +795,7 @@ function Main() {
               <div className="row">
                 <div className="col-md-6">
                   <img
-                    src="assets/images/team/team-1.png"
+                    src={team1}
                     alt="John Smith"
                     className="img-fluid rounded"
                   />
@@ -879,7 +887,7 @@ function Main() {
               <div className="row">
                 <div className="col-md-6">
                   <img
-                    src="assets/images/team/team-2.png"
+                    src={team2}
                     alt="Sarah Johnson"
                     className="img-fluid rounded"
                   />

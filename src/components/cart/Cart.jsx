@@ -45,7 +45,7 @@ const Cart = () => {
 
   useEffect(() => {
     fetchCartData();
-  }, []);
+  }, [fetchCartData]);
 
   const handleUpdateQuantity = async (productId, currentQuantity, delta) => {
     const newQuantity = Math.max(1, currentQuantity + delta);

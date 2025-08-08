@@ -641,6 +641,11 @@ strong {
 }
 
 /* ABOUT SECTION CSS START */
+.nav-about{
+  color: #EC1B26 !important;
+  text-transform: none;
+}
+
 about-section-image{
   
 }

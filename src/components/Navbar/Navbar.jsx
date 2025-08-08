@@ -10,6 +10,8 @@ import {
 } from "react-icons/ri";
 import { useCart } from "../../context/CartContext";
 import WavesAnimation from "../waves/WavesAnimation";
+import logo from '../../assets/images/logo/praahi-logo.jpeg';
+
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -27,7 +29,7 @@ function Navbar() {
         <div className="navbar-container">
           <div className="navbar-logo">
             <Link to="/">
-              <img src={"assets/images/logo/praahi-logo.jpeg"} alt="Logo" />
+              <img src={logo} alt="Logo" />
             </Link>
           </div>
 
@@ -42,9 +44,9 @@ function Navbar() {
                   Home
                 </Link>
               </li>
-              <li>
-                <Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>
-                  About
+              <li >
+                <Link className="nav-about" to="/about" onClick={() => setIsMobileMenuOpen(false)}>
+                  Hello! <br></br>I am PrRahi
                 </Link>
               </li>
               <li>
