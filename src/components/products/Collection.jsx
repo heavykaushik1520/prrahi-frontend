@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from "react";
 import api from "../../services/api"; // Assuming the api.js file is in this path
 import { updateCart } from '../../services/cartServices';
-import { useAuth} from '../../context/AuthContext'
+import { useAuth } from '../../context/AuthContext'
+import { useCart } from "../../context/CartContext";
 import WavesAnimation from "../waves/WavesAnimation";
 
 function Collection() {
@@ -11,6 +12,8 @@ function Collection() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { user } = useAuth();
+  const { fetchCart } = useCart();
+
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -27,7 +30,7 @@ function Collection() {
     };
 
     fetchProducts();
-  }, []); 
+  }, []);
 
   const handleAddToCart = async (productId) => {
     try {
@@ -35,6 +38,8 @@ function Collection() {
       const isLoggedIn = !!user; // `user` is null if not logged in
       await updateCart(productId, 1, isLoggedIn);
       alert('Product added to cart!');
+      await fetchCart();
+
     } catch (err) {
       console.error("Failed to add to cart:", err);
       alert('Failed to add product to cart.');

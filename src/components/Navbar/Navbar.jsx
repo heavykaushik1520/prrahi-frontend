@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { GrCart } from "react-icons/gr";
 import { useAuth } from "../../context/AuthContext";
@@ -10,11 +10,17 @@ import {
   RiCloseLine,
   RiUser3Line,
 } from "react-icons/ri";
+import { useCart } from "../../context/CartContext";
 import WavesAnimation from "../waves/WavesAnimation";
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isAuthenticated } = useAuth();
+  const { cartCount, fetchCart } = useCart();
+
+  useEffect(() => {
+    fetchCart();
+  }, [fetchCart]);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   return (
@@ -67,7 +73,11 @@ function Navbar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="cart-icon"
                 >
-                  <RiShoppingCart2Line />
+                  <RiShoppingCart2Line style={{ fontSize: "30px", position: "relative" }} />
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {cartCount || 0}
+                    <span class="visually-hidden">unread messages</span>
+                  </span>
                 </Link>
               </li>
             </ul>

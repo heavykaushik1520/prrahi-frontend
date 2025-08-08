@@ -23,6 +23,7 @@ const Cart = () => {
     setLoading(true);
     setError(null);
     try {
+      setLoading(false);
       const isLoggedIn = checkLoginStatus();
       const response = await getCart(isLoggedIn);
       setCart(response);
@@ -40,14 +41,14 @@ const Cart = () => {
 
   useEffect(() => {
     fetchCart();
-  }, [fetchCart]);
+  }, []);
 
   const handleUpdateQuantity = async (productId, currentQuantity, delta) => {
     const newQuantity = Math.max(1, currentQuantity + delta);
     if (newQuantity === currentQuantity && delta === 0) return;
-
     setLoading(true);
     try {
+      setLoading(false);
       const isLoggedIn = checkLoginStatus(); // Get actual login status
       await updateCart(productId, newQuantity, isLoggedIn);
       await fetchCart();
@@ -62,6 +63,7 @@ const Cart = () => {
   const handleRemoveItem = async (productId) => {
     setLoading(true);
     try {
+      setLoading(false);
       const isLoggedIn = checkLoginStatus();
       await deleteCartItem(productId, isLoggedIn);
       await fetchCart();
