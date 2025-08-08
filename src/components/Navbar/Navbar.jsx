@@ -1,10 +1,8 @@
-
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { GrCart } from "react-icons/gr";
 import { useAuth } from "../../context/AuthContext";
 import {
-
   RiShoppingCart2Line,
   RiMenu3Line,
   RiCloseLine,
@@ -63,43 +61,79 @@ function Navbar() {
                 </Link>
               </li>
               <li>
-                <Link to="/contact-us" onClick={() => setIsMobileMenuOpen(false)}>
+                <Link
+                  to="/contact-us"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
                   Contact
                 </Link>
               </li>
+
+              <li className="d-block d-sm-none">
+                <div className="navbar-icons flex items-center gap-8 pr-4 ">
+                  {isAuthenticated ? (
+                    <>
+                      <Link
+                        to="/my-profile"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="profile-icon"
+                      >
+                        <RiUser3Line />
+                      </Link>
+                    </>
+                  ) : (
+                    <Link
+                      to="/sign-in"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="login-button"
+                    >
+                      LOGIN
+                    </Link>
+                  )}
+                </div>
+              </li>
+
               <li>
                 <Link
                   to="/cart"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="cart-icon"
                 >
-                  <RiShoppingCart2Line style={{ fontSize: "30px", position: "relative" }} />
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  <RiShoppingCart2Line
+                    style={{ fontSize: "30px", position: "relative" }}
+                  />
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                     {cartCount || 0}
-                    <span class="visually-hidden">unread messages</span>
+                    <span className="visually-hidden">unread messages</span>
                   </span>
                 </Link>
               </li>
             </ul>
           </nav>
 
-          <div className="navbar-icons flex items-center gap-8 pr-4">
+          <div className="navbar-icons flex items-center gap-8 pr-4 d-none d-sm-block">
             {isAuthenticated ? (
               <>
-                <Link to="/my-profile" onClick={() => setIsMobileMenuOpen(false)} className="profile-icon">
+                <Link
+                  to="/my-profile"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="profile-icon"
+                >
                   <RiUser3Line />
                 </Link>
               </>
             ) : (
-              <Link to="/sign-in" onClick={() => setIsMobileMenuOpen(false)} className="login-button">
+              <Link
+                to="/sign-in"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="login-button"
+              >
                 LOGIN
               </Link>
             )}
           </div>
         </div>
       </header>
-      
-
     </>
   );
 }

@@ -23,25 +23,25 @@ function WavesAnimation() {
             xlinkHref="#gentle-wave"
             x="48"
             y="0"
-            fill="rgba(255, 255, 255, 0.3)"
+            fill="rgb(242, 26, 29)"
           />
           <use
             xlinkHref="#gentle-wave"
             x="48"
             y="3"
-            fill="rgba(255, 165, 0, 0.5)"
+            fill="rgb(249 ,158 ,26)"
           />
           <use
             xlinkHref="#gentle-wave"
             x="48"
             y="5"
-            fill="rgba(255, 165, 0, 0.7)"
+            fill="rgb(242, 26, 29)"
           />
           <use
             xlinkHref="#gentle-wave"
             x="48"
             y="7"
-            fill="rgba(255, 165, 0, 0.9)"
+            fill="rgb(249,158, 26)"
           />
         </g>
       </svg>

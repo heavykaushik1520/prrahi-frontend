@@ -513,9 +513,9 @@ strong {
   }
 
   /* Hide desktop icons/login button on mobile, they are moved into the mobile menu */
-  .navbar-icons {
+  /* .navbar-icons {
     display: none;
-  }
+  } */
 }
 
 /* For screens smaller than or equal to 576px (Small Mobile) */
@@ -641,6 +641,9 @@ strong {
 }
 
 /* ABOUT SECTION CSS START */
+about-section-image{
+  
+}
 
 .lead {
   font-size: 18px;
@@ -918,8 +921,10 @@ strong {
 }
 
 #collection-component {
-  margin-top: 76px;
+  margin-top: 96px;
 }
+
+
 
 .collection-heading {
   font-size: clamp(2.5rem, 8vw, 4rem);
@@ -1512,7 +1517,7 @@ strong {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.3),
+    rgb(242, 26, 29),
     transparent
   );
   transition: left 0.5s ease;
@@ -2964,7 +2969,7 @@ forgot-password-submit-btn:hover {
 
 /* --- Responsive Adjustments --- */
 
-/* For screens smaller than 768px (Tablets and smaller) */
+/* For screens smaller than .px (Tablets and smaller) */
 @media (max-width: 768px) {
     .cart-container {
         padding: 15px;
@@ -3865,7 +3870,7 @@ forgot-password-submit-btn:hover {
 
 /* Loading Spinner */
 .contact-spinner-animation {
-    border: 4px solid rgba(255, 255, 255, 0.3);
+    border: 4px solid rgb(242, 26, 29);
     border-top: 4px solid #ffffff;
     border-radius: 50%;
     width: 24px;
