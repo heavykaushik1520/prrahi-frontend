@@ -1,19 +1,20 @@
 import React from "react";
 import WavesAnimation from "../waves/WavesAnimation";
+import aboutImage from "../../assets/images/about/1.jpeg";
 
 function About() {
   return (
     <>
-      <WavesAnimation />
+      
       <div className="container mt-5">
         <div className="team-member-row">
           <div className="row align-items-center">
             <div className="col-lg-6 col-md-12 mb-4">
               <div className="team-image-container">
                 <img
-                  src="https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here"
-                  alt="Team Member 1"
-                  className="about-section-image"
+                  src={aboutImage}
+                  alt="about image"
+                  className="about-section-image img-fluid"
                 />
                 <div className="team-image-overlay"></div>
               </div>
@@ -85,8 +86,8 @@ function About() {
               <div className="row">
                 <div className="col-md-6">
                   <img
-                    src="https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here"
-                    alt="John Smith"
+                    src={aboutImage}
+                    alt="about image"
                     className="img-fluid rounded"
                   />
                 </div>

@@ -6,14 +6,25 @@ import WavesAnimation from "../components/waves/WavesAnimation";
 import bannerVideo from "../assets/videos/banner-video.mp4";
 import banner2 from "../assets/images/banner/banner-2.jpeg";
 import banner3 from "../assets/images/banner/banner-3.jpeg";
-import team1 from '../assets/images/team/team-1.png';
-import team2 from '../assets/images/team/team-2.png';
+import mainBanner1 from "../assets/images/banner/prarthana.png";
+import mainBanner2 from "../assets/images/banner/premium.png";
+import mainBanner3 from "../assets/images/banner/aradhya.png";
+import prrahiBanner1 from "../assets/images/banner/Artboard 1.png";
+import prrahiBanner3 from "../assets/images/banner/Artboard 2.png";
+import prrahiBanner4 from "../assets/images/banner/Artboard 4.png";
+import team1 from "../assets/images/team/team-1.png";
+import team2 from "../assets/images/team/team-2.png";
+import aboutImg from "../assets/images/about/1.jpeg";
+import { FaInstagram } from "react-icons/fa";
+import { IoLogoLinkedin } from "react-icons/io5";
+import { FaTwitter } from "react-icons/fa";
+import Waves from "../components/waves/Waves";
 
 function Main() {
   const carouselEl = useRef(null);
   const videoRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const totalSlides = 3;
+  const totalSlides = 4;
 
   useEffect(() => {
     let bootstrapCarousel = null;
@@ -37,20 +48,28 @@ function Main() {
               videoRef.current.play();
             }
             timeoutId = setTimeout(() => {
+              // console.log("1");
+
               setCurrentIndex(1);
             }, 8000); // 8 sec video
           } else if (currentIndex === 1) {
             timeoutId = setTimeout(() => {
+              // console.log("2");
               setCurrentIndex(2);
-            }, 4000);
+            }, 5000);
           } else if (currentIndex === 2) {
             timeoutId = setTimeout(() => {
-              setCurrentIndex(0);
-            }, 4000);
+              // console.log("3");
+              setCurrentIndex(3);
+            }, 5000);
+          } else if (currentIndex === 3) {
+            timeoutId = setTimeout(() => {
+              setCurrentIndex(0); 
+            }, 5000);
           }
         };
 
-        playLoop(); // Start the sequence initially
+        playLoop();
       }
     };
 
@@ -82,7 +101,7 @@ function Main() {
         id="up"
         className="page-head container-fluid p-0 position-relative"
       >
-        <WavesAnimation />
+      
         <div
           id="customCarousel"
           ref={carouselEl}
@@ -93,17 +112,6 @@ function Main() {
             <div
               className={`carousel-item ${currentIndex === 0 ? "active" : ""}`}
             >
-              {/* <video
-                id="introVideo"
-                ref={videoRef}
-                className="d-block w-100"
-                muted
-                playsInline
-                
-              >
-                <source src="assets/videos/banner-video.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video> */}
               <video
                 id="introVideo"
                 ref={videoRef}
@@ -117,26 +125,76 @@ function Main() {
             </div>
 
             <div
-              className={`carousel-item ${currentIndex === 1 ? "active" : ""}`}
+              className={`carousel-item ${
+                currentIndex === 1 ? "active" : ""
+              } py-5`}
             >
-              {/* <img
-                src="assets/images/banner/banner-2.jpeg"
-                className="d-block w-100"
+              <img
+                src={prrahiBanner1}
+                className="d-block w-50 h-50 mx-auto z-3"
                 alt="Image 1"
-              /> */}
-              <img src={banner2} className="d-block w-100" alt="Image 1" />
-
+              />
+              <div className="d-block w-50 h-50 mx-auto">
+                <h4 className="banner-text-title">
+                  PrRaHi – Your Divine Companion, Now Closer Than Ever!
+                </h4>
+                <h6 className="banner-text-subtitle">
+                  Inaugural Offer for a Limited Period:
+                </h6>
+                <li className="banner-list">10% OFF</li>
+                <li className="banner-list">Free Shipping</li>
+                <li className="banner-list">
+                  Just 1 dozen minimum to begin this faithful journey
+                </li>
+              </div>
             </div>
 
             <div
-              className={`carousel-item ${currentIndex === 2 ? "active" : ""}`}
+              className={`carousel-item ${
+                currentIndex === 2 ? "active" : ""
+              } py-5`}
             >
-              {/* <img
-                src="assets/images/banner/banner-3.jpeg"
-                className="d-block w-100"
+              <img
+                src={prrahiBanner3}
+                className="d-block w-50 h-50 mx-auto z-3"
                 alt="Image 2"
-              /> */}
-              <img src={banner3} className="d-block w-100" alt="Image 2" />
+              />
+              <div className="d-block w-50 h-50 mx-auto">
+                <h4 className="banner-text-title">
+                  Bless your home with sacred fragrance
+                </h4>
+                <h6 className="banner-text-subtitle">
+                  Inaugural Offer for a Limited Period:
+                </h6>
+                <li className="banner-list">10% OFF</li>
+                <li className="banner-list">Free Shipping</li>
+                <li className="banner-list">
+                  Just 1 dozen minimum to begin this faithful journey
+                </li>
+              </div>
+            </div>
+
+            <div
+              className={`carousel-item ${currentIndex === 3 ? "active" : ""} py-5`}
+            >
+              <img
+                src={prrahiBanner4}
+                className="d-block w-50 h-50 mx-auto z-3"
+                alt="Image 3"
+              />
+              <div className="d-block w-50 h-50 mx-auto">
+                <h4 className="banner-text-title">
+                  Pure. Trustworthy. Divine.
+                </h4>
+                <h6 className="banner-text-subtitle">
+                  Inaugural Offer for a Limited Period:
+                </h6>
+                <li className="banner-list">10% OFF</li>
+                <li className="banner-list">Free Shipping</li>
+                <li className="banner-list">
+                  Just 1 dozen minimum to begin this faithful journey
+                </li>
+              </div>
             </div>
           </div>
         </div>
@@ -197,11 +255,11 @@ function Main() {
               <div className="col-lg-6 col-md-12 mb-4">
                 <div className="team-image-container">
                   <img
-                    src="https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here"
+                    src={aboutImg}
                     alt="Team Member 1"
-                    className="about-section-image"
+                    className="about-section-image img-fluid"
                   />
-                  <div className="team-image-overlay"></div>
+                  {/* <div className="team-image-overlay"></div> */}
                 </div>
               </div>
               <div className="col-lg-6 col-md-12 mb-4">
@@ -237,7 +295,7 @@ function Main() {
                   <button
                     className="btn btn-primary read-more-team-btn"
                     data-bs-toggle="modal"
-                    data-bs-target="#teamModal1"
+                    data-bs-target="#aboutModal"
                   >
                     Read More
                   </button>
@@ -249,7 +307,7 @@ function Main() {
 
         <div
           className="modal fade"
-          id="teamModal1"
+          id="aboutModal"
           tabIndex="-1"
           aria-labelledby="teamModal1Label"
           aria-hidden="true"
@@ -272,8 +330,8 @@ function Main() {
                 <div className="row">
                   <div className="col-md-6">
                     <img
-                      src="https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here"
-                      alt="John Smith"
+                      src={aboutImg}
+                      alt="about image"
                       className="img-fluid rounded"
                     />
                   </div>
@@ -397,203 +455,7 @@ function Main() {
             </g>
           </svg>
         </div>
-        {/*  
-        <div className="row g-4 px-5 ">
-          <div className="col-lg-4 col-md-6 col-12">
-            <div className="product-card">
-              <div className="product-image-container">
-                <img
-                  src="assets/images/products/product1.webp"
-                  alt="Product 1"
-                  className="product-image"
-                />
-                <div className="product-overlay">
-                  <button className="btn btn-light btn-sm">Quick View</button>
-                </div>
-              </div>
-              <div className="product-info">
-                <h3 className="product-title">Product Name 1</h3>
-                <p className="product-price">$99.99</p>
-                <p className="product-description">
-                  This is a detailed description of the product. It includes all
-                  the important features and benefits that customers need to
-                  know about this amazing product.
-                </p>
-                <div className="product-actions">
-                  <button
-                    className="btn btn-primary read-more-btn"
-                    data-bs-toggle="modal"
-                    data-bs-target="#productModal1"
-                  >
-                    Read More
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div className="col-lg-4 col-md-6 col-12">
-            <div className="product-card">
-              <div className="product-image-container">
-                <img
-                  src="assets/images/products/product2.webp"
-                  alt="Product 2"
-                  className="product-image"
-                />
-                <div className="product-overlay">
-                  <button className="btn btn-light btn-sm">Quick View</button>
-                </div>
-              </div>
-              <div className="product-info">
-                <h3 className="product-title">Product Name 2</h3>
-                <p className="product-price">$149.99</p>
-                <p className="product-description">
-                  Another fantastic product with amazing features. This product
-                  offers incredible value and quality that customers will love.
-                </p>
-                <div className="product-actions">
-                  <button
-                    className="btn btn-primary read-more-btn"
-                    data-bs-toggle="modal"
-                    data-bs-target="#productModal2"
-                  >
-                    Read More
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 col-12">
-            <div className="product-card">
-              <div className="product-image-container">
-                <img
-                  src="assets/images/products/product3.webp"
-                  alt="Product 3"
-                  className="product-image"
-                />
-                <div className="product-overlay">
-                  <button className="btn btn-light btn-sm">Quick View</button>
-                </div>
-              </div>
-              <div className="product-info">
-                <h3 className="product-title">Product Name 3</h3>
-                <p className="product-price">$199.99</p>
-                <p className="product-description">
-                  Premium quality product with exceptional design and
-                  functionality. This is the perfect choice for discerning
-                  customers.
-                </p>
-                <div className="product-actions">
-                  <button
-                    className="btn btn-primary read-more-btn"
-                    data-bs-toggle="modal"
-                    data-bs-target="#productModal3"
-                  >
-                    Read More
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 col-12">
-            <div className="product-card">
-              <div className="product-image-container">
-                <img
-                  src="assets/images/products/product5.webp"
-                  alt="Product 4"
-                  className="product-image"
-                />
-                <div className="product-overlay">
-                  <button className="btn btn-light btn-sm">Quick View</button>
-                </div>
-              </div>
-              <div className="product-info">
-                <h3 className="product-title">Product Name 4</h3>
-                <p className="product-price">$79.99</p>
-                <p className="product-description">
-                  Affordable yet high-quality product that delivers excellent
-                  performance and durability for everyday use.
-                </p>
-                <div className="product-actions">
-                  <button
-                    className="btn btn-primary read-more-btn"
-                    data-bs-toggle="modal"
-                    data-bs-target="#productModal4"
-                  >
-                    Read More
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 col-12">
-            <div className="product-card">
-              <div className="product-image-container">
-                <img
-                  src="assets/images/products/product6.webp"
-                  alt="Product 5"
-                  className="product-image"
-                />
-                <div className="product-overlay">
-                  <button className="btn btn-light btn-sm">Quick View</button>
-                </div>
-              </div>
-              <div className="product-info">
-                <h3 className="product-title">Product Name 5</h3>
-                <p className="product-price">$129.99</p>
-                <p className="product-description">
-                  Innovative design meets practical functionality in this
-                  versatile product that adapts to your needs.
-                </p>
-                <div className="product-actions">
-                  <button
-                    className="btn btn-primary read-more-btn"
-                    data-bs-toggle="modal"
-                    data-bs-target="#productModal5"
-                  >
-                    Read More
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 col-12">
-            <div className="product-card">
-              <div className="product-image-container">
-                <img
-                  src="assets/images/products/product7.webp"
-                  alt="Product 6"
-                  className="product-image"
-                />
-                <div className="product-overlay">
-                  <button className="btn btn-light btn-sm">Quick View</button>
-                </div>
-              </div>
-              <div className="product-info">
-                <h3 className="product-title">Product Name 6</h3>
-                <p className="product-price">$89.99</p>
-                <p className="product-description">
-                  Compact and efficient product that maximizes space while
-                  providing all the features you need.
-                </p>
-                <div className="product-actions">
-                  <button
-                    className="btn btn-primary read-more-btn"
-                    data-bs-toggle="modal"
-                    data-bs-target="#productModal6"
-                  >
-                    Read More
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-*/}
         <Collection />
       </section>
 
@@ -649,25 +511,22 @@ function Main() {
         </div>
 
         <div className="container mt-5">
+          {/* RAJEEV */}
           <div className="team-member-row">
             <div className="row align-items-center">
               <div className="col-lg-6 col-md-12 mb-4">
                 <div className="team-image-container">
-                  <img
-                    src={team1}
-                    alt="Team Member 1"
-                    className="team-image"
-                  />
+                  <img src={team1} alt="Team Member 1" className="team-image" />
                   <div className="team-image-overlay">
                     <div className="team-social-links">
                       <a href="#" className="social-link">
-                        <i className="fab fa-linkedin"></i>
+                        <IoLogoLinkedin />
                       </a>
                       <a href="#" className="social-link">
-                        <i className="fab fa-twitter"></i>
+                        <FaTwitter />
                       </a>
                       <a href="#" className="social-link">
-                        <i className="fab fa-instagram"></i>
+                        <FaInstagram />
                       </a>
                     </div>
                   </div>
@@ -708,25 +567,22 @@ function Main() {
             </div>
           </div>
 
+          {/* HIRANYA */}
           <div className="team-member-row">
             <div className="row align-items-center">
               <div className="col-lg-6 col-md-12 mb-4 order-lg-2 order-md-1">
                 <div className="team-image-container">
-                  <img
-                    src={team2}
-                    alt="Team Member 2"
-                    className="team-image"
-                  />
+                  <img src={team2} alt="Team Member 2" className="team-image" />
                   <div className="team-image-overlay">
                     <div className="team-social-links">
                       <a href="#" className="social-link">
-                        <i className="fab fa-linkedin"></i>
+                        <IoLogoLinkedin />
                       </a>
                       <a href="#" className="social-link">
-                        <i className="fab fa-twitter"></i>
+                        <FaTwitter />
                       </a>
                       <a href="#" className="social-link">
-                        <i className="fab fa-instagram"></i>
+                        <FaInstagram />
                       </a>
                     </div>
                   </div>

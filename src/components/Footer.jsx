@@ -8,8 +8,7 @@ import { FaYoutube } from "react-icons/fa";
 import { FaAddressCard } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-
-
+import ScrollToTop from "react-scroll-to-top";
 
 function Footer() {
   return (
@@ -35,7 +34,7 @@ function Footer() {
                   <FaInstagram />
                 </Link>
                 <Link to="/" className="social-link-footer">
-                 <IoLogoLinkedin />
+                  <IoLogoLinkedin />
                 </Link>
                 <Link to="/" className="social-link-footer">
                   <FaYoutube />
@@ -75,7 +74,11 @@ function Footer() {
                   <FaAddressCard />
                   <div>
                     <h5>Address</h5>
-                    <p>123 Business Street, Tech City, TC 12345</p>
+                    <p>Vaaps Enterprise Building No 1 , Ground Floor</p>
+                    <p>
+                       Sikaria Compound, Christian Basti, G S Road
+                    </p>
+                    <p>Guwahati-781005</p>
                   </div>
                 </div>
                 <div className="contact-item">
@@ -96,39 +99,12 @@ function Footer() {
             </div>
           </div>
         </div>
-
-        <div className="row mt-5">
-          <div className="col-12">
-            <div className="newsletter-section">
-              <h4 className="newsletter-title">Brand owned and Marketed by:</h4>
-              <p className="newsletter-description">
-                Stay updated with our latest news and offers
-              </p>
-              <form className="newsletter-form">
-                <div className="input-group">
-                  <input
-                    type="email"
-                    className="form-control"
-                    placeholder="Enter your email address"
-                    required
-                  />
-                  <button className="btn btn-primary" type="submit">
-                    Subscribe
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
       </div>
 
-      <button
-        id="scrollToTop"
-        className="scroll-to-top-btn"
-        title="Scroll to Top"
-      >
-        <i className="fas fa-chevron-up"></i>
-      </button>
+      {/* <button>
+        <ScrollToTop smooth />
+      </button> */}
+      <ScrollToTop smooth />
     </footer>
   );
 }

@@ -19,6 +19,8 @@ import ResetPassword from "./components/resetPassword/ResetPassword";
 import ContactPage from "./components/contact/Contact";
 import { CartProvider } from "./context/CartContext";
 import WavesAnimation from "./components/waves/WavesAnimation";
+import WhatsAppRedirectButton from "./components/whatsAppButton/WhatsAppButton";
+import Waves from "./components/waves/Waves";
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -29,6 +31,8 @@ function AppContent() {
   return (
     <>
       <Navbar />
+      
+      <WhatsAppRedirectButton/>
       <ScrollToTop />
 
       <Routes>
@@ -44,7 +48,9 @@ function AppContent() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/contact-us" element={<ContactPage />} />
-        <Route path="/waves" element={<WavesAnimation/>}/>
+        {/* <Route path="/waves" element={<WavesAnimation/>}/> */}
+        
+       
 
         <Route
           path="/my-profile"

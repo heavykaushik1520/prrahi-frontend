@@ -1,9 +1,8 @@
-
 // src/components/Collection.jsx
 import React, { useState, useEffect } from "react";
 import api from "../../services/api"; // Assuming the api.js file is in this path
-import { updateCart } from '../../services/cartServices';
-import { useAuth  } from '../../context/AuthContext'
+import { updateCart } from "../../services/cartServices";
+import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
 import WavesAnimation from "../waves/WavesAnimation";
 
@@ -14,12 +13,14 @@ function Collection() {
   const { user } = useAuth();
   const { fetchCart } = useCart();
 
+  const page = 1;
+  const limit = 6;
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await api("/products?page=1&limit=6");
-        console.log(response.products)
+        const response = await api(`/products?page=${page}&limit=${limit}`);
+        console.log(response.products);
         setProducts(response.products);
       } catch (err) {
         setError("Failed to fetch products. " + err.message);
@@ -37,19 +38,20 @@ function Collection() {
       // Check if a user is logged in
       const isLoggedIn = !!user; // `user` is null if not logged in
       await updateCart(productId, 1, isLoggedIn);
-      alert('Product added to cart!');
+      alert("Product added to cart!");
       await fetchCart();
-
     } catch (err) {
       console.error("Failed to add to cart:", err);
-      alert('Failed to add product to cart.');
+      alert("Failed to add product to cart.");
     }
   };
 
   if (loading) {
-    return <div className="text-center my-5">
-      <span className="loader"></span>
-    </div>;
+    return (
+      <div className="text-center my-5">
+        <span className="loader"></span>
+      </div>
+    );
   }
 
   if (error) {
@@ -57,9 +59,11 @@ function Collection() {
   }
 
   if (loading) {
-    return <div className="text-center my-5">
-      <span className="loader"></span>
-    </div>;
+    return (
+      <div className="text-center my-5">
+        <span className="loader"></span>
+      </div>
+    );
   }
 
   if (error) {
@@ -68,7 +72,7 @@ function Collection() {
 
   return (
     <>
-     <WavesAnimation/>
+    
       <section
         className="collection-section text-center"
         id="collection-component"
@@ -78,10 +82,22 @@ function Collection() {
             <div className="col-lg-4 col-md-6 col-12" key={product.id}>
               <div className="product-card">
                 <div className="product-image-container">
+                  {/* 
                   <img
                     src={`https://artiststation.co.in/prrahi-api${product.images[0]?.imageUrl}`}
                     alt={product.name}
                     className="product-image"
+                  />
+                   */}
+                  
+                  <img
+                    src={
+                      product.images[0]
+                        ? `https://artiststation.co.in/prrahi-api${product.images[0].imageUrl}`
+                        : "https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here" // Use a default image path
+                    }
+                    alt={product.name}
+                    className="product-image "
                   />
                   <div className="product-overlay">
                     <button className="btn btn-light btn-sm">Quick View</button>
@@ -91,7 +107,7 @@ function Collection() {
                   <h3 className="product-title">{product.name}</h3>
                   <p className="product-price">₹{product.price}</p>
                   <p className="product-description">(INCL. OF ALL TAXES)</p>
-                  <p className="product-description">{product.description}</p>
+                  {/* <p className="product-description">{product.description}</p> */}
                   <div className="product-actions d-flex justify-content-between">
                     <button
                       className="btn btn-primary read-more-btn"
@@ -144,10 +160,14 @@ function Collection() {
                 <div className="row">
                   <div className="col-md-6">
                     <img
-                      src={`https://artiststation.co.in/prrahi-api${product.images[0]?.imageUrl}`}
-                      alt={product.name}
-                      className="img-fluid"
-                    />
+                    src={
+                      product.images[0]
+                        ? `https://artiststation.co.in/prrahi-api${product.images[0].imageUrl}`
+                        : "https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here" // Use a default image path
+                    }
+                    alt={product.name}
+                    className="img-fluid"
+                  />
                   </div>
                   <div className="col-md-6">
                     <h4
@@ -162,9 +182,9 @@ function Collection() {
                     <p>
                       <strong>Weight:</strong> {product.weight}gm
                     </p>
-                    <h5>Description</h5>
-                    <p>{product.description}</p>
-                    {/* Add more dynamic details here if available from your API */}
+                    {/* <h5>Description</h5>
+                    <p>{product.description}</p> */}
+                   
                   </div>
                 </div>
               </div>

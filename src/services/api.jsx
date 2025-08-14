@@ -27,6 +27,9 @@ export const refreshToken = async () => {
 
 // 📦 Universal API function
 const api = async (endpoint, method = "GET", data = null, auth = false) => {
+   if (endpoint === undefined) {
+    console.error("🚨 API called with undefined endpoint!", new Error().stack);
+  }
   let token = localStorage.getItem("jwtToken");
   const headers = {
     "Content-Type": "application/json",
@@ -43,6 +46,7 @@ const api = async (endpoint, method = "GET", data = null, auth = false) => {
   }
 
   const makeRequest = async () => {
+    console.log("endpoint", endpoint)
     const response = await fetch(
       `https://artiststation.co.in/prrahi-api/api${endpoint}`,
       options

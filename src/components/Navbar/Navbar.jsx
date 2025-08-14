@@ -10,7 +10,8 @@ import {
 } from "react-icons/ri";
 import { useCart } from "../../context/CartContext";
 import WavesAnimation from "../waves/WavesAnimation";
-import logo from '../../assets/images/logo/praahi-logo.jpeg';
+import logo from '../../assets/images/logo/praahi-logo - Copy.jpeg';
+import Waves from "../waves/Waves";
 
 
 function Navbar() {
@@ -46,7 +47,7 @@ function Navbar() {
               </li>
               <li >
                 <Link className="nav-about" to="/about" onClick={() => setIsMobileMenuOpen(false)}>
-                  Hello! <br></br>I am PrRahi
+                  Hello!<p className="navbar-links-text">I am PrRahi</p>
                 </Link>
               </li>
               <li>
@@ -54,12 +55,20 @@ function Navbar() {
                   to="/collection"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Collection
+                  Signature<p className="navbar-links-text">Collection</p>
                 </Link>
               </li>
               <li>
                 <Link to="/team" onClick={() => setIsMobileMenuOpen(false)}>
-                  Team
+                  The Backbone <p className="navbar-links-text">Founders Team</p>
+                </Link>
+              </li>
+               <li>
+                <Link
+                  to="/contact-us"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                 What's up <p className="navbar-links-text">News & Happenings</p>
                 </Link>
               </li>
               <li>
@@ -67,11 +76,11 @@ function Navbar() {
                   to="/contact-us"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Contact
+                  Lets' Meet<p className="navbar-links-text">Contact</p>
                 </Link>
               </li>
 
-              <li className="d-block d-sm-none">
+              <li className="d-block">
                 <div className="navbar-icons flex items-center gap-8 pr-4 ">
                   {isAuthenticated ? (
                     <>
@@ -102,7 +111,7 @@ function Navbar() {
                   className="cart-icon"
                 >
                   <RiShoppingCart2Line
-                    style={{ fontSize: "30px", position: "relative" }}
+                    style={{ fontSize: "30px", position: "relative" , color : "black" }}
                   />
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                     {cartCount || 0}
@@ -113,6 +122,7 @@ function Navbar() {
             </ul>
           </nav>
 
+{/* 
           <div className="navbar-icons flex items-center gap-8 pr-4 d-none d-sm-block">
             {isAuthenticated ? (
               <>
@@ -134,8 +144,12 @@ function Navbar() {
               </Link>
             )}
           </div>
+ */}
         </div>
+         
       </header>
+      <Waves/>
+     
     </>
   );
 }

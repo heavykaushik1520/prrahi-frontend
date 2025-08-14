@@ -15,7 +15,7 @@ function Team() {
   return (
     <>
       <section className="team-section text-center" id="teams">
-        <WavesAnimation/>
+    
         
         <div className="container mt-5">
           <div className="team-member-row">
