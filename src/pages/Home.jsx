@@ -4,14 +4,10 @@ import Collection from "../components/products/Collection";
 import { Carousel } from "bootstrap";
 import WavesAnimation from "../components/waves/WavesAnimation";
 import bannerVideo from "../assets/videos/banner-video.mp4";
-import banner2 from "../assets/images/banner/banner-2.jpeg";
-import banner3 from "../assets/images/banner/banner-3.jpeg";
-import mainBanner1 from "../assets/images/banner/prarthana.png";
-import mainBanner2 from "../assets/images/banner/premium.png";
-import mainBanner3 from "../assets/images/banner/aradhya.png";
-import prrahiBanner1 from "../assets/images/banner/Artboard 1.png";
-import prrahiBanner3 from "../assets/images/banner/Artboard 2.png";
-import prrahiBanner4 from "../assets/images/banner/Artboard 4.png";
+
+import prrahiBanner1 from "../assets/images/banner/aradhya.webp";
+import prrahiBanner3 from "../assets/images/banner/prarthana .webp";
+import prrahiBanner4 from "../assets/images/banner/premium.webp";
 import team1 from "../assets/images/team/team-1.png";
 import team2 from "../assets/images/team/team-2.png";
 import aboutImg from "../assets/images/about/1.jpeg";
@@ -19,6 +15,7 @@ import { FaInstagram } from "react-icons/fa";
 import { IoLogoLinkedin } from "react-icons/io5";
 import { FaTwitter } from "react-icons/fa";
 import Waves from "../components/waves/Waves";
+import { Link } from "react-router-dom";
 
 function Main() {
   const carouselEl = useRef(null);
@@ -64,7 +61,7 @@ function Main() {
             }, 5000);
           } else if (currentIndex === 3) {
             timeoutId = setTimeout(() => {
-              setCurrentIndex(0); 
+              setCurrentIndex(0);
             }, 5000);
           }
         };
@@ -101,7 +98,6 @@ function Main() {
         id="up"
         className="page-head container-fluid p-0 position-relative"
       >
-      
         <div
           id="customCarousel"
           ref={carouselEl}
@@ -175,7 +171,9 @@ function Main() {
             </div>
 
             <div
-              className={`carousel-item ${currentIndex === 3 ? "active" : ""} py-5`}
+              className={`carousel-item ${
+                currentIndex === 3 ? "active" : ""
+              } py-5`}
             >
               <img
                 src={prrahiBanner4}
@@ -201,54 +199,18 @@ function Main() {
       </section>
 
       {/* ABOUT SECTION */}
-      <section className="about-section text-center">
-        <h2 className="about-heading display-3 poppins-extrabold mb-0 mt-0 py-3">
+      <section className="about-section waves-section text-center">
+        <h2
+          className="about-heading display-3 poppins-extrabold mb-0 mt-0 py-3"
+          style={{ color: "#EC1B26" }}
+        >
           ABOUT US
         </h2>
-        <div className="position-relative wave-container">
-          <svg
-            className="waves w-100 d-block"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-            viewBox="0 24 150 28"
-            preserveAspectRatio="none"
-            shapeRendering="auto"
-          >
-            <defs>
-              <path
-                id="gentle-wave"
-                d="M-160 44c30 0 58-18 88-18s58 18 88 18 
-               58-18 88-18 58 18 88 18 v44h-352z"
-              />
-            </defs>
-            <g className="parallax">
-              <use
-                xlinkHref="#gentle-wave"
-                x="48"
-                y="0"
-                fill="rgb(242, 26, 29)"
-              />
-              <use
-                xlinkHref="#gentle-wave"
-                x="48"
-                y="3"
-                fill="rgb(249 ,158 ,26)"
-              />
-              <use
-                xlinkHref="#gentle-wave"
-                x="48"
-                y="5"
-                fill="rgb(242, 26, 29)"
-              />
-              <use
-                xlinkHref="#gentle-wave"
-                x="48"
-                y="7"
-                fill="rgb(249,158, 26)"
-              />
-            </g>
-          </svg>
+
+        <div className="position-relative">
+          <Waves />
         </div>
+
         <div className="container mt-5">
           <div className="team-member-row">
             <div className="row align-items-center">
@@ -407,114 +369,44 @@ function Main() {
 
       {/* OUR COLLECTION */}
 
-      <section className="collection-section text-center" id="collection">
+      <section
+        className="collection-section waves-section text-center"
+        id="collection"
+      >
         <h2 className="about-heading poppins-extrabold mb-0 mt-0 py-3">
           OUR COLLECTION
         </h2>
-        <div className="position-relative wave-container">
-          <svg
-            className="waves w-100 d-block"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-            viewBox="0 24 150 28"
-            preserveAspectRatio="none"
-            shapeRendering="auto"
-          >
-            <defs>
-              <path
-                id="gentle-wave"
-                d="M-160 44c30 0 58-18 88-18s58 18 88 18 
-               58-18 88-18 58 18 88 18 v44h-352z"
-              />
-            </defs>
-            <g className="parallax">
-              <use
-                xlinkHref="#gentle-wave"
-                x="48"
-                y="0"
-                fill="rgb(242, 26, 29)"
-              />
-              <use
-                xlinkHref="#gentle-wave"
-                x="48"
-                y="3"
-                fill="rgb(249 ,158 ,26)"
-              />
-              <use
-                xlinkHref="#gentle-wave"
-                x="48"
-                y="5"
-                fill="rgb(242, 26, 29)"
-              />
-              <use
-                xlinkHref="#gentle-wave"
-                x="48"
-                y="7"
-                fill="rgb(249,158, 26)"
-              />
-            </g>
-          </svg>
+
+        <div className="position-relative">
+          <Waves />
+        </div>
+        <div className="collection-home">
+          <Collection />
         </div>
 
-        <Collection />
+        <Link
+          to={"/collection"}
+          className="btn btn-primary read-more-team-btn collection-read-more"
+        >
+          Read More
+        </Link>
       </section>
 
       {/* TEAM */}
-      <section className="team-section text-center" id="teams">
+      <section className="team-section waves-section text-center" id="teams">
         <h2 className="about-heading poppins-extrabold mb-0 mt-0 py-3">
           OUR TEAM
         </h2>
 
-        <div className="position-relative wave-container">
-          <svg
-            className="waves w-100 d-block"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-            viewBox="0 24 150 28"
-            preserveAspectRatio="none"
-            shapeRendering="auto"
-          >
-            <defs>
-              <path
-                id="gentle-wave"
-                d="M-160 44c30 0 58-18 88-18s58 18 88 18 
-               58-18 88-18 58 18 88 18 v44h-352z"
-              />
-            </defs>
-            <g className="parallax">
-              <use
-                xlinkHref="#gentle-wave"
-                x="48"
-                y="0"
-                fill="rgb(242, 26, 29)"
-              />
-              <use
-                xlinkHref="#gentle-wave"
-                x="48"
-                y="3"
-                fill="rgb(249 ,158 ,26)"
-              />
-              <use
-                xlinkHref="#gentle-wave"
-                x="48"
-                y="5"
-                fill="rgb(242, 26, 29)"
-              />
-              <use
-                xlinkHref="#gentle-wave"
-                x="48"
-                y="7"
-                fill="rgb(249,158, 26)"
-              />
-            </g>
-          </svg>
+        <div className="position-relative">
+          <Waves />
         </div>
 
         <div className="container mt-5">
           {/* RAJEEV */}
           <div className="team-member-row">
             <div className="row align-items-center">
-              <div className="col-lg-6 col-md-12 mb-4">
+              <div className="col-lg-6 col-md-12 mb-4 order-lg-2 order-md-1">
                 <div className="team-image-container">
                   <img src={team1} alt="Team Member 1" className="team-image" />
                   <div className="team-image-overlay">
@@ -532,10 +424,10 @@ function Main() {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-6 col-md-12 mb-4">
+              <div className="col-lg-6 col-md-12 mb-4 order-lg-2 order-md-1a">
                 <div className="team-content">
                   <h3 className="team-member-name poppins-semibold ">
-                    Meet Rajeev – The Visionary Leader Behind Our Brand
+                    Meet Rajeev – Chief Operating Officer
                   </h3>
                   <p className="team-member-position poppins-medium">
                     Co-Founder | Entrepreneur | Growth Catalyst
@@ -591,8 +483,7 @@ function Main() {
               <div className="col-lg-6 col-md-12 mb-4 order-lg-1 order-md-2">
                 <div className="team-content">
                   <h3 className="team-member-name poppins-semibold">
-                    Meet Hiranya – The Driving Force Behind Our Sales Growth &
-                    Distribution Network
+                    Meet Hiranya – Chief Sales Officer
                   </h3>
                   <p className="team-member-position">
                     Co-Founder | Entrepreneur | FMCG Sales Expert
@@ -635,7 +526,7 @@ function Main() {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="teamModal1Label">
-                Meet Rajeev – The Visionary Leader Behind Our Brand
+                Meet Rajeev – Chief Operating Officer
                 <br />
                 Co-Founder | Entrepreneur | Growth Catalyst
               </h5>
@@ -728,8 +619,7 @@ function Main() {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="teamModal2Label">
-                Meet Hiranya – The Driving Force Behind Our Sales Growth &
-                Distribution Network <br />
+                Meet Hiranya – Chief Sales Officer <br />
                 Co-Founder | Entrepreneur | FMCG Sales Expert
               </h5>
               <button

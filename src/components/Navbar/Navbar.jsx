@@ -65,7 +65,7 @@ function Navbar() {
               </li>
                <li>
                 <Link
-                  to="/contact-us"
+                  to="/news"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                  What's up <p className="navbar-links-text">News & Happenings</p>
@@ -122,29 +122,6 @@ function Navbar() {
             </ul>
           </nav>
 
-{/* 
-          <div className="navbar-icons flex items-center gap-8 pr-4 d-none d-sm-block">
-            {isAuthenticated ? (
-              <>
-                <Link
-                  to="/my-profile"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="profile-icon"
-                >
-                  <RiUser3Line />
-                </Link>
-              </>
-            ) : (
-              <Link
-                to="/sign-in"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="login-button"
-              >
-                LOGIN
-              </Link>
-            )}
-          </div>
- */}
         </div>
          
       </header>

@@ -21,6 +21,11 @@ import { CartProvider } from "./context/CartContext";
 import WavesAnimation from "./components/waves/WavesAnimation";
 import WhatsAppRedirectButton from "./components/whatsAppButton/WhatsAppButton";
 import Waves from "./components/waves/Waves";
+import RefundCancellationPolicy from "./pages/RefundCancellationPolicy";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import DisclaimerPage from './pages/DisclaimerPage';
+import News from "./components/news/News";
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -48,8 +53,12 @@ function AppContent() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/contact-us" element={<ContactPage />} />
+        <Route path="/news" element={<News/>}/>
         {/* <Route path="/waves" element={<WavesAnimation/>}/> */}
-        
+        <Route path="/refund-and-cancellation" element={<RefundCancellationPolicy/>}/>
+        <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
+        <Route path="/terms-of-service" element={<TermsOfService/>}/>
+        <Route path="/disclaimer" element={<DisclaimerPage/>}/>
        
 
         <Route

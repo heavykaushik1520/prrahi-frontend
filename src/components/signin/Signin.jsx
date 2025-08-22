@@ -131,7 +131,7 @@ const Signin = () => {
         <button type="submit" className="btn-submit" disabled={loading}>
           {loading ? 'Signing In...' : 'SIGN IN'}
         </button>
-        <p>Don't have account ? <Link className='forgot-password-link' to="/sign-up" >SIGN UP</Link></p>
+        <p>Don't have account ? <Link className='forgot-password-link' to={"/sign-up"} >SIGN UP</Link></p>
       </form>
       
     </div>

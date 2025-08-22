@@ -62,6 +62,20 @@ function Footer() {
                 <li>
                   <Link to="/contact">Contact</Link>
                 </li>
+                <li>
+                  <Link to="/disclaimer">Disclaimer</Link>
+                </li>
+                <li>
+                  <Link to="/privacy-policy">Privacy Policy</Link>
+                </li>
+                <li>
+                  <Link to="/refund-and-cancellation">Refund & Cancellation</Link>
+                </li>
+                {/* terms-of-service */}
+                <li>
+                  <Link to="/terms-of-service">Terms Of Service</Link>
+                </li>
+
               </ul>
             </div>
           </div>

@@ -14,9 +14,7 @@ import team2 from '../../assets/images/team/team-2.png';
 function Team() {
   return (
     <>
-      <section className="team-section text-center" id="teams">
-    
-        
+      <section className="team-section text-center" id="teams">            
         <div className="container mt-5">
           <div className="team-member-row">
             <div className="row align-items-center">
@@ -45,7 +43,7 @@ function Team() {
               <div className="col-lg-6 col-md-12 mb-4">
                 <div className="team-content">
                   <h3 className="team-member-name poppins-semibold ">
-                    Meet Rajeev – The Visionary Leader Behind Our Brand
+                    Meet Rajeev – Chief Operating Officer
                   </h3>
                   <p className="team-member-position poppins-medium">
                     Co-Founder | Entrepreneur | Growth Catalyst
@@ -104,8 +102,7 @@ function Team() {
               <div className="col-lg-6 col-md-12 mb-4 order-lg-1 order-md-2">
                 <div className="team-content">
                   <h3 className="team-member-name poppins-semibold">
-                    Meet Hiranya – The Driving Force Behind Our Sales Growth &
-                    Distribution Network
+                    Meet Hiranya - Chief Sales Officer
                   </h3>
                   <p className="team-member-position">
                     Co-Founder | Entrepreneur | FMCG Sales Expert
@@ -148,7 +145,7 @@ function Team() {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="teamModal1Label">
-                Meet Rajeev – The Visionary Leader Behind Our Brand
+                Meet Rajeev – Chief Operating Officer
                 <br />
                 Co-Founder | Entrepreneur | Growth Catalyst
               </h5>
@@ -165,7 +162,7 @@ function Team() {
                 <div className="col-md-6">
                   <img
                     src={team1}
-                    alt="John Smith"
+                    alt="Rajeev"
                     className="img-fluid rounded"
                   />
                 </div>
@@ -241,8 +238,7 @@ function Team() {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="teamModal2Label">
-                Meet Hiranya – The Driving Force Behind Our Sales Growth &
-                Distribution Network <br />
+                Meet Hiranya – Chief Sales Officer <br />
                 Co-Founder | Entrepreneur | FMCG Sales Expert
               </h5>
               <button
