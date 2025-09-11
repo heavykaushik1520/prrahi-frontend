@@ -8,7 +8,7 @@ import { FaAddressCard } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import WavesAnimation from "../waves/WavesAnimation";
-import team1 from '../../assets/images/team/team-1.png';
+import team1 from '../../assets/images/team/team-1.jpg';
 import team2 from '../../assets/images/team/team-2.png';
 import TopBanner from "../top/TopBanner";
 
@@ -25,7 +25,7 @@ function Team() {
                   <img
                     src={team1}
                     alt="Team Member 1"
-                    className="team-image"
+                    className="team-image img-fluid"
                   />
                   <div className="team-image-overlay">
                     <div className="team-social-links">

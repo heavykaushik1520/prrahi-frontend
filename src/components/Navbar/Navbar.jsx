@@ -55,7 +55,7 @@ function Navbar() {
                   to="/collection"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Signature<p className="navbar-links-text">Collection</p>
+                  Shopping<p className="navbar-links-text">Collection</p>
                 </Link>
               </li>
               <li>

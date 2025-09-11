@@ -4,11 +4,11 @@ import AllCollection from "../components/products/AllCollection";
 import { Carousel } from "bootstrap";
 import WavesAnimation from "../components/waves/WavesAnimation";
 import bannerVideo from "../assets/videos/banner-video.mp4";
-
+import bannerVideoMobile from "../assets/videos/banner-video-2.mp4";
 import prrahiBanner1 from "../assets/images/banner/aradhya.webp";
 import prarthana from "../assets/images/banner/prarthanaa.jpg";
 import prrahiBanner4 from "../assets/images/banner/premium.webp";
-import team1 from "../assets/images/team/team-1.png";
+import team1 from "../assets/images/team/team-1.jpg";
 import team2 from "../assets/images/team/team-2.png";
 import aboutImg from "../assets/images/about/1.jpeg";
 import { FaInstagram } from "react-icons/fa";
@@ -43,12 +43,11 @@ function Main() {
             if (videoRef.current) {
               videoRef.current.currentTime = 0;
               videoRef.current.play();
-            }
-            timeoutId = setTimeout(() => {
-              // console.log("1");
 
-              setCurrentIndex(1);
-            }, 8000); // 8 sec video
+              videoRef.current.onended = () => {
+                setCurrentIndex(1);
+              };
+            }
           } else if (currentIndex === 1) {
             timeoutId = setTimeout(() => {
               // console.log("2");
@@ -104,6 +103,21 @@ function Main() {
           className="carousel slide"
           data-bs-ride="false"
         >
+          {/* 🔹 Carousel Indicators (dashes at bottom) */}
+          <div className="carousel-indicators">
+            {Array.from({ length: totalSlides }).map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                data-bs-target="#customCarousel"
+                data-bs-slide-to={idx}
+                className={currentIndex === idx ? "active" : ""}
+                aria-current={currentIndex === idx ? "true" : undefined}
+                aria-label={`Slide ${idx + 1}`}
+              ></button>
+            ))}
+          </div>
+
           <div className="carousel-inner">
             <div
               className={`carousel-item ${currentIndex === 0 ? "active" : ""}`}
@@ -111,11 +125,27 @@ function Main() {
               <video
                 id="introVideo"
                 ref={videoRef}
-                className="d-block w-100"
+                className="d-block w-100 d-none d-md-block"
                 muted
                 playsInline
+                autoPlay
+                loop
+                style={{ position: "relative", zIndex: 1 }}
               >
                 <source src={bannerVideo} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+
+              <video
+                id="introVideoMobile"
+                ref={videoRef}
+                className="d-block w-100 d-block d-md-none" // visible below md (<768px)
+                muted
+                playsInline
+                autoPlay
+                loop
+              >
+                <source src={bannerVideoMobile} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -124,13 +154,15 @@ function Main() {
               className={`carousel-item ${
                 currentIndex === 1 ? "active" : ""
               } py-5`}
+
+              style={{ position: "relative" }}
             >
               <img
                 src={prarthana}
-                className="d-block img-fluid"
+                className="d-block "
                 alt="Image 1"
+                 style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
               />
-              
             </div>
 
             <div
@@ -183,6 +215,31 @@ function Main() {
               </div>
             </div>
           </div>
+
+          <button
+            className="carousel-control-prev"
+            type="button"
+            data-bs-target="#customCarousel"
+            data-bs-slide="prev"
+          >
+            <span
+              className="carousel-control-prev-icon carousel-control-icon "
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button
+            className="carousel-control-next"
+            type="button"
+            data-bs-target="#customCarousel"
+            data-bs-slide="next"
+          >
+            <span
+              className="carousel-control-next-icon carousel-control-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Next</span>
+          </button>
         </div>
       </section>
 
@@ -396,7 +453,7 @@ function Main() {
             <div className="row align-items-center">
               <div className="col-lg-6 col-md-12 mb-4 order-lg-2 order-md-1">
                 <div className="team-image-container">
-                  <img src={team1} alt="Team Member 1" className="team-image" />
+                  <img src={team1} alt="Team Member 1" className="team-image img-fluid" />
                   <div className="team-image-overlay">
                     <div className="team-social-links">
                       <a href="#" className="social-link">

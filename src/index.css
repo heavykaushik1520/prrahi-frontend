@@ -346,6 +346,8 @@ strong {
   margin: 0; /* Remove default list margins */
 }
 
+
+
 .navbar-links ul li a {
   text-decoration: none;
   color: #ffffff;
@@ -530,6 +532,7 @@ strong {
   .navbar-menu-icon {
     display: block; /* Show hamburger icon */
     margin-right: 12px; /* Space from right edge */
+    color: #ec1b26;
   }
 
   .navbar-links {
@@ -560,6 +563,7 @@ strong {
 
   .navbar-menu-icon {
     font-size: 28px;
+    color : #ec1b26
   }
 
   .navbar-links {
@@ -589,6 +593,7 @@ strong {
 
   .navbar-menu-icon {
     font-size: 26px;
+    color: #ec1b26;
   }
 
   .navbar-links {
@@ -596,9 +601,15 @@ strong {
     height: calc(100vh - 60px);
   }
 
+  
+  .navbar-links ul{
+    gap: 0px;
+  }
+
   .navbar-links ul li a {
     font-size: 16px; /* Smallest font size for links */
     padding: 8px 12px;
+    color: #ec1b26;
   }
 }
 
@@ -803,7 +814,7 @@ about-section-image {
 
   .about-section {
     min-height: 100vh;
-    margin-top: 3rem;
+    margin-top: 0rem;
   }
 
   .about-heading {
@@ -855,7 +866,7 @@ about-section-image {
 
   .about-section {
     min-height: 100vh;
-    margin-top: 3rem;
+    margin-top: 0rem;
   }
 
   .about-heading {
@@ -907,7 +918,7 @@ about-section-image {
 
   .about-section {
     min-height: 100vh;
-    margin-top: 3rem;
+    margin-top: 0rem;
   }
 
   .about-heading {
@@ -4273,6 +4284,13 @@ forgot-password-submit-btn:hover {
   z-index: 10;
   pointer-events: none;
 }
+
+@media (max-width : 480px){
+  .waveWrapper {
+    top: 60px;
+  }
+}
+
 .waveWrapperInner {
   position: absolute;
   width: 100%;
@@ -4635,4 +4653,33 @@ padding: 20px;
 
 .component-top-img{
   height: 400px !important;
+}
+
+
+.carousel-control-icon {
+  background-color: rgba(255, 165, 0, 0.8); /* orange background */
+  border-radius: 50%;
+  padding: 24px;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: #ffa500; 
+  width: 40px;   
+  height: 4px;   
+  border-radius: 2px; 
+  margin: 0 6px; 
+  opacity: 0.5;
+  margin-bottom: 8rem;  
+}
+
+@media (max-width: 767px){
+  .carousel-indicators [data-bs-target]  {
+    margin-bottom: 3rem;  
+  }
+}
+
+/* Change active indicator color */
+.carousel-indicators .active {
+  background-color: #ec1b26; /* active color */
+  opacity: 1;
 }
