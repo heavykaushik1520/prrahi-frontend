@@ -1,11 +1,12 @@
 import React from "react";
 import WavesAnimation from "../waves/WavesAnimation";
 import aboutImage from "../../assets/images/about/1.jpeg";
+import TopBanner from "../top/TopBanner";
 
 function About() {
   return (
     <>
-      
+      <TopBanner/>
       <div className="container mt-5">
         <div className="team-member-row">
           <div className="row align-items-center">

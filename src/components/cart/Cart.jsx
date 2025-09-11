@@ -125,6 +125,7 @@ const Cart = () => {
   );
 
   return (
+    
     <div className="cart-container">
       <h3 className="cart-title">Cart</h3>
       {cartItems.length === 0 ? (

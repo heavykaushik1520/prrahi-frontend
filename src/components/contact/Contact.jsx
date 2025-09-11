@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import api from "../../services/api";
+import TopBanner from "../top/TopBanner";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -79,6 +80,8 @@ const ContactForm = () => {
   };
 
   return (
+    <>
+    <TopBanner/>
     <div className="contact-page-wrapper">
       {/* Left side: Google Map */}
       <div className="contact-map-container">
@@ -182,6 +185,7 @@ const ContactForm = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

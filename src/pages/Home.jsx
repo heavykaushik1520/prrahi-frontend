@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useRef, useState } from "react";
-import Collection from "../components/products/Collection";
+import AllCollection from "../components/products/AllCollection";
 import { Carousel } from "bootstrap";
 import WavesAnimation from "../components/waves/WavesAnimation";
 import bannerVideo from "../assets/videos/banner-video.mp4";
 
 import prrahiBanner1 from "../assets/images/banner/aradhya.webp";
-import prrahiBanner3 from "../assets/images/banner/prarthana .webp";
+import prarthana from "../assets/images/banner/prarthanaa.jpg";
 import prrahiBanner4 from "../assets/images/banner/premium.webp";
 import team1 from "../assets/images/team/team-1.png";
 import team2 from "../assets/images/team/team-2.png";
@@ -126,23 +126,11 @@ function Main() {
               } py-5`}
             >
               <img
-                src={prrahiBanner1}
-                className="d-block w-50 h-50 mx-auto z-3"
+                src={prarthana}
+                className="d-block img-fluid"
                 alt="Image 1"
               />
-              <div className="d-block w-50 h-50 mx-auto">
-                <h4 className="banner-text-title">
-                  PrRaHi – Your Divine Companion, Now Closer Than Ever!
-                </h4>
-                <h6 className="banner-text-subtitle">
-                  Inaugural Offer for a Limited Period:
-                </h6>
-                <li className="banner-list">10% OFF</li>
-                <li className="banner-list">Free Shipping</li>
-                <li className="banner-list">
-                  Just 1 dozen minimum to begin this faithful journey
-                </li>
-              </div>
+              
             </div>
 
             <div
@@ -151,7 +139,7 @@ function Main() {
               } py-5`}
             >
               <img
-                src={prrahiBanner3}
+                src={prrahiBanner4}
                 className="d-block w-50 h-50 mx-auto z-3"
                 alt="Image 2"
               />
@@ -176,7 +164,7 @@ function Main() {
               } py-5`}
             >
               <img
-                src={prrahiBanner4}
+                src={prrahiBanner1}
                 className="d-block w-50 h-50 mx-auto z-3"
                 alt="Image 3"
               />
@@ -381,7 +369,7 @@ function Main() {
           <Waves />
         </div>
         <div className="collection-home">
-          <Collection />
+          <AllCollection />
         </div>
 
         <Link

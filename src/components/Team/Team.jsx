@@ -10,10 +10,12 @@ import { MdEmail } from "react-icons/md";
 import WavesAnimation from "../waves/WavesAnimation";
 import team1 from '../../assets/images/team/team-1.png';
 import team2 from '../../assets/images/team/team-2.png';
+import TopBanner from "../top/TopBanner";
 
 function Team() {
   return (
     <>
+    <TopBanner/>
       <section className="team-section text-center" id="teams">            
         <div className="container mt-5">
           <div className="team-member-row">

@@ -431,7 +431,9 @@ strong {
 /* For screens larger than or equal to 769px (Desktop) */
 @media (min-width: 769px) {
   .navbar-container {
-    padding: 0 40px; /* More padding for larger desktops */
+    display: flex;
+    align-items: center;
+    padding: 0 ; /* More padding for larger desktops */
   }
 
   .navbar-logo img {
@@ -456,10 +458,15 @@ strong {
   }
 
   .navbar-links ul {
+   display: flex; 
     flex-direction: row;
-    gap: 40px;
-    margin-top: 0;
-    text-align: center;
+    gap: 50px;
+    margin: 0;
+    /* margin-top: 0; */
+    /* text-align: center; */
+    padding: 0; /* reset padding */
+  list-style: none;
+  align-items: center; 
   }
 
   .navbar-links ul li a {
@@ -598,6 +605,10 @@ strong {
 /* NAVBAR RELATED CSS END */
 
 /* MAIN SECTION CSS START */
+
+.carousel-item{
+  height: 100vh;
+}
 
 /* Video Section Styles */
 .video-bg-box {
@@ -1000,7 +1011,7 @@ about-section-image {
 .product-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.3s ease;
 }
 
@@ -1063,12 +1074,17 @@ about-section-image {
   color: #666;
   font-size: 0.9rem;
   line-height: 1.5;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   flex-grow: 1;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+#boxcount-12{
+  color: #ec1b26 !important;
+  font-weight: 600;
 }
 
 .product-actions {
@@ -2396,7 +2412,7 @@ about-section-image {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 50vh;
   padding: 1rem;
   /* margin-top: -100px; */
   z-index: 1;
@@ -4561,7 +4577,7 @@ padding: 20px;
 .news-image {
   width: 100%;
   height: 300px;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   margin-top: 10px;
 }
@@ -4614,4 +4630,9 @@ padding: 20px;
 /* Loading Spinner */
 .custom-spinner {
   color: #ffa500; /* Example color, you can change this */
+}
+
+
+.component-top-img{
+  height: 400px !important;
 }

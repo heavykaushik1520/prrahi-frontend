@@ -19,9 +19,9 @@ function Footer() {
             <div className="footer-widget">
               <h3 className="footer-widget-title">PRAAHI</h3>
               <p className="footer-description">
-                We are passionate about creating innovative solutions that
-                transform businesses and enhance user experiences. Our
-                commitment to excellence drives everything we do.
+                PrRaHi is not just incense — it’s your spiritual partner,
+                helping you reconnect with your higher self. Let every stick
+                bring you closer to peace, clarity, and divine light.
               </p>
               <div className="footer-social-links">
                 <Link to="/" className="social-link-footer">
@@ -69,13 +69,14 @@ function Footer() {
                   <Link to="/privacy-policy">Privacy Policy</Link>
                 </li>
                 <li>
-                  <Link to="/refund-and-cancellation">Refund & Cancellation</Link>
+                  <Link to="/refund-and-cancellation">
+                    Refund & Cancellation
+                  </Link>
                 </li>
                 {/* terms-of-service */}
                 <li>
                   <Link to="/terms-of-service">Terms Of Service</Link>
                 </li>
-
               </ul>
             </div>
           </div>
@@ -89,9 +90,7 @@ function Footer() {
                   <div>
                     <h5>Address</h5>
                     <p>Vaaps Enterprise Building No 1 , Ground Floor</p>
-                    <p>
-                       Sikaria Compound, Christian Basti, G S Road
-                    </p>
+                    <p>Sikaria Compound, Christian Basti, G S Road</p>
                     <p>Guwahati-781005</p>
                   </div>
                 </div>

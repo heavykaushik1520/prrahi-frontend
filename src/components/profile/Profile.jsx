@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { toast } from "react-toastify";
 import { MdLogout } from "react-icons/md";
+import TopBanner from "../top/TopBanner";
 
 
 const Profile = () => {
@@ -42,6 +43,8 @@ const Profile = () => {
   }
 
   return (
+    <>
+    <TopBanner/>
     <div className="profile-container">
       <h2 className="profile-title">MY PROFILE</h2>
       <div className="profile-card">
@@ -54,6 +57,7 @@ const Profile = () => {
         <button className="logout-btn" onClick={logout}><MdLogout />Logout</button>
       </div>
     </div>
+    </>
   );
 };
 

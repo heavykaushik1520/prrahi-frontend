@@ -4,6 +4,7 @@ import api from '../../services/api';
 import { useAuth } from '../../context/AuthContext'; 
 import { Link, useNavigate } from 'react-router-dom'; 
 import { mergeGuestCartIntoUserCart } from '../../services/cartServices';
+import TopBanner from '../top/TopBanner';
 
 const Signin = () => {
   const [formData, setFormData] = useState({
@@ -86,7 +87,10 @@ const Signin = () => {
   };
 
   return (
+    <>
+    <TopBanner/>
     <div className="signin-container">
+      
       <form onSubmit={handleSubmit} className="signin-form">
         <h3 className="form-title">Login</h3>
 
@@ -135,6 +139,7 @@ const Signin = () => {
       </form>
       
     </div>
+    </>
   );
 };
 

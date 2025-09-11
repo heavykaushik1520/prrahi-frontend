@@ -5,6 +5,7 @@ import { updateCart } from "../../services/cartServices";
 import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
 import WavesAnimation from "../waves/WavesAnimation";
+import TopBanner from "../top/TopBanner";
 
 function Collection() {
   const [products, setProducts] = useState([]);
@@ -12,26 +13,28 @@ function Collection() {
   const [error, setError] = useState(null);
   const { user } = useAuth();
   const { fetchCart } = useCart();
-
-  const page = 1;
+  const [page, setPage] = useState(1); // Manage page state
   const limit = 6;
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await api(`/products?page=${page}&limit=${limit}`);
-        console.log(response.products);
-        setProducts(response.products);
-      } catch (err) {
-        setError("Failed to fetch products. " + err.message);
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // Function to fetch products
+  const fetchProducts = async (pageNumber) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await api(`/products?page=${pageNumber}&limit=${limit}`);
+      console.log(response.products);
+      setProducts(response.products);
+    } catch (err) {
+      setError("Failed to fetch products. " + err.message);
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchProducts();
-  }, []);
+  useEffect(() => {
+    fetchProducts(page); // Fetch products for the current page
+  }, [page]); // Re-run effect when the page changes
 
   const handleAddToCart = async (productId) => {
     try {
@@ -43,6 +46,16 @@ function Collection() {
     } catch (err) {
       console.error("Failed to add to cart:", err);
       alert("Failed to add product to cart.");
+    }
+  };
+
+  const handleNextPage = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
+
+  const handlePrevPage = () => {
+    if (page > 1) {
+      setPage((prevPage) => prevPage - 1);
     }
   };
 
@@ -58,21 +71,9 @@ function Collection() {
     return <div className="text-center my-5 text-danger">{error}</div>;
   }
 
-  if (loading) {
-    return (
-      <div className="text-center my-5">
-        <span className="loader"></span>
-      </div>
-    );
-  }
-
-  if (error) {
-    return <div className="text-center my-5 text-danger">{error}</div>;
-  }
-
   return (
     <>
-    
+      <TopBanner />
       <section
         className="collection-section text-center"
         id="collection-component"
@@ -82,14 +83,6 @@ function Collection() {
             <div className="col-lg-4 col-md-6 col-12" key={product.id}>
               <div className="product-card">
                 <div className="product-image-container">
-                  {/* 
-                  <img
-                    src={`https://artiststation.co.in/prrahi-api${product.images[0]?.imageUrl}`}
-                    alt={product.name}
-                    className="product-image"
-                  />
-                   */}
-                  
                   <img
                     src={
                       product.images[0]
@@ -99,15 +92,16 @@ function Collection() {
                     alt={product.name}
                     className="product-image "
                   />
-                  <div className="product-overlay">
-                    <button className="btn btn-light btn-sm">Quick View</button>
-                  </div>
                 </div>
                 <div className="product-info">
                   <h3 className="product-title">{product.name}</h3>
+                  <p className="product-description" id="boxcount-12">
+                    PACK OF 12 BOXES
+                  </p>
+
                   <p className="product-price">₹{product.price}</p>
                   <p className="product-description">(INCL. OF ALL TAXES)</p>
-                  {/* <p className="product-description">{product.description}</p> */}
+                  <p className="product-description">{product.description}</p>
                   <div className="product-actions d-flex justify-content-between">
                     <button
                       className="btn btn-primary read-more-btn"
@@ -127,6 +121,24 @@ function Collection() {
               </div>
             </div>
           ))}
+        </div>
+        {/* Pagination Controls */}
+        <div className="d-flex justify-content-center mt-4">
+          <button
+            className="btn btn-secondary mx-2 read-more-btn"
+            onClick={handlePrevPage}
+            disabled={page === 1}
+          >
+            Previous
+          </button>
+          <span className="align-self-center">Page {page}</span>
+          <button
+            className="btn btn-secondary mx-2 read-more-btn"
+            onClick={handleNextPage}
+            disabled={products.length < limit}
+          >
+            Next
+          </button>
         </div>
       </section>
 
@@ -160,14 +172,14 @@ function Collection() {
                 <div className="row">
                   <div className="col-md-6">
                     <img
-                    src={
-                      product.images[0]
-                        ? `https://artiststation.co.in/prrahi-api${product.images[0].imageUrl}`
-                        : "https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here" // Use a default image path
-                    }
-                    alt={product.name}
-                    className="img-fluid"
-                  />
+                      src={
+                        product.images[0]
+                          ? `https://artiststation.co.in/prrahi-api${product.images[0].imageUrl}`
+                          : "https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here" // Use a default image path
+                      }
+                      alt={product.name}
+                      className="img-fluid"
+                    />
                   </div>
                   <div className="col-md-6">
                     <h4
@@ -182,9 +194,11 @@ function Collection() {
                     <p>
                       <strong>Weight:</strong> {product.weight}gm
                     </p>
-                    {/* <h5>Description</h5>
-                    <p>{product.description}</p> */}
-                   
+                    <h5>Description</h5>
+                    <p>{product.description}</p>
+                    <p className="product-description" id="boxcount-12">
+                      PACK OF 12 BOXES
+                    </p>
                   </div>
                 </div>
               </div>

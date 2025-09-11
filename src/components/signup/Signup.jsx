@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import api from "../../services/api";
 import { useNavigate , Link } from "react-router-dom";
+import TopBanner from "../top/TopBanner";
 
 const SignupForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -58,6 +59,8 @@ const SignupForm = () => {
   };
 
   return (
+    <>
+    <TopBanner/>
     <div className="signup-container">
       <form className="signup-form" onSubmit={handleSubmit}>
         <h2 className="form-title">Sign Up</h2>
@@ -151,6 +154,7 @@ const SignupForm = () => {
         <p>Already have an account ? <Link className="forgot-password-link" to="/sign-in" >SIGN IN</Link></p>
       </form>
     </div>
+    </>
   );
 };
 
