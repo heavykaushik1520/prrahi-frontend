@@ -23,6 +23,7 @@ function Main() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalSlides = 4;
 
+  /*
   useEffect(() => {
     let bootstrapCarousel = null;
     let timeoutId = null;
@@ -44,12 +45,10 @@ function Main() {
               videoRef.current.currentTime = 0;
               videoRef.current.play();
 
-              // videoRef.current.onended = () => {
-              //   setCurrentIndex(1);
-              // };
+              
               timeoutId = setTimeout(() => {
                 setCurrentIndex(1);
-              }, 8000); // 8000 milliseconds = 8 seconds
+              }, 8000); 
             }
           } else if (currentIndex === 1) {
             timeoutId = setTimeout(() => {
@@ -76,13 +75,73 @@ function Main() {
 
     return () => {
       if (bootstrapCarousel) {
-        bootstrapCarousel.dispose(); // Dispose of the Bootstrap carousel instance
+        bootstrapCarousel.dispose(); 
       }
       if (timeoutId) {
-        clearTimeout(timeoutId); // Clear any pending timeouts
+        clearTimeout(timeoutId); 
       }
     };
-  }, [currentIndex]); // Re-run effect when currentIndex changes
+  }, [currentIndex]); 
+
+  */
+
+  useEffect(() => {
+    let bootstrapCarousel = null;
+    let timeoutId = null;
+
+    const isMobile = window.innerWidth < 768; // Define the breakpoint
+
+    if (!isMobile) {
+      // This code runs only on desktop (md and up)
+      const initializeCarousel = () => {
+        if (carouselEl.current) {
+          bootstrapCarousel = new Carousel(carouselEl.current, {
+            interval: false,
+            ride: false,
+            pause: false,
+            wrap: true,
+          });
+
+          const playLoop = () => {
+            if (timeoutId) clearTimeout(timeoutId);
+
+            if (currentIndex === 0) {
+              if (videoRef.current) {
+                videoRef.current.currentTime = 0;
+                videoRef.current.play();
+                timeoutId = setTimeout(() => {
+                  setCurrentIndex(1);
+                }, 8000);
+              }
+            } else if (currentIndex === 1) {
+              timeoutId = setTimeout(() => {
+                setCurrentIndex(2);
+              }, 5000);
+            } else if (currentIndex === 2) {
+              timeoutId = setTimeout(() => {
+                setCurrentIndex(3);
+              }, 5000);
+            } else if (currentIndex === 3) {
+              timeoutId = setTimeout(() => {
+                setCurrentIndex(0);
+              }, 5000);
+            }
+          };
+          playLoop();
+        }
+      };
+      initializeCarousel();
+    }
+
+    return () => {
+      if (bootstrapCarousel) {
+        bootstrapCarousel.dispose();
+      }
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [currentIndex]);
 
   useEffect(() => {
     if (carouselEl.current) {
@@ -107,7 +166,7 @@ function Main() {
           data-bs-ride="false"
         >
           {/* 🔹 Carousel Indicators (dashes at bottom) */}
-          <div className="carousel-indicators">
+          <div className="carousel-indicators d-none d-md-block">
             {Array.from({ length: totalSlides }).map((_, idx) => (
               <button
                 key={idx}
@@ -225,7 +284,7 @@ function Main() {
           </div>
 
           <button
-            className="carousel-control-prev"
+            className="carousel-control-prev d-none d-md-block"
             type="button"
             data-bs-target="#customCarousel"
             data-bs-slide="prev"
@@ -237,7 +296,7 @@ function Main() {
             <span className="visually-hidden">Previous</span>
           </button>
           <button
-            className="carousel-control-next"
+            className="carousel-control-next d-none d-md-block"
             type="button"
             data-bs-target="#customCarousel"
             data-bs-slide="next"

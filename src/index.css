@@ -4198,24 +4198,27 @@ forgot-password-submit-btn:hover {
   text-align: center;
   height: 350px;
 }
-/* indicator position */
+/*
 #quote-carousel .carousel-indicators {
   right: 50%;
   top: auto;
   bottom: -10px;
   margin-right: -19px;
 }
-/* indicator color */
+
 #quote-carousel .carousel-indicators li {
   background: #c0c0c0;
 }
-/* active indicator */
+
 #quote-carousel .carousel-indicators .active {
   background: #333333;
   height: 10px;
   width: 10px;
   margin-bottom: 1px;
 }
+
+*/
+
 .testinomial-div h6 {
   margin: 0 0 10px;
   line-height: 1.5;
@@ -4662,6 +4665,18 @@ padding: 20px;
   padding: 24px;
 }
 
+.carousel-indicators {
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  display: flex !important;
+  justify-content: center;
+  padding: 0;
+  /* Use a single, reliable value to control vertical position */
+  bottom: 1rem;
+}
+
 .carousel-indicators [data-bs-target] {
   background-color: #ffa500; 
   width: 40px;   
@@ -4669,10 +4684,13 @@ padding: 20px;
   border-radius: 2px; 
   margin: 0 6px; 
   opacity: 0.5;
-  margin-bottom: 8rem;  
+  /* margin-bottom: 8rem;   */
 }
 
 @media (max-width: 767px){
+  .carousel-indicators{
+    display: none !important; 
+  }
   .carousel-indicators [data-bs-target]  {
     margin-bottom: 3rem;  
   }
