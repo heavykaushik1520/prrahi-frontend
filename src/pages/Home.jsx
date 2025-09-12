@@ -4,11 +4,11 @@ import AllCollection from "../components/products/AllCollection";
 import { Carousel } from "bootstrap";
 import WavesAnimation from "../components/waves/WavesAnimation";
 import bannerVideo from "../assets/videos/banner-video.mp4";
-import bannerVideoMobile from "../assets/videos/banner-video-2.mp4";
+import bannerVideoMobile from "../assets/videos/banner-video-3.mp4";
 import prrahiBanner1 from "../assets/images/banner/aradhya.webp";
 import prarthana from "../assets/images/banner/prarthanaa.jpg";
 import prrahiBanner4 from "../assets/images/banner/premium.webp";
-import team1 from "../assets/images/team/team-1.jpg";
+import team1 from "../assets/images/team/final-team-1.png";
 import team2 from "../assets/images/team/team-2.png";
 import aboutImg from "../assets/images/about/1.jpeg";
 import { FaInstagram } from "react-icons/fa";
@@ -44,9 +44,12 @@ function Main() {
               videoRef.current.currentTime = 0;
               videoRef.current.play();
 
-              videoRef.current.onended = () => {
+              // videoRef.current.onended = () => {
+              //   setCurrentIndex(1);
+              // };
+              timeoutId = setTimeout(() => {
                 setCurrentIndex(1);
-              };
+              }, 8000); // 8000 milliseconds = 8 seconds
             }
           } else if (currentIndex === 1) {
             timeoutId = setTimeout(() => {
@@ -154,14 +157,19 @@ function Main() {
               className={`carousel-item ${
                 currentIndex === 1 ? "active" : ""
               } py-5`}
-
               style={{ position: "relative" }}
             >
               <img
                 src={prarthana}
                 className="d-block "
                 alt="Image 1"
-                 style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                }}
               />
             </div>
 
@@ -453,7 +461,11 @@ function Main() {
             <div className="row align-items-center">
               <div className="col-lg-6 col-md-12 mb-4 order-lg-2 order-md-1">
                 <div className="team-image-container">
-                  <img src={team1} alt="Team Member 1" className="team-image img-fluid" />
+                  <img
+                    src={team1}
+                    alt="Team Member 1"
+                    className="team-image img-fluid"
+                  />
                   <div className="team-image-overlay">
                     <div className="team-social-links">
                       <a href="#" className="social-link">

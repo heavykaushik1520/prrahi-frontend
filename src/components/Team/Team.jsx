@@ -8,7 +8,7 @@ import { FaAddressCard } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import WavesAnimation from "../waves/WavesAnimation";
-import team1 from '../../assets/images/team/team-1.jpg';
+import team1 from '../../assets/images/team/final-team-1.png';
 import team2 from '../../assets/images/team/team-2.png';
 import TopBanner from "../top/TopBanner";
 
