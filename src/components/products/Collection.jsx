@@ -6,6 +6,7 @@ import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
 import WavesAnimation from "../waves/WavesAnimation";
 import TopBanner from "../top/TopBanner";
+import ShoppingTopBanner from "../top/ShoppingTopBanner";
 
 function Collection() {
   const [products, setProducts] = useState([]);
@@ -73,7 +74,7 @@ function Collection() {
 
   return (
     <>
-      <TopBanner />
+      <ShoppingTopBanner />
       <section
         className="collection-section text-center"
         id="collection-component"

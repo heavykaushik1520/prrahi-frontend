@@ -5,9 +5,9 @@ import { Carousel } from "bootstrap";
 import WavesAnimation from "../components/waves/WavesAnimation";
 import bannerVideo from "../assets/videos/banner-video.mp4";
 import bannerVideoMobile from "../assets/videos/banner-video-3.mp4";
-import prrahiBanner1 from "../assets/images/banner/aradhya.webp";
-import prarthana from "../assets/images/banner/prarthanaa.jpg";
-import prrahiBanner4 from "../assets/images/banner/premium.webp";
+import prrahiBanner1 from "../assets/images/banner/prrahi-img-banner1.png";
+import prarthana from "../assets/images/banner/prrahi-img-banner2.png";
+import prrahiBanner4 from "../assets/images/banner/prrahi-img-banner3.png";
 import team1 from "../assets/images/team/final-team-1.png";
 import team2 from "../assets/images/team/team-2.png";
 import aboutImg from "../assets/images/about/1.jpeg";
@@ -236,50 +236,41 @@ function Main() {
               className={`carousel-item ${
                 currentIndex === 2 ? "active" : ""
               } py-5`}
+              style={{ position: "relative" }}
             >
               <img
                 src={prrahiBanner4}
-                className="d-block w-50 h-50 mx-auto z-3"
+                className="d-block"
                 alt="Image 2"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                }}
               />
-              <div className="d-block w-50 h-50 mx-auto">
-                <h4 className="banner-text-title">
-                  Bless your home with sacred fragrance
-                </h4>
-                <h6 className="banner-text-subtitle">
-                  Inaugural Offer for a Limited Period:
-                </h6>
-                <li className="banner-list">10% OFF</li>
-                <li className="banner-list">Free Shipping</li>
-                <li className="banner-list">
-                  Just 1 dozen minimum to begin this faithful journey
-                </li>
-              </div>
             </div>
 
             <div
               className={`carousel-item ${
                 currentIndex === 3 ? "active" : ""
               } py-5`}
+              style={{ position: "relative" }}
             >
               <img
                 src={prrahiBanner1}
-                className="d-block w-50 h-50 mx-auto z-3"
+                className="d-block"
                 alt="Image 3"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                }}
               />
-              <div className="d-block w-50 h-50 mx-auto">
-                <h4 className="banner-text-title">
-                  Pure. Trustworthy. Divine.
-                </h4>
-                <h6 className="banner-text-subtitle">
-                  Inaugural Offer for a Limited Period:
-                </h6>
-                <li className="banner-list">10% OFF</li>
-                <li className="banner-list">Free Shipping</li>
-                <li className="banner-list">
-                  Just 1 dozen minimum to begin this faithful journey
-                </li>
-              </div>
+             
             </div>
           </div>
 

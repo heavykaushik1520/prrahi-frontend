@@ -26,6 +26,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import DisclaimerPage from './pages/DisclaimerPage';
 import News from "./components/news/News";
+import Cloud from "./components/cloud/Cloud";
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -59,6 +60,7 @@ function AppContent() {
         <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
         <Route path="/terms-of-service" element={<TermsOfService/>}/>
         <Route path="/disclaimer" element={<DisclaimerPage/>}/>
+        <Route path="/cloud" element={<Cloud/>}/>
        
 
         <Route
