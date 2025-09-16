@@ -10,12 +10,12 @@ import { MdEmail } from "react-icons/md";
 import WavesAnimation from "../waves/WavesAnimation";
 import team1 from '../../assets/images/team/final-team-1.png';
 import team2 from '../../assets/images/team/team-2.png';
-import TopBanner from "../top/TopBanner";
+import TeamTopBanner from "../top/TeamTopBanner";
 
 function Team() {
   return (
     <>
-    <TopBanner/>
+    <TeamTopBanner/>
       <section className="team-section text-center" id="teams">            
         <div className="container mt-5">
           <div className="team-member-row">
@@ -84,7 +84,7 @@ function Team() {
                   <img
                     src={team2}
                     alt="Team Member 2"
-                    className="team-image"
+                    className="team-image img-fluid"
                   />
                   <div className="team-image-overlay">
                      <div className="team-social-links">

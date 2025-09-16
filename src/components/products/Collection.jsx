@@ -1,32 +1,58 @@
 // src/components/Collection.jsx
+
 import React, { useState, useEffect } from "react";
-import api from "../../services/api"; // Assuming the api.js file is in this path
+
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+
+import api from "../../services/api";
+
 import { updateCart } from "../../services/cartServices";
+
 import { useAuth } from "../../context/AuthContext";
+
 import { useCart } from "../../context/CartContext";
+
 import WavesAnimation from "../waves/WavesAnimation";
+
 import TopBanner from "../top/TopBanner";
+
 import ShoppingTopBanner from "../top/ShoppingTopBanner";
 
 function Collection() {
   const [products, setProducts] = useState([]);
+
   const [loading, setLoading] = useState(true);
+
   const [error, setError] = useState(null);
+
   const { user } = useAuth();
+
   const { fetchCart } = useCart();
-  const [page, setPage] = useState(1); // Manage page state
+
+  const [page, setPage] = useState(1);
+
   const limit = 6;
 
+  // Initialize useNavigate
+
+  const navigate = useNavigate();
+
   // Function to fetch products
+
   const fetchProducts = async (pageNumber) => {
     setLoading(true);
+
     setError(null);
+
     try {
       const response = await api(`/products?page=${pageNumber}&limit=${limit}`);
+
       console.log(response.products);
+
       setProducts(response.products);
     } catch (err) {
       setError("Failed to fetch products. " + err.message);
+
       console.error(err);
     } finally {
       setLoading(false);
@@ -34,20 +60,29 @@ function Collection() {
   };
 
   useEffect(() => {
-    fetchProducts(page); // Fetch products for the current page
-  }, [page]); // Re-run effect when the page changes
+    fetchProducts(page);
+  }, [page]);
 
   const handleAddToCart = async (productId) => {
     try {
-      // Check if a user is logged in
-      const isLoggedIn = !!user; // `user` is null if not logged in
+      const isLoggedIn = !!user;
+
       await updateCart(productId, 1, isLoggedIn);
+
       alert("Product added to cart!");
+
       await fetchCart();
     } catch (err) {
       console.error("Failed to add to cart:", err);
+
       alert("Failed to add product to cart.");
     }
+  };
+
+  const handleReadMore = (productId) => {
+    // Navigate to the product detail page with the product ID in the URL
+
+    navigate(`/collection/${productId}`);
   };
 
   const handleNextPage = () => {
@@ -75,6 +110,7 @@ function Collection() {
   return (
     <>
       <ShoppingTopBanner />
+
       <section
         className="collection-section text-center"
         id="collection-component"
@@ -88,29 +124,34 @@ function Collection() {
                     src={
                       product.images[0]
                         ? `https://artiststation.co.in/prrahi-api${product.images[0].imageUrl}`
-                        : "https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here" // Use a default image path
+                        : "https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here"
                     }
                     alt={product.name}
                     className="product-image "
                   />
                 </div>
+
                 <div className="product-info">
                   <h3 className="product-title">{product.name}</h3>
+
                   <p className="product-description" id="boxcount-12">
                     PACK OF 12 BOXES
                   </p>
 
                   <p className="product-price">₹{product.price}</p>
+
                   <p className="product-description">(INCL. OF ALL TAXES)</p>
+
                   <p className="product-description">{product.description}</p>
+
                   <div className="product-actions d-flex justify-content-between">
                     <button
                       className="btn btn-primary read-more-btn"
-                      data-bs-toggle="modal"
-                      data-bs-target={`#productModal-${product.id}`}
+                      onClick={() => handleReadMore(product.id)}
                     >
-                      Read More
+                      View Product
                     </button>
+
                     <button
                       className="btn btn-primary read-more-btn"
                       onClick={() => handleAddToCart(product.id)}
@@ -123,7 +164,9 @@ function Collection() {
             </div>
           ))}
         </div>
+
         {/* Pagination Controls */}
+
         <div className="d-flex justify-content-center mt-4">
           <button
             className="btn btn-secondary mx-2 read-more-btn"
@@ -132,7 +175,9 @@ function Collection() {
           >
             Previous
           </button>
+
           <span className="align-self-center">Page {page}</span>
+
           <button
             className="btn btn-secondary mx-2 read-more-btn"
             onClick={handleNextPage}
@@ -142,80 +187,6 @@ function Collection() {
           </button>
         </div>
       </section>
-
-      {/* Dynamic Modals based on fetched products */}
-      {products.map((product) => (
-        <div
-          className="modal fade"
-          id={`productModal-${product.id}`}
-          tabIndex="-1"
-          aria-labelledby={`productModal-${product.id}Label`}
-          aria-hidden="true"
-          key={`modal-${product.id}`}
-        >
-          <div className="modal-dialog modal-lg">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5
-                  className="modal-title"
-                  id={`productModal-${product.id}Label`}
-                >
-                  PRODUCT DETAILS
-                </h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div className="modal-body">
-                <div className="row">
-                  <div className="col-md-6">
-                    <img
-                      src={
-                        product.images[0]
-                          ? `https://artiststation.co.in/prrahi-api${product.images[0].imageUrl}`
-                          : "https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here" // Use a default image path
-                      }
-                      alt={product.name}
-                      className="img-fluid"
-                    />
-                  </div>
-                  <div className="col-md-6">
-                    <h4
-                      className="modal-title"
-                      id={`productModal-${product.id}Label`}
-                    >
-                      {product.name}
-                    </h4>
-                    <p>
-                      <strong>Price:</strong> ₹{product.price}
-                    </p>
-                    <p>
-                      <strong>Weight:</strong> {product.weight}gm
-                    </p>
-                    <h5>Description</h5>
-                    <p>{product.description}</p>
-                    <p className="product-description" id="boxcount-12">
-                      PACK OF 12 BOXES
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      ))}
     </>
   );
 }

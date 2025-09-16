@@ -7,6 +7,7 @@ import launch1 from "../../assets/images/news/launch-1.jpg";
 import launch2 from "../../assets/images/news/launch-2.jpg";
 import launch3 from "../../assets/images/news/launch-3.jpg";
 import launch4 from "../../assets/images/news/launch-4.jpg";
+import NewsBanner from "./NewsBanner";
 
 function News() {
   const responsive = {
@@ -30,7 +31,7 @@ function News() {
 
   return (
     <>
-      <TopBanner />
+      <NewsBanner />
       <section className="team-section text-center" id="teams">
         <div className="container mt-5">
           <div className="team-member-row">

@@ -1,5 +1,5 @@
 import React from 'react';
-import top from "../../assets/images/banner/Shopping-Top- Banner.webp";
+import top from "../../assets/images/banner/shopping-banner.png";
 
 function ShoppingTopBanner() {
   return (

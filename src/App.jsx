@@ -27,6 +27,7 @@ import TermsOfService from "./pages/TermsOfService";
 import DisclaimerPage from './pages/DisclaimerPage';
 import News from "./components/news/News";
 import Cloud from "./components/cloud/Cloud";
+import ProductDetails from "./components/products/ProductDetails";
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -45,6 +46,7 @@ function AppContent() {
         <Route path="/" element={<Main />} />
         <Route path="/about" element={<About />} />
         <Route path="/collection" element={<Collection />} />
+        <Route path="/collection/:id" element={<ProductDetails />} />
         <Route path="/team" element={<Team />} />
         <Route path="/cart" element={<Cart />} />
         {/* <Route path="checkout" element={<Checkout />} /> */}

@@ -491,7 +491,7 @@ function Main() {
           to={"/collection"}
           className="btn btn-primary read-more-team-btn collection-read-more"
         >
-          Read More
+          More Collection
         </Link>
       </section>
 

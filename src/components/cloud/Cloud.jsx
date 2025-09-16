@@ -1,4 +1,6 @@
 import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import cloudBanner from "../../assets/images/cloud/prrahi-img-mobile-banner.png";
 
 const Cloud = () => {
   const cloudRef = useRef(null);
@@ -341,34 +343,228 @@ const Cloud = () => {
   }, []); // Empty dependency array means this runs only once on mount
 
   return (
-    <div id="cl" className="cloud" ref={cloudRef}>
-      {/* All the child elements from your HTML */}
-      <div className="cloud-element">Prarthana Lavender</div>
-      <div className="cloud-element">Prarthana Mogra</div>
-      <div className="cloud-element">Prarthana Rajnigandha</div>
-      <div className="cloud-element">Prarthana Pineapple</div>
-      <div className="cloud-element">Prarthana Manthan</div>
-      <div className="cloud-element">Prarthana Sparsh</div>
-      <div className="cloud-element">Prarthana Smaran</div>
-      <div className="cloud-element">Prarthana Prakriti</div>
-      <div className="cloud-element">Premium Sandal</div>
-      <div className="cloud-element">Premium Patchouli</div>
-      <div className="cloud-element">Premium Kasturi</div>
-      <div className="cloud-element">Premium 3 in 1</div>
-      <div className="cloud-element">Premium 4 in 1</div>
-      <div className="cloud-element">Premium Agni</div>
-      <div className="cloud-element">Premium Jal</div>
-      <div className="cloud-element">Premium Vayu</div>
-      <div className="cloud-element">Premium Akash</div>
-      <div className="cloud-element">Premium Prithvi</div>
-      <div className="cloud-element">Premium Shakti Peeth</div>
-      <div className="cloud-element">Premium Siddhi Vinayak</div>
-      <div className="cloud-element">Aaradhya Chandan</div>
-      <div className="cloud-element">Aaradhya Mogra</div>
-      <div className="cloud-element">Aaradhya Bela</div>
-      <div className="cloud-element">Aaradhya Kasturi</div>
-      <div className="cloud-element">Aaradhya Rose</div>
-    </div>
+    <section className="p-0 m-0 position-relative">
+      <div
+        id="cl"
+        className="cloud"
+        ref={cloudRef}
+        style={{
+          backgroundImage: `url(${cloudBanner})`,
+          backgroundSize: "cover",
+          backgroundPosition: "top center",
+          backgroundRepeat: "no-repeat",
+          width: "100%",
+        }}
+      >
+        {/* All the child elements from your HTML */}
+        <div className="cloud-element">
+          <Link
+            to="/collection/4d399974-d3ba-46e6-92c6-f7e4766d16f4"
+            style={{ color: "#FF5733" }}
+          >
+            Premium Vayu
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to="/collection/58798e74-d591-4a07-aa7e-8c556e322fd8"
+            style={{ color: "#33FF57" }}
+          >
+            Prarthana Sparsh
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to="/collection/7bbeb601-1301-42e7-af91-0621a86ee198"
+            style={{ color: "#3357FF" }}
+          >
+            Premium Jal
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to="/collection/9a6e0b23-30b1-4c98-b651-0a9a8c637349"
+            style={{ color: "#FF33A1" }}
+          >
+            Premium Shakti Peeth
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to="/collection/985ca620-458d-4502-8b97-ca1a27df1313"
+            style={{ color: "#A1FF33" }}
+          >
+            Aaradhya Bela
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to="/collection/569eee0b-a0ac-4ec4-83b9-b73517422f8c"
+            style={{ color: "#5733FF" }}
+          >
+            Prarthana Pineapple
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to="/collection/03e52872-1239-4ab3-af8f-ff3bbfc42fb1"
+            style={{ color: "#FFB533" }}
+          >
+            Prarthana Manthan
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to={"/collection/30f0f86e-cc06-47ce-a1d9-f0e13c9fdb0e"}
+            style={{ color: "#33FFB5" }}
+          >
+            Prarthana Smaran
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to={"/collection/35b3e41a-abab-4a8f-87c7-6f003502af45"}
+            style={{ color: "#B533FF" }}
+          >
+            Premium Sandal
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to={"/collection/35b3e41a-abab-4a8f-87c7-6f003502af45"}
+            style={{ color: "#FF3357" }}
+          >
+            Premium Siddhi Vinayak
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to="/collection/cf74820e-ca57-477c-a434-8375634bbfb6"
+            style={{ color: "#33A1FF" }}
+          >
+            Prarthana Mogra
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to="/collection/d9fbb820-8298-47b7-9807-558cb449967f"
+            style={{ color: "#A133FF" }}
+          >
+            Prarthana Rajnigandha
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to="/collection/cee60ca9-044a-4d0e-acac-deef2ef94489"
+            style={{ color: "#FF57A1" }}
+          >
+            Premium 4 in 1
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to="/collection/d764c428-1c99-4278-a32b-7e0f5d945db2"
+            style={{ color: "#57FF33" }}
+          >
+            Aaradhya Rose
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to="/collection/b985639f-07fe-46da-8153-71238bc90dd4"
+            style={{ color: "#5733FF" }}
+          >
+            Aaradhya Kasturi
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to="/collection/b0efade8-9c59-49ce-a6e5-a14950cf67b8"
+            style={{ color: "#33A157" }}
+          >
+            Premium Akash
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to={"/collection/04e4ba66-31b1-4389-b5ae-6c0b55d7f3b8"}
+            style={{ color: "#A15733" }}
+          >
+            Premium Kasturi
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to={"/collection/0467cf20-0524-4697-b59a-11113cee0a1c"}
+            style={{ color: "#B5FF33" }}
+          >
+            Aaradhya Chandan
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to="/collection/f9b0762f-b3d0-4440-aeb5-c911eb5205ff"
+            style={{ color: "#33FF57" }}
+          >
+            Prarthana Prakriti
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to="/collection/e5b4199b-85e6-464f-a8b2-aa8ba2fd9ac8"
+            style={{ color: "#5733FF" }}
+          >
+            Premium Patchouli
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to="/collection/f7f4ef04-7c5a-4936-acfe-b8e75a2e9c1b"
+            style={{ color: "#33A1FF" }}
+          >
+            Premium Prithvi
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to="/collection/ef4aaec7-d2f5-4631-8f7e-032285e238cf"
+            style={{ color: "#A133FF" }}
+          >
+            Premium Agni
+          </Link>
+        </div>
+
+        <div className="cloud-element">
+          <Link
+            to="/collection/dfbd66c2-3d88-49e1-8a56-53bd81dedf02"
+            style={{ color: "#FF57A1" }}
+          >
+            Prarthana Lavender
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 };
 
