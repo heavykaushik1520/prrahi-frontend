@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , NavLink } from "react-router-dom";
 import { GrCart } from "react-icons/gr";
 import { useAuth } from "../../context/AuthContext";
 import {
@@ -41,71 +41,71 @@ function Navbar() {
           <nav className={`navbar-links ${isMobileMenuOpen ? "active" : ""}`}>
             <ul>
               <li>
-                <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+                <NavLink  to="/" onClick={() => setIsMobileMenuOpen(false)}>
                   Home
-                </Link>
+                </NavLink >
               </li>
               <li >
-                <Link className="nav-about" to="/about" onClick={() => setIsMobileMenuOpen(false)}>
+                <NavLink  className="nav-about" to="/about" onClick={() => setIsMobileMenuOpen(false)}>
                   Hello!<p className="navbar-links-text">I am PrRahi</p>
-                </Link>
+                </NavLink >
               </li>
               <li>
-                <Link
+                <NavLink 
                   to="/collection"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Shopping<p className="navbar-links-text">Collection</p>
-                </Link>
+                </NavLink >
               </li>
               <li>
-                <Link to="/team" onClick={() => setIsMobileMenuOpen(false)}>
+                <NavLink  to="/team" onClick={() => setIsMobileMenuOpen(false)}>
                   The Backbone <p className="navbar-links-text">Founders Team</p>
-                </Link>
+                </NavLink >
               </li>
                <li>
-                <Link
+                <NavLink 
                   to="/news"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                  What's up <p className="navbar-links-text">News & Happenings</p>
-                </Link>
+                </NavLink >
               </li>
               <li>
-                <Link
+                <NavLink 
                   to="/contact-us"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Lets' Meet<p className="navbar-links-text">Contact</p>
-                </Link>
+                </NavLink >
               </li>
 
               <li className="d-block">
                 <div className="navbar-icons flex items-center gap-8 pr-4 ">
                   {isAuthenticated ? (
                     <>
-                      <Link
+                      <NavLink 
                         to="/my-profile"
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="profile-icon"
                       >
                         <RiUser3Line />
-                      </Link>
+                      </NavLink >
                     </>
                   ) : (
-                    <Link
+                    <NavLink 
                       to="/sign-in"
                       onClick={() => setIsMobileMenuOpen(false)}
                       className="login-button"
                     >
                       LOGIN
-                    </Link>
+                    </NavLink >
                   )}
                 </div>
               </li>
 
               <li>
-                <Link
+                <NavLink 
                   to="/cart"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="cart-icon"
@@ -117,7 +117,7 @@ function Navbar() {
                     {cartCount || 0}
                     <span className="visually-hidden">unread messages</span>
                   </span>
-                </Link>
+                </NavLink >
               </li>
             </ul>
           </nav>

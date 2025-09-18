@@ -93,7 +93,7 @@ strong {
   }
 }
 
-.prrahi{
+.prrahi {
   color: #ec1b26;
 }
 
@@ -311,20 +311,13 @@ strong {
   color: #000; /* Darker on hover */
 }
 
-/* Navigation links (Desktop & Mobile) */
 .navbar-links {
-  /* For mobile: */
   position: fixed;
-  top: 105px; /* Aligned with desktop navbar height */
+  top: 105px;
   left: 0;
   width: 100%;
-  height: calc(100vh - 105px); /* Fill remaining viewport height */
-  background-color: rgba(
-    250,
-    157,
-    29,
-    0.95
-  ); /* User's orange with transparency */
+  height: calc(100vh - 105px);
+  background-color: rgba(250, 157, 29, 0.95);
   flex-direction: column;
   align-items: center;
   justify-content: center; /* Center links vertically in mobile menu */
@@ -336,8 +329,14 @@ strong {
   z-index: 998;
 }
 
+.active {
+  color: #000 !important;
+  
+}
+
 .navbar-links.active {
   transform: translateX(0); /* Visible when active */
+  color: #000 !important;
 }
 
 .navbar-links ul {
@@ -349,8 +348,6 @@ strong {
   padding: 0;
   margin: 0; /* Remove default list margins */
 }
-
-
 
 .navbar-links ul li a {
   text-decoration: none;
@@ -365,39 +362,44 @@ strong {
 }
 
 .navbar-links ul li .cart-icon {
-  font-size: 22px; /* Larger icon in mobile menu */
-  display: flex; /* Ensure icon and text align */
+  font-size: 22px; 
+  display: flex; 
   align-items: center;
   gap: 8px;
 }
 
 .navbar-links ul li a:hover {
-  color: #000 !important; /* Force black on hover in mobile */
-  background-color: rgba(255, 255, 255, 0.2); /* Subtle background on hover */
+  color: #000 !important; 
+  background-color: rgba(255, 255, 255, 0.2); 
 }
 
 .navbar-links ul li a::after {
   content: "";
   position: absolute;
   width: 0;
-  height: 3px; /* Thicker underline */
-  background-color: #ec1b26; /* User's red for underline */
-  left: 50%; /* Center underline */
+  height: 3px; 
+  background-color: #ec1b26; 
+  left: 50%; 
   transform: translateX(-50%);
-  bottom: -8px; /* More space below text */
+  bottom: -8px; 
   transition: width 0.3s ease;
 }
 
 .navbar-links ul li a:hover::after {
-  width: 80%; /* Underline extends to 80% width */
+  width: 80%; 
+}
+
+.navbar-links ul li a.active {
+  transform: translateX(0); 
+  color: #000 !important;
 }
 
 /* Navbar Icons (Desktop and Mobile) */
 .navbar-icons {
   display: flex;
   align-items: center;
-  gap: 30px; /* Increased gap for better spacing */
-  padding-right: 0; /* Remove fixed padding */
+  gap: 30px; 
+  padding-right: 0; 
 }
 
 .profile-icon {
@@ -439,7 +441,7 @@ strong {
   .navbar-container {
     display: flex;
     align-items: center;
-    padding: 0 ; /* More padding for larger desktops */
+    padding: 0; /* More padding for larger desktops */
   }
 
   .navbar-logo img {
@@ -464,15 +466,15 @@ strong {
   }
 
   .navbar-links ul {
-   display: flex; 
+    display: flex;
     flex-direction: row;
     gap: 50px;
     margin: 0;
     /* margin-top: 0; */
     /* text-align: center; */
     padding: 0; /* reset padding */
-  list-style: none;
-  align-items: center; 
+    list-style: none;
+    align-items: center;
   }
 
   .navbar-links ul li a {
@@ -567,7 +569,7 @@ strong {
 
   .navbar-menu-icon {
     font-size: 28px;
-    color : #ec1b26
+    color: #ec1b26;
   }
 
   .navbar-links {
@@ -605,8 +607,7 @@ strong {
     height: calc(100vh - 60px);
   }
 
-  
-  .navbar-links ul{
+  .navbar-links ul {
     gap: 0px;
   }
 
@@ -621,7 +622,7 @@ strong {
 
 /* MAIN SECTION CSS START */
 
-.carousel-item{
+.carousel-item {
   height: 100vh;
 }
 
@@ -719,7 +720,6 @@ about-section-image {
   background-color: #f99e1a !important;
   color: #ffffff !important;
 }
-
 
 .waves-section .waveWrapper {
   height: 115px;
@@ -1097,7 +1097,7 @@ about-section-image {
   overflow: hidden;
 }
 
-#boxcount-12{
+#boxcount-12 {
   color: #ec1b26 !important;
   font-weight: 600;
 }
@@ -4295,19 +4295,19 @@ forgot-password-submit-btn:hover {
   pointer-events: none;
 }
 
-@media (max-width : 1024px){
+@media (max-width: 1024px) {
   .waveWrapper {
     top: 105px;
   }
 }
 
-@media (max-width : 768px){
+@media (max-width: 768px) {
   .waveWrapper {
     top: 80px;
   }
 }
 
-@media (max-width : 480px){
+@media (max-width: 480px) {
   .waveWrapper {
     top: 60px;
   }
@@ -4672,17 +4672,15 @@ padding: 20px;
   color: #ffa500; /* Example color, you can change this */
 }
 
-
-.component-top-img{
+.component-top-img {
   height: 400px !important;
 }
 
-@media (max-width:576px){
-  .component-top-img{
+@media (max-width: 576px) {
+  .component-top-img {
     height: 300px !important;
   }
 }
-
 
 .carousel-control-icon {
   background-color: rgba(255, 165, 0, 0.8); /* orange background */
@@ -4703,21 +4701,21 @@ padding: 20px;
 }
 
 .carousel-indicators [data-bs-target] {
-  background-color: #ffa500; 
-  width: 40px;   
-  height: 4px;   
-  border-radius: 2px; 
-  margin: 0 6px; 
+  background-color: #ffa500;
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  margin: 0 6px;
   opacity: 0.5;
   /* margin-bottom: 8rem;   */
 }
 
-@media (max-width: 767px){
-  .carousel-indicators{
-    display: none !important; 
+@media (max-width: 767px) {
+  .carousel-indicators {
+    display: none !important;
   }
-  .carousel-indicators [data-bs-target]  {
-    margin-bottom: 3rem;  
+  .carousel-indicators [data-bs-target] {
+    margin-bottom: 3rem;
   }
 }
 
@@ -4727,12 +4725,11 @@ padding: 20px;
   opacity: 1;
 }
 
-
 .carousel-image-container {
-  height: 300px; 
-  width: 100%; 
-  overflow: hidden; 
-  display: flex; 
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -4745,29 +4742,31 @@ padding: 20px;
 
 /* start  */
 .cloud {
-    width: 100%;
-    height: 80vh;
-    position: relative;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
 }
 
 .cloud-element {
-    font-size: 2em;
-    /* text-align: justify; */
-    text-align: left;
-    color: black;
-    left : -20%;
+  font-size: 2em;
+  /* text-align: justify; */
+  text-align: left;
+  color: black;
+  left: -20%;
 }
 
-@media (max-width : 576px){
+@media (max-width: 576px) {
   .cloud-element {
     font-size: 1.2em;
     text-align: justify;
-    
-}
+  }
 }
 
 A {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 /* end */

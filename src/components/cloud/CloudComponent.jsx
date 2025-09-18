@@ -348,14 +348,9 @@ const CloudComponent = () => {
         id="cl"
         className="cloud"
         ref={cloudRef}
-        style={{
-          backgroundImage: `url(${cloudBanner})`,
-          backgroundSize: "cover",
-          backgroundPosition: "top center",
-          backgroundRepeat: "no-repeat",
-          width: "100%",
-          height:"100vh",
-        }}
+        style={{ 
+            
+            backgroundImage: `url(${cloudBanner})` }}
       >
         {/* All the child elements from your HTML */}
         <div className="cloud-element">
