@@ -8,8 +8,8 @@ import { FaAddressCard } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import WavesAnimation from "../waves/WavesAnimation";
-import team1 from '../../assets/images/team/final-team-1.png';
-import team2 from '../../assets/images/team/team-2.png';
+import team1 from '../../assets/images/team/rajeev.png';
+import team2 from '../../assets/images/team/hiranya.png';
 import TeamTopBanner from "../top/TeamTopBanner";
 
 function Team() {
@@ -25,7 +25,7 @@ function Team() {
                   <img
                     src={team1}
                     alt="Team Member 1"
-                    className="team-image img-fluid"
+                    className="team-image"
                   />
                   <div className="team-image-overlay">
                     <div className="team-social-links">
@@ -84,7 +84,7 @@ function Team() {
                   <img
                     src={team2}
                     alt="Team Member 2"
-                    className="team-image img-fluid"
+                    className="team-image"
                   />
                   <div className="team-image-overlay">
                      <div className="team-social-links">
@@ -165,7 +165,7 @@ function Team() {
                   <img
                     src={team1}
                     alt="Rajeev"
-                    className="img-fluid rounded"
+                    className="rounded"
                   />
                 </div>
                 <div className="col-md-6">
@@ -256,7 +256,7 @@ function Team() {
                   <img
                     src={team2}
                     alt="Sarah Johnson"
-                    className="img-fluid rounded"
+                    className="rounded"
                   />
                 </div>
                 <div className="col-md-6">

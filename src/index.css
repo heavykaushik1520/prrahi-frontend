@@ -1400,10 +1400,11 @@ about-section-image {
 }
 
 .team-image {
-  /* width: 100%;
-  height: 400px; */
+  /* width: 100%;*/
+  height: 500px; 
   object-fit: cover;
   transition: transform 0.5s ease;
+  width : 300px;
 }
 
 .team-image-container:hover .team-image {

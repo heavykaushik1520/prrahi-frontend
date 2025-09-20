@@ -8,8 +8,8 @@ import bannerVideoMobile from "../assets/videos/banner-video-3.mp4";
 import prrahiBanner1 from "../assets/images/banner/prrahi-img-banner1.png";
 import prarthana from "../assets/images/banner/prrahi-img-banner2.png";
 import prrahiBanner4 from "../assets/images/banner/prrahi-img-banner3.png";
-import team1 from "../assets/images/team/final-team-1.png";
-import team2 from "../assets/images/team/team-2.png";
+import team1 from "../assets/images/team/rajeev.png";
+import team2 from "../assets/images/team/hiranya.png";
 import aboutImg from "../assets/images/about/1.jpeg";
 import { FaInstagram } from "react-icons/fa";
 import { IoLogoLinkedin } from "react-icons/io5";
@@ -517,7 +517,7 @@ function Main() {
                   <img
                     src={team1}
                     alt="Team Member 1"
-                    className="team-image img-fluid"
+                    className="team-image"
                   />
                   <div className="team-image-overlay">
                     <div className="team-social-links">
@@ -654,7 +654,7 @@ function Main() {
                   <img
                     src={team1}
                     alt="John Smith"
-                    className="img-fluid rounded"
+                    className="rounded"
                   />
                 </div>
                 <div className="col-md-6">
@@ -745,7 +745,7 @@ function Main() {
                   <img
                     src={team2}
                     alt="Sarah Johnson"
-                    className="img-fluid rounded"
+                    className="rounded"
                   />
                 </div>
                 <div className="col-md-6">
