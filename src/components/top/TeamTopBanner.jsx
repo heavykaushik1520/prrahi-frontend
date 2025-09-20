@@ -1,5 +1,5 @@
 import React from 'react';
-import top from "../../assets/images/banner/team-top-banner.jpg";
+import top from "../../assets/images/banner/team-banner.png";
 
 function TeamTopBanner() {
   return (

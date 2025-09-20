@@ -331,7 +331,6 @@ strong {
 
 .active {
   color: #000 !important;
-  
 }
 
 .navbar-links.active {
@@ -362,35 +361,46 @@ strong {
 }
 
 .navbar-links ul li .cart-icon {
-  font-size: 22px; 
-  display: flex; 
+  font-size: 22px;
+  display: flex;
   align-items: center;
   gap: 8px;
 }
 
 .navbar-links ul li a:hover {
-  color: #000 !important; 
-  background-color: rgba(255, 255, 255, 0.2); 
+  color: #000 !important;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .navbar-links ul li a::after {
   content: "";
   position: absolute;
   width: 0;
-  height: 3px; 
-  background-color: #ec1b26; 
-  left: 50%; 
+  height: 3px;
+  background-color: #ec1b26;
+  left: 50%;
   transform: translateX(-50%);
-  bottom: -8px; 
+  bottom: -8px;
+  transition: width 0.3s ease;
+}
+.navbar-links ul li a.active::after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 3px;
+  background-color: #ec1b26;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -8px;
   transition: width 0.3s ease;
 }
 
 .navbar-links ul li a:hover::after {
-  width: 80%; 
+  width: 80%;
 }
 
 .navbar-links ul li a.active {
-  transform: translateX(0); 
+  transform: translateX(0);
   color: #000 !important;
 }
 
@@ -398,8 +408,8 @@ strong {
 .navbar-icons {
   display: flex;
   align-items: center;
-  gap: 30px; 
-  padding-right: 0; 
+  gap: 30px;
+  padding-right: 0;
 }
 
 .profile-icon {
@@ -2978,7 +2988,7 @@ forgot-password-submit-btn:hover {
   font-size: 1.1em;
   color: #333;
   min-width: 25px; /* Ensure quantity display has enough space */
-  text-align: center;
+  text-align: start;
 }
 
 /* Item Actions (Remove Button) */
@@ -4093,7 +4103,7 @@ forgot-password-submit-btn:hover {
   opacity: 1 !important;
   border-radius: 100%;
   padding: 5px !important;
-  -index: 9999;
+  z-index: 9999;
 }
 .desktop-slider .clients {
   margin-left: 1% !important;
@@ -4673,7 +4683,7 @@ padding: 20px;
 }
 
 .component-top-img {
-  height: 400px !important;
+  max-height: 450px !important;
 }
 
 @media (max-width: 576px) {
@@ -4755,7 +4765,8 @@ padding: 20px;
   /* text-align: justify; */
   text-align: left;
   color: black;
-  left: -20%;
+  left: 30%;
+  top: 45%;
 }
 
 @media (max-width: 576px) {
@@ -4770,3 +4781,35 @@ A {
   text-decoration: none;
 }
 /* end */
+
+/* Magnifying glass */
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.magnifying-glass {
+  position: absolute;
+  border: 1px solid #333;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  transition: transform 0.05s ease-out;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transform: translate(-50%, -50%);
+  background-size: 1000%; /* zoom level */
+}
+
+.image-container img {
+  transition: transform 0.3s ease-in-out;
+}

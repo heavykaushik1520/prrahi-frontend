@@ -17,12 +17,14 @@ import { FaTwitter } from "react-icons/fa";
 import Waves from "../components/waves/Waves";
 import { Link } from "react-router-dom";
 import CloudComponent from "../components/cloud/CloudComponent";
+import Cloud from "../components/cloud/Cloud";
+
 
 function Main() {
   const carouselEl = useRef(null);
   const videoRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const totalSlides = 5;
+  const totalSlides = 4;
 
   /*
   useEffect(() => {
@@ -124,13 +126,9 @@ function Main() {
               }, 5000);
             } else if (currentIndex === 3) {
               timeoutId = setTimeout(() => {
-                setCurrentIndex(4);
-              }, 5000);
-            } else if (currentIndex === 4) {
-              timeoutId = setTimeout(() => {
                 setCurrentIndex(0);
-              }, 10000);
-            }
+              }, 5000);
+            } 
           };
           playLoop();
         }
@@ -277,14 +275,6 @@ function Main() {
               />
             </div>
 
-            <div
-              className={`carousel-item ${currentIndex === 4 ? "active" : ""}`}
-              style={{ position: "relative" }}
-            >
-              <div className="position-absolute top-50 start-50 translate-middle">
-                <CloudComponent />
-              </div>
-            </div>
           </div>
 
           <button

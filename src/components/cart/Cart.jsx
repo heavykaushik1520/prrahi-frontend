@@ -139,6 +139,7 @@ const Cart = () => {
                   {item.images && item.images.length > 0 ? (
                     <img
                       src={`https://artiststation.co.in/prrahi-api${item.images[0].imageUrl}`}
+                      // src={`http://localhost:3000${item.images[0].imageUrl}`}
                       alt={item.name}
                       className="item-image"
                       onError={(e) => {

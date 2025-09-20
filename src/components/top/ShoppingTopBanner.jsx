@@ -1,5 +1,5 @@
 import React from 'react';
-import top from "../../assets/images/banner/shopping-banner.png";
+import top from "../../assets/images/banner/shopping-top-banner.png";
 
 function ShoppingTopBanner() {
   return (

@@ -28,6 +28,7 @@ import DisclaimerPage from './pages/DisclaimerPage';
 import News from "./components/news/News";
 import Cloud from "./components/cloud/Cloud";
 import ProductDetails from "./components/products/ProductDetails";
+import CloudComponent from "./components/cloud/CloudComponent";
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();

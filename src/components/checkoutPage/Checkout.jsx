@@ -106,6 +106,7 @@ const Checkout = () => {
 
     setLoading(true);
     try {
+      // Step 1: Create Order in backend (your /order endpoint)
       const orderPayload = {
         ...formData,
         cartItems: cart.products.map((item) => ({
@@ -114,17 +115,77 @@ const Checkout = () => {
           priceAtPurchase: parseFloat(item.price),
         })),
       };
-      const response = await api("/order", "POST", orderPayload, true);
 
-      if (response) {
-        console.log("Order created successfully:", response);
-        alert("Order placed successfully!");
-        navigate("/my-orders");
-      } else {
-        throw new Error("Order creation failed: No response data.");
+      const orderResponse = await api("/order", "POST", orderPayload, true);
+
+      if (!orderResponse || !orderResponse.orderId) {
+        throw new Error("Failed to create order.");
       }
+
+      const orderId = orderResponse.orderId;
+      console.log("✅ Created order with ID:", orderId);
+
+      // Step 2: Create Razorpay Order (backend API /create-order)
+      const razorpayOrder = await api(
+        "/payment/create-order",
+        "POST",
+        { orderId },
+        true
+      );
+
+      if (!razorpayOrder || !razorpayOrder.razorpayOrderId) {
+        throw new Error("Failed to create Razorpay order.");
+      }
+
+      // Step 3: Open Razorpay Checkout
+      const options = {
+        key: razorpayOrder.key_id, // from backend response
+        amount: razorpayOrder.amount, // in paisa
+        currency: razorpayOrder.currency,
+        name: "Tanvi Herbals", // replace with your store/brand
+        description: "Complete your purchase",
+        order_id: razorpayOrder.razorpayOrderId, // Razorpay orderId
+        handler: async function (response) {
+          try {
+            // Step 4: Verify Payment
+            const verifyResponse = await api(
+              "/payment/verify-payment",
+              "POST",
+              {
+                razorpayPaymentId: response.razorpay_payment_id,
+                razorpayOrderId: response.razorpay_order_id,
+                razorpaySignature: response.razorpay_signature,
+                orderId, // our DB orderId
+              },
+              true
+            );
+
+            if (verifyResponse) {
+              alert("Payment successful and order confirmed!");
+              navigate("/my-orders");
+            }
+          } catch (err) {
+            console.error("Payment verification failed:", err);
+            alert("Payment verification failed. Please contact support.");
+          }
+        },
+        prefill: {
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.emailAddress,
+          contact: formData.mobileNumber,
+        },
+        notes: {
+          address: formData.fullAddress,
+        },
+        theme: {
+          color: "#ffa500", // your brand color
+        },
+      };
+
+      const razorpay = new window.Razorpay(options);
+      razorpay.open();
     } catch (error) {
-      console.error("Order creation error:", error);
+      console.error("Checkout error:", error);
       alert("Something went wrong. Please try again later.");
     } finally {
       setLoading(false);
@@ -165,7 +226,8 @@ const Checkout = () => {
                   src={
                     item.images?.[0]?.imageUrl
                       ? `https://artiststation.co.in/prrahi-api${item.images[0].imageUrl}`
-                      : "https://placehold.co/80x80/cccccc/000000?text=No+Image" 
+                      : //  ? `http://localhost:3000${item.images[0].imageUrl}`
+                        "https://placehold.co/80x80/cccccc/000000?text=No+Image"
                   }
                   alt={item.name}
                   className="item-image"

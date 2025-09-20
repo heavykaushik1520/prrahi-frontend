@@ -124,6 +124,7 @@ function Collection() {
                     src={
                       product.images[0]
                         ? `https://artiststation.co.in/prrahi-api${product.images[0].imageUrl}`
+                        // ? `http://localhost:3000${product.images[0].imageUrl}`
                         : "https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here"
                     }
                     alt={product.name}
