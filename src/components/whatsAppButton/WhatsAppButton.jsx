@@ -29,7 +29,7 @@ const WhatsAppRedirectButton = () => {
           borderRadius: '50%',
           zIndex : '1000',
           right : '0',
-          bottom : '55%'
+          bottom : '40%'
          
 
         }}

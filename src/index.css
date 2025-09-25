@@ -2017,6 +2017,8 @@ about-section-image {
 }
 
 /* Newsletter Section */
+
+
 .newsletter-section {
   text-align: center;
   padding: 40px 0;
@@ -2079,6 +2081,15 @@ about-section-image {
 .newsletter-form .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(255, 165, 0, 0.3);
+}
+
+.newssection-image {
+   width: 100%;
+  height: 500px; 
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  
+  
 }
 
 /* Footer Bottom */
@@ -4684,7 +4695,7 @@ padding: 20px;
 }
 
 .component-top-img {
-  max-height: 450px !important;
+  height: 450px !important;
 }
 
 @media (max-width: 576px) {

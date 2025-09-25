@@ -4,10 +4,11 @@ import AllCollection from "../components/products/AllCollection";
 import { Carousel } from "bootstrap";
 import WavesAnimation from "../components/waves/WavesAnimation";
 import bannerVideo from "../assets/videos/banner-video.mp4";
-import bannerVideoMobile from "../assets/videos/banner-video-3.mp4";
-import prrahiBanner1 from "../assets/images/banner/prrahi-img-banner1.png";
-import prarthana from "../assets/images/banner/prrahi-img-banner2.png";
-import prrahiBanner4 from "../assets/images/banner/prrahi-img-banner3.png";
+import bannerVideo2 from "../assets/videos/banner-video-2.mp4";
+import bannerVideoMobile from "../assets/videos/mobile-view-banner-video.mp4";
+import prrahiBanner1 from "../assets/images/banner/new-prrahi-img-banner-premium.png";
+import prarthana from "../assets/images/banner/new-prrahi-img-banner-prarthanna.png";
+import prrahiBanner4 from "../assets/images/banner/new-prrahi-img-banner-aaradhya.png";
 import team1 from "../assets/images/team/rajeev.png";
 import team2 from "../assets/images/team/hiranya.png";
 import aboutImg from "../assets/images/about/1.jpeg";
@@ -19,83 +20,24 @@ import { Link } from "react-router-dom";
 import CloudComponent from "../components/cloud/CloudComponent";
 import Cloud from "../components/cloud/Cloud";
 
-
 function Main() {
   const carouselEl = useRef(null);
   const videoRef = useRef(null);
+
+  const videoRefDesktop = useRef(null);
+  const videoRefMobile = useRef(null);
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalSlides = 4;
-
   /*
   useEffect(() => {
     let bootstrapCarousel = null;
     let timeoutId = null;
 
-    const initializeCarousel = () => {
-      if (carouselEl.current) {
-        bootstrapCarousel = new Carousel(carouselEl.current, {
-          interval: false,
-          ride: false,
-          pause: false,
-          wrap: true,
-        });
-
-        const playLoop = () => {
-          if (timeoutId) clearTimeout(timeoutId);
-
-          if (currentIndex === 0) {
-            if (videoRef.current) {
-              videoRef.current.currentTime = 0;
-              videoRef.current.play();
-
-              
-              timeoutId = setTimeout(() => {
-                setCurrentIndex(1);
-              }, 8000); 
-            }
-          } else if (currentIndex === 1) {
-            timeoutId = setTimeout(() => {
-              // console.log("2");
-              setCurrentIndex(2);
-            }, 5000);
-          } else if (currentIndex === 2) {
-            timeoutId = setTimeout(() => {
-              // console.log("3");
-              setCurrentIndex(3);
-            }, 5000);
-          } else if (currentIndex === 3) {
-            timeoutId = setTimeout(() => {
-              setCurrentIndex(0);
-            }, 5000);
-          }
-        };
-
-        playLoop();
-      }
-    };
-
-    initializeCarousel();
-
-    return () => {
-      if (bootstrapCarousel) {
-        bootstrapCarousel.dispose(); 
-      }
-      if (timeoutId) {
-        clearTimeout(timeoutId); 
-      }
-    };
-  }, [currentIndex]); 
-
-  */
-
-  useEffect(() => {
-    let bootstrapCarousel = null;
-    let timeoutId = null;
-
-    const isMobile = window.innerWidth < 768; // Define the breakpoint
+    const isMobile = window.innerWidth < 768; 
 
     if (!isMobile) {
-      // This code runs only on desktop (md and up)
+   
       const initializeCarousel = () => {
         if (carouselEl.current) {
           bootstrapCarousel = new Carousel(carouselEl.current, {
@@ -119,16 +61,16 @@ function Main() {
             } else if (currentIndex === 1) {
               timeoutId = setTimeout(() => {
                 setCurrentIndex(2);
-              }, 5000);
+              }, 8000);
             } else if (currentIndex === 2) {
               timeoutId = setTimeout(() => {
                 setCurrentIndex(3);
-              }, 5000);
+              }, 8000);
             } else if (currentIndex === 3) {
               timeoutId = setTimeout(() => {
                 setCurrentIndex(0);
-              }, 5000);
-            } 
+              }, 8000);
+            }
           };
           playLoop();
         }
@@ -145,12 +87,83 @@ function Main() {
       }
     };
   }, [currentIndex]);
+*/
+  useEffect(() => {
+    let bootstrapCarousel = null;
+    let timeoutId = null;
+
+    const isMobile = window.innerWidth < 768; // Define the breakpoint
+
+    if (carouselEl.current) {
+      bootstrapCarousel = new Carousel(carouselEl.current, {
+        interval: false,
+        ride: false,
+        pause: false,
+        wrap: true,
+      });
+    }
+
+    const playLoop = () => {
+      if (timeoutId) clearTimeout(timeoutId);
+
+      if (currentIndex === 0) {
+        const video = isMobile
+          ? videoRefMobile.current
+          : videoRefDesktop.current;
+        if (video) {
+          video.currentTime = 0;
+          video.play();
+          timeoutId = setTimeout(() => {
+            setCurrentIndex(1);
+          }, 8000);
+        }
+      } else if (currentIndex === 1) {
+        timeoutId = setTimeout(() => {
+          setCurrentIndex(2);
+        }, 8000);
+      } else if (currentIndex === 2) {
+        timeoutId = setTimeout(() => {
+          setCurrentIndex(3);
+        }, 8000);
+      } else if (currentIndex === 3) {
+        timeoutId = setTimeout(() => {
+          setCurrentIndex(0);
+        }, 8000);
+      }
+    };
+
+    playLoop();
+
+    return () => {
+      if (bootstrapCarousel) {
+        bootstrapCarousel.dispose();
+      }
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [currentIndex]);
 
   useEffect(() => {
     if (carouselEl.current) {
       const bsCarousel = Carousel.getInstance(carouselEl.current);
       if (bsCarousel) {
         bsCarousel.to(currentIndex);
+      }
+    }
+
+    if (currentIndex === 0) {
+      const isMobile = window.innerWidth < 768;
+      const video = isMobile ? videoRefMobile.current : videoRefDesktop.current;
+
+      if (video) {
+        video.currentTime = 0;
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch((err) => {
+            console.warn("Video play was prevented:", err);
+          });
+        }
       }
     }
   }, [currentIndex]);
@@ -189,26 +202,24 @@ function Main() {
             >
               <video
                 id="introVideo"
-                ref={videoRef}
+                ref={videoRefDesktop}
                 className="d-block w-100 d-none d-md-block"
                 muted
-                playsInline
                 autoPlay
-                loop
+                playsInline
                 style={{ position: "relative", zIndex: 1 }}
               >
-                <source src={bannerVideo} type="video/mp4" />
+                <source src={bannerVideo2} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
 
               <video
                 id="introVideoMobile"
-                ref={videoRef}
+                ref={videoRefMobile}
                 className="d-block w-100 d-block d-md-none" // visible below md (<768px)
                 muted
                 playsInline
                 autoPlay
-                loop
               >
                 <source src={bannerVideoMobile} type="video/mp4" />
                 Your browser does not support the video tag.
@@ -223,7 +234,7 @@ function Main() {
             >
               <img
                 src={prarthana}
-                className="d-block "
+                className="d-block"
                 alt="Image 1"
                 style={{
                   position: "absolute",
@@ -274,7 +285,6 @@ function Main() {
                 }}
               />
             </div>
-
           </div>
 
           <button
@@ -514,11 +524,7 @@ function Main() {
             <div className="row align-items-center">
               <div className="col-lg-6 col-md-12 mb-4 order-lg-2 order-md-1">
                 <div className="team-image-container">
-                  <img
-                    src={team1}
-                    alt="Team Member 1"
-                    className="team-image"
-                  />
+                  <img src={team1} alt="Team Member 1" className="team-image" />
                   <div className="team-image-overlay">
                     <div className="team-social-links">
                       <a href="#" className="social-link">
@@ -651,11 +657,7 @@ function Main() {
             <div className="modal-body">
               <div className="row">
                 <div className="col-md-6">
-                  <img
-                    src={team1}
-                    alt="John Smith"
-                    className="rounded"
-                  />
+                  <img src={team1} alt="John Smith" className="rounded" />
                 </div>
                 <div className="col-md-6">
                   <h4>Meet Rajeev </h4>
@@ -742,11 +744,7 @@ function Main() {
             <div className="modal-body">
               <div className="row">
                 <div className="col-md-6">
-                  <img
-                    src={team2}
-                    alt="Sarah Johnson"
-                    className="rounded"
-                  />
+                  <img src={team2} alt="Sarah Johnson" className="rounded" />
                 </div>
                 <div className="col-md-6">
                   <h4>Meet Hiranya </h4>

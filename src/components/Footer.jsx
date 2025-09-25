@@ -17,7 +17,7 @@ function Footer() {
         <div className="row g-4">
           <div className="col-lg-4 col-md-6 col-12">
             <div className="footer-widget">
-              <h3 className="footer-widget-title">PRAAHI</h3>
+              <h3 className="footer-widget-title">PrRAHI</h3>
               <p className="footer-description">
                 PrRaHi is not just incense — it’s your spiritual partner,
                 helping you reconnect with your higher self. Let every stick
@@ -60,7 +60,7 @@ function Footer() {
                   <Link to="/team">Our Team</Link>
                 </li>
                 <li>
-                  <Link to="/contact">Contact</Link>
+                  <Link to="/contact-us">Contact</Link>
                 </li>
                 <li>
                   <Link to="/disclaimer">Disclaimer</Link>
@@ -89,7 +89,7 @@ function Footer() {
                   <FaAddressCard />
                   <div>
                     <h5>Address</h5>
-                    <p>Vaaps Enterprise Building No 1 , Ground Floor</p>
+                    <p>Vaaps Enterprise, Building No 1, Ground Floor</p>
                     <p>Sikaria Compound, Christian Basti, G S Road</p>
                     <p>Guwahati-781005</p>
                   </div>

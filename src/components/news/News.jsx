@@ -41,7 +41,7 @@ function News() {
                   <img
                     src={news1}
                     alt="Team Member 1"
-                    className="team-image img-fluid"
+                    className="newssection-image img-fluid"
                   />
                 </div>
               </div>
