@@ -6,7 +6,7 @@ import ContactBanner from "./ContactBanner";
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
-    contact: "",
+    phone: "",
     email: "",
     message: "",
   });
@@ -19,7 +19,7 @@ const ContactForm = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === "contact") {
+    if (name === "phone") {
       if (value.length > 10) {
         setContactError("Contact number cannot exceed 10 digits.");
       } else {
@@ -66,7 +66,7 @@ const ContactForm = () => {
           "Your message has been sent successfully! We will get back to you soon."
         );
         setIsSuccess(true);
-        setFormData({ name: "", contact: "", email: "", message: "" });
+        setFormData({ name: "", phone: "", email: "", message: "" });
       } else {
         setSubmissionStatus(
           `Failed to send message: ${
@@ -100,7 +100,7 @@ const ContactForm = () => {
                 src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d795.963930175866!2d91.77929982892584!3d26.155294228154055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDA5JzE5LjMiTiA5McKwNDYnNDcuOSJF!5e1!3m2!1sen!2sin!4v1755588418804!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
-                style={{ border: 0, minHeight: "500px" }}
+                style={{ border: 0, minHeight: "300px" }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -130,7 +130,7 @@ const ContactForm = () => {
                 </div>
 
                 <div className="mb-3">
-                  <label htmlFor="contact" className="contact-form-label">
+                  <label htmlFor="phone" className="contact-form-label">
                     Your Contact <span className="text-danger">*</span>
                   </label>
                   <input

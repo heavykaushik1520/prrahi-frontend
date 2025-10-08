@@ -142,7 +142,7 @@ const Checkout = () => {
         key: razorpayOrder.key_id, // from backend response
         amount: razorpayOrder.amount, // in paisa
         currency: razorpayOrder.currency,
-        name: "Tanvi Herbals", // replace with your store/brand
+        name: "PrRaHi Agarbatti", // replace with your store/brand
         description: "Complete your purchase",
         order_id: razorpayOrder.razorpayOrderId, // Razorpay orderId
         handler: async function (response) {
@@ -309,7 +309,7 @@ const Checkout = () => {
               </div>
 
               <div className="form-group full-width">
-                <label>Address *</label>
+                <label>House No / Name *</label>
                 <input
                   type="text"
                   name="address"

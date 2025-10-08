@@ -17,7 +17,7 @@ function Footer() {
         <div className="row g-4">
           <div className="col-lg-4 col-md-6 col-12">
             <div className="footer-widget">
-              <h3 className="footer-widget-title">PrRAHI</h3>
+              <h3 className="footer-widget-title">PrRaHi</h3>
               <p className="footer-description">
                 PrRaHi is not just incense — it’s your spiritual partner,
                 helping you reconnect with your higher self. Let every stick

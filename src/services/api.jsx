@@ -47,7 +47,7 @@ const api = async (endpoint, method = "GET", data = null, auth = false) => {
   }
 
   const makeRequest = async () => {
-    console.log("endpoint", endpoint)
+    // console.log("endpoint", endpoint)
     const response = await fetch(
       `https://artiststation.co.in/prrahi-api/api${endpoint}`,
       // `http://localhost:3000/api${endpoint}`,

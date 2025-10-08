@@ -48,7 +48,7 @@ function Collection() {
     try {
       const response = await api(`/products?page=${pageNumber}&limit=${limit}`);
 
-      console.log(response.products);
+      // console.log(response.products);
 
       setProducts(response.products);
     } catch (err) {
