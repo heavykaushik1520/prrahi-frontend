@@ -6,9 +6,9 @@ import WavesAnimation from "../components/waves/WavesAnimation";
 import bannerVideo from "../assets/videos/banner-video.mp4";
 import bannerVideo2 from "../assets/videos/banner-video-2.mp4";
 import bannerVideoMobile from "../assets/videos/mobile-view-banner-video.mp4";
-import prrahiBanner1 from "../assets/images/banner/new-prrahi-img-banner-premium.png";
-import prarthana from "../assets/images/banner/new-prrahi-img-banner-prarthanna.png";
-import prrahiBanner4 from "../assets/images/banner/new-prrahi-img-banner-aaradhya.png";
+import prrahiBanner1 from "../assets/images/banner/premium-banner.webp";
+import prarthana from "../assets/images/banner/prarthana-banner.webp";
+import prrahiBanner4 from "../assets/images/banner/aaradhya-banner.webp";
 import team1 from "../assets/images/team/rajeev.png";
 import team2 from "../assets/images/team/hiranya.png";
 import aboutImg from "../assets/images/about/1.jpeg";
@@ -29,70 +29,18 @@ function Main() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalSlides = 4;
-  /*
+  
   useEffect(() => {
+
     let bootstrapCarousel = null;
     let timeoutId = null;
 
     const isMobile = window.innerWidth < 768; 
 
-    if (!isMobile) {
-   
-      const initializeCarousel = () => {
-        if (carouselEl.current) {
-          bootstrapCarousel = new Carousel(carouselEl.current, {
-            interval: false,
-            ride: false,
-            pause: false,
-            wrap: true,
-          });
-
-          const playLoop = () => {
-            if (timeoutId) clearTimeout(timeoutId);
-
-            if (currentIndex === 0) {
-              if (videoRef.current) {
-                videoRef.current.currentTime = 0;
-                videoRef.current.play();
-                timeoutId = setTimeout(() => {
-                  setCurrentIndex(1);
-                }, 8000);
-              }
-            } else if (currentIndex === 1) {
-              timeoutId = setTimeout(() => {
-                setCurrentIndex(2);
-              }, 8000);
-            } else if (currentIndex === 2) {
-              timeoutId = setTimeout(() => {
-                setCurrentIndex(3);
-              }, 8000);
-            } else if (currentIndex === 3) {
-              timeoutId = setTimeout(() => {
-                setCurrentIndex(0);
-              }, 8000);
-            }
-          };
-          playLoop();
-        }
-      };
-      initializeCarousel();
+    if(isMobile){
+      setCurrentIndex(0);
+      return;
     }
-
-    return () => {
-      if (bootstrapCarousel) {
-        bootstrapCarousel.dispose();
-      }
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-    };
-  }, [currentIndex]);
-*/
-  useEffect(() => {
-    let bootstrapCarousel = null;
-    let timeoutId = null;
-
-    const isMobile = window.innerWidth < 768; // Define the breakpoint
 
     if (carouselEl.current) {
       bootstrapCarousel = new Carousel(carouselEl.current, {
@@ -217,9 +165,11 @@ function Main() {
                 id="introVideoMobile"
                 ref={videoRefMobile}
                 className="d-block w-100 d-block d-md-none" // visible below md (<768px)
+                loop
                 muted
-                playsInline
                 autoPlay
+                playsInline
+                
               >
                 <source src={bannerVideoMobile} type="video/mp4" />
                 Your browser does not support the video tag.
@@ -234,7 +184,7 @@ function Main() {
             >
               <img
                 src={prarthana}
-                className="d-block"
+                className="d-block d-none d-md-block"
                 alt="Image 1"
                 style={{
                   position: "absolute",
@@ -254,7 +204,7 @@ function Main() {
             >
               <img
                 src={prrahiBanner4}
-                className="d-block"
+                className="d-block d-none d-md-block"
                 alt="Image 2"
                 style={{
                   position: "absolute",
@@ -274,7 +224,7 @@ function Main() {
             >
               <img
                 src={prrahiBanner1}
-                className="d-block"
+                className="d-block d-none d-md-block"
                 alt="Image 3"
                 style={{
                   position: "absolute",

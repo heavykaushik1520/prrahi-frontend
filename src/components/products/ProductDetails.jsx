@@ -95,7 +95,8 @@ function ProductDetails() {
   }
 
   const imageUrl = product.images[0]
-    ? `https://artiststation.co.in/prrahi-api${product.images[0].imageUrl}`
+      ? `https://artiststation.co.in/prrahi-api${product.images[0].imageUrl}`
+    // ?  `http://localhost:3000${product.images[0].imageUrl}`
     : "https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here";
 
   return (
@@ -128,18 +129,44 @@ function ProductDetails() {
               </div>
             </div>
             <div className="col-md-6">
-              <h1 className="product-title">{product.name}</h1>
-              <p className="product-price">₹{product.price}</p>
-              <p className="product-description">(INCL. OF ALL TAXES)</p>
-              <hr />
-              <h5>Description</h5>
-              <p>{product.description}</p>
-              <p className="product-description" id="boxcount-12">
-                PACK OF 12 BOXES
+              <h3 className="product-title">
+                {product.category}'s {product.name}
+              </h3>
+              {/* <h3 className="product-category-title">{product.category}</h3> */}
+              <p className="product-caption" id="boxcount-12">
+                {product.caption}
               </p>
               <p>
-                <strong>Weight:</strong> {product.weight}gm
+                <span className="product-price">₹{product.price}</span>{" "}
+                <span className="product-label-price">
+                  ₹{product.labelPrice}
+                </span>
+                <br></br>
+                <span className="product-tax-text"> (INCL. OF ALL TAXES)</span>
               </p>
+
+              <p className="product-description">{product.description}</p>
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Size</th>
+                    <td scope="col"> {product.size}</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="col">Burning Time </th>
+                    <td> {product.burningTime}</td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr>
+                    <th scope="col">Weight </th>
+                    <td> {product.weight}gm</td>
+                  </tr>
+                </tbody>
+              </table>
+
               <button
                 className="btn btn-primary read-more-btn"
                 onClick={handleAddToCart}

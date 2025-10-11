@@ -24,10 +24,12 @@ function Collection() {
     setError(null);
     try {
       const response = await api(`/products?page=${pageNumber}&limit=${limit}`);
-      
+
+      console.log(response.products);
+
       // Update this line to match your API response keys
       setProducts(response.products || []);
-      
+
       // Update this line to match your API response keys
       if (response.totalPages) {
         setTotalPages(response.totalPages);
@@ -137,7 +139,7 @@ function Collection() {
         className="collection-section text-center"
         id="collection-component"
       >
-        <div className="row g-4 px-5">
+        <div className="row g-4 px-5 mt-10">
           {products.map((product) => (
             <div className="col-lg-4 col-md-6 col-12" key={product.id}>
               <div className="product-card">
@@ -145,35 +147,63 @@ function Collection() {
                   <img
                     src={
                       product.images[0]
-                        ? `https://artiststation.co.in/prrahi-api${product.images[0].imageUrl}`
+                          ? `https://artiststation.co.in/prrahi-api${product.images[0].imageUrl}`
+                        // ?  `http://localhost:3000${product.images[0].imageUrl}`
                         : "https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here"
                     }
                     alt={product.name}
-                    className="product-image "
+                    className=" img-fluid " //product-image
                   />
                 </div>
-                <div className="product-info">
-                  <h3 className="product-title">{product.name}</h3>
-                  <p className="product-description" id="boxcount-12">
-                    PACK OF 12 BOXES
+                <div className="product-info-card">
+                  <h3 className="product-title-card">
+                    {product.category}'s <br></br>  {product.name}
+                  </h3>
+                  {/* <h3 className="product-category-title">{product.category}</h3> */}
+                  <p className="product-caption-card">
+                    {product.caption}
                   </p>
-                  <p className="product-price">₹{product.price}</p>
-                  <p className="product-description">(INCL. OF ALL TAXES)</p>
-                  <p className="product-description">{product.description}</p>
-                  <div className="product-actions d-flex justify-content-between">
-                    <button
-                      className="btn btn-primary read-more-btn"
-                      onClick={() => handleReadMore(product.id)}
-                    >
-                      View Product
-                    </button>
-                    <button
-                      className="btn btn-primary read-more-btn"
-                      onClick={() => handleAddToCart(product.id)}
-                    >
-                      Add To Cart
-                    </button>
-                  </div>
+                  <p>
+                    <span className="product-price">₹{product.price}</span>{" "}
+                    <span className="product-label-price">
+                      ₹{product.labelPrice}
+                    </span>
+                    <br></br>
+                    <span className="product-tax-text">
+                      {" "}
+                      (INCL. OF ALL TAXES)
+                    </span>
+                  </p>
+
+                  {/* <p className="product-description">{product.description}</p> */}
+                  {/* <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Size</th>
+                        <td scope="col">: {product.size}</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="col">Burning Time </th>
+                        <td>: {product.burningTime}</td>
+                      </tr>
+                    </tbody>
+                  </table> */}
+                </div>
+                <div className="product-actions" id="product-act-buttons">
+                  <button
+                    className="btn btn-primary read-more-btn"
+                    onClick={() => handleReadMore(product.id)}
+                  >
+                    View Product
+                  </button>
+                  <button
+                    className="btn btn-primary read-more-btn"
+                    onClick={() => handleAddToCart(product.id)}
+                  >
+                    Add To Cart
+                  </button>
                 </div>
               </div>
             </div>

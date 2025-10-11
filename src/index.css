@@ -64,6 +64,10 @@ strong {
   margin-top: 6.5rem !important;
 }
 
+.mt-10 {
+  margin-top: 10px !important;
+}
+
 /* LOADER */
 .loader {
   position: relative;
@@ -107,14 +111,14 @@ strong {
   height: 10vh;
   min-height: 100px;
   max-height: 150px;
-  background-color: transparent; /* Make waves transparent so video shows through */
-  z-index: 10; /* Ensure waves are above video */
+  background-color: transparent;
+  z-index: 10;
   transform: scaleY(-1);
 }
 
 #customCarousel {
-  position: relative; /* Ensure the carousel is a stacking context */
-  z-index: 5; /* Lower z-index than the waves */
+  position: relative;
+  z-index: 5;
   width: 100%;
   height: 100%;
 }
@@ -261,16 +265,16 @@ strong {
 /* NAVBAR RELATED CSS START */
 
 .navbar {
-  background-color: #fa9d1d; /* User's specified orange/gold color */
-  height: 105px; /* Default height for larger screens */
+  background-color: #fa9d1d;
+  height: 105px;
   width: 100%;
   display: flex;
   align-items: center;
-  position: sticky; /* Changed from fixed to sticky as per request */
+  position: sticky;
   top: 0;
   z-index: 999;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
-  transition: height 0.3s ease-in-out; /* Smooth height transition on resize */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: height 0.3s ease-in-out;
 }
 
 /* Container inside navbar */
@@ -283,12 +287,6 @@ strong {
   align-items: center;
   justify-content: space-between;
 }
-
-/* Logo */
-/* .navbar-logo {
-    width: 20%;
-    height: 100px;
-} */
 
 .navbar-logo img {
   height: 65px;
@@ -308,7 +306,7 @@ strong {
 
 .navbar-menu-icon:hover {
   background-color: rgba(255, 255, 255, 0.1);
-  color: #000; /* Darker on hover */
+  color: #000;
 }
 
 .navbar-links {
@@ -320,11 +318,11 @@ strong {
   background-color: rgba(250, 157, 29, 0.95);
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Center links vertically in mobile menu */
+  justify-content: center;
   display: flex;
   padding: 20px 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow for mobile menu */
-  transform: translateX(-100%); /* Hidden by default */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%);
   transition: transform 0.4s ease-in-out;
   z-index: 998;
 }
@@ -341,11 +339,11 @@ strong {
 .navbar-links ul {
   list-style: none;
   display: flex;
-  flex-direction: column; /* Stack vertically in mobile */
-  gap: 25px; /* Spacing between links in mobile */
+  flex-direction: column;
+  gap: 25px;
   text-transform: uppercase;
   padding: 0;
-  margin: 0; /* Remove default list margins */
+  margin: 0;
 }
 
 .navbar-links ul li a {
@@ -353,10 +351,10 @@ strong {
   color: #ffffff;
   font-family: "Playfair Display", serif;
   font-weight: bold;
-  font-size: 16px; /* Slightly larger font for mobile links */
+  font-size: 16px;
   position: relative;
-  padding: 10px 15px; /* Add padding for better touch targets */
-  border-radius: 8px; /* Rounded corners for links */
+  padding: 10px 15px;
+  border-radius: 8px;
   transition: all 0.3s ease;
 }
 
@@ -395,8 +393,8 @@ strong {
   transition: width 0.3s ease;
 }
 
-@media (max-width:767){
-  .navbar-links ul li a.active::after{
+@media (max-width: 767) {
+  .navbar-links ul li a.active::after {
     display: none;
   }
 }
@@ -405,14 +403,10 @@ strong {
   width: 80%;
 }
 
-
-
 .navbar-links ul li a.active {
   transform: translateX(0);
   color: #000 !important;
 }
-
-
 
 /* Navbar Icons (Desktop and Mobile) */
 .navbar-icons {
@@ -677,6 +671,9 @@ strong {
 }
 
 @media (max-width: 576px) {
+  .carousel-item{
+    height: 91vh;
+  }
   .carousel-item img {
     height: 85vh;
     object-fit: fill;
@@ -994,7 +991,7 @@ about-section-image {
 }
 
 #collection-component {
-  margin-top: 80px;
+  margin-top: 40px;
 }
 
 .collection-home {
@@ -1026,6 +1023,7 @@ about-section-image {
   height: 100%;
   display: flex;
   flex-direction: column;
+  
 }
 
 .product-card:hover {
@@ -1036,7 +1034,7 @@ about-section-image {
 .product-image-container {
   position: relative;
   overflow: hidden;
-  height: 250px;
+  height: 310px;
 }
 
 .product-image {
@@ -1075,13 +1073,49 @@ about-section-image {
   flex-direction: column;
 }
 
+.product-info-card {
+  padding: 2px 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .product-title {
-  font-size: 1.25rem;
+  font-size: 2.25rem;
   font-weight: bold;
-  color: #333;
+  color: #fa9d1d;
   margin-bottom: 8px;
   line-height: 1.3;
   text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.product-title-card {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fa9d1d;
+  line-height: 1.3;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.product-caption {
+  font-size: 1.2rem;
+  font-weight:400;
+  color: #333;
+  margin-bottom: 8px;
+  line-height: 1.3;
+  /* text-transform: uppercase; */
+  margin-bottom: 0;
+}
+
+.product-caption-card {
+  font-size: 1rem;
+  font-weight:400;
+  color: #ec1b26;
+  margin-bottom: 8px;
+  line-height: 1.2;
+  /* text-transform: uppercase; */
   margin-bottom: 0;
 }
 
@@ -1094,18 +1128,29 @@ about-section-image {
 }
 
 .product-price {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #ffa500;
-  margin-bottom: 12px;
-  margin-bottom: 0;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: black;
+  /* margin-bottom: 12px;
+  margin-bottom: 0; */
+}
+
+.product-label-price{
+  text-decoration: line-through;
+  color: gray;
+}
+
+.product-tax-text{
+
+  color: gray;
+  font-size: 0.8rem
 }
 
 .product-description {
-  color: #666;
-  font-size: 0.9rem;
+  color: #0f0f0f;
+  font-size: 1rem;
   line-height: 1.5;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
   flex-grow: 1;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -1119,9 +1164,15 @@ about-section-image {
 }
 
 .product-actions {
-  display: flex;
-  gap: 10px;
+  /* display: flex; */
+  gap: 8px;
   flex-wrap: wrap;
+  margin: 10px 45px;
+}
+
+#product-act-buttons {
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 .read-more-btn {
@@ -1248,7 +1299,7 @@ about-section-image {
   }
 
   .product-title {
-    font-size: 2.1rem;
+    font-size: 1.8rem;
     text-transform: uppercase;
   }
 
@@ -1289,8 +1340,13 @@ about-section-image {
   }
 
   .product-title {
-    font-size: 2rem;
+    font-size: 1.4rem;
     text-transform: uppercase;
+    margin-top: 10px;
+  }
+
+  .product-caption{
+    font-size: 16px;
   }
 
   .product-price {
@@ -1299,7 +1355,7 @@ about-section-image {
 
   .product-description {
     font-size: 1rem;
-    margin-bottom: 0;
+    margin-top: -10px;
   }
 }
 
@@ -2837,19 +2893,7 @@ forgot-password-submit-btn:hover {
     border-color: #ffa500;
   }
 
-  /*
-.submit-btn {
-  width: 100%;
-  background-color: #ffa500;
-  color: white;
-  font-size: 16px;
-  padding: 10px 14px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
- */
+ 
 
   .submit-btn {
     width: 222px;
@@ -2972,6 +3016,15 @@ forgot-password-submit-btn:hover {
   border: 1px solid #eee;
 }
 
+.item-image-cart{
+  min-width: 265px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-right: 20px;
+  border: 1px solid #eee;
+}
+
 .item-info {
   flex-grow: 1;
 }
@@ -2979,7 +3032,14 @@ forgot-password-submit-btn:hover {
 .item-name {
   margin: 0 0 5px 0;
   font-size: 1.2em;
-  color: #333;
+  color: #fa9d1d !important;
+  text-transform: uppercase;
+}
+
+.item-category{
+  margin: 0;
+  font-size: 1em;
+  color: #ec1b26 !important;
   text-transform: uppercase;
 }
 
@@ -3232,8 +3292,8 @@ forgot-password-submit-btn:hover {
   }
 
   .item-image {
-    width: 50px;
-    height: 50px;
+    width: 100%;
+    height: 200px;
   }
 
   .item-name {
@@ -3266,6 +3326,7 @@ forgot-password-submit-btn:hover {
   .checkout-button {
     font-size: 0.9em;
     padding: 8px 12px;
+    min-width: 100%;
   }
 }
 
@@ -3410,7 +3471,7 @@ forgot-password-submit-btn:hover {
 
 .submit-btn {
   width: 100%;
-  padding: 1rem;
+  padding: 0.5rem;
   background-color: #ffa500;
   color: white;
   border: none;
@@ -3497,10 +3558,10 @@ forgot-password-submit-btn:hover {
 }
 .empty-cart-message .continue-shopping-btn {
   margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1rem;
   background-color: #fa9d1d;
   color: #fff;
-  border-radius: 4px;
+  border-radius: 0.375rem;
   text-decoration: none;
   display: inline-block;
 }
@@ -3539,6 +3600,7 @@ forgot-password-submit-btn:hover {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
+  border-bottom: 4px solid #f99e1a;
 }
 
 .order-card:hover {
@@ -3587,7 +3649,7 @@ forgot-password-submit-btn:hover {
 }
 
 .item-details p {
-  margin: 0.25rem 0;
+  margin: 0;
   font-size: 0.95rem;
   color: #555;
 }
@@ -3658,8 +3720,9 @@ forgot-password-submit-btn:hover {
   }
 
   .item-image {
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
   }
 }
 
@@ -3989,7 +4052,6 @@ forgot-password-submit-btn:hover {
   letter-spacing: 0.5px;
   height: 50px;
   max-width: 200px;
-  
 }
 
 .contact-submit-button:hover {
@@ -4457,12 +4519,7 @@ img.vert-move {
   text-align: center;
   margin-bottom: 35px;
 }
-/* .item img{
-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-width: 80%;
-margin-left: 40px;
-padding: 5px;
-} */
+
 .carousel-inner > .item > a > img,
 .carousel-inner > .item > img,
 .img-responsive,
@@ -4726,7 +4783,7 @@ padding: 20px;
 }
 
 .carousel-control-icon {
-  background-color: rgba(255, 165, 0, 0.8); /* orange background */
+  background-color: rgba(255, 165, 0, 0.8);
   border-radius: 50%;
   padding: 24px;
 }
@@ -4764,7 +4821,7 @@ padding: 20px;
 
 /* Change active indicator color */
 .carousel-indicators .active {
-  background-color: #ec1b26; /* active color */
+  background-color: #ec1b26;
   opacity: 1;
 }
 
@@ -4780,7 +4837,13 @@ padding: 20px;
 .carousel-image {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  /* object-fit: cover; */
+}
+
+.carousel-image-ad {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 /* start  */
@@ -4833,8 +4896,8 @@ A {
   position: absolute;
   border: 1px solid #333;
   border-radius: 50%;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   background-repeat: no-repeat;
   pointer-events: none;
   transition: transform 0.05s ease-out;
@@ -4857,4 +4920,20 @@ A {
   color: #000;
   background-color: #ffa500;
   border-color: #000;
+}
+
+
+.table {
+  max-width : 500px;
+  border : 2px solid black;
+}
+
+th , td {
+  border : 1px solid black;
+
+}
+
+hr {
+  height: 0px;
+  color : #f99e1a
 }

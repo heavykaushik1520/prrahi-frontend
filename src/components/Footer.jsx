@@ -24,21 +24,33 @@ function Footer() {
                 bring you closer to peace, clarity, and divine light.
               </p>
               <div className="footer-social-links">
-                <Link to="/" className="social-link-footer">
-                  <FaFacebook />
-                </Link>
-                <Link to="/" className="social-link-footer">
-                  <FaTwitter />
-                </Link>
-                <Link to="/" className="social-link-footer">
+                <a
+                  href="https://www.instagram.com/prrahi.official/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-link-footer"
+                >
                   <FaInstagram />
-                </Link>
-                <Link to="/" className="social-link-footer">
+                </a>
+
+                <a
+                  href="http://facebook.com/people/PrRaHi-Agarbatti/61577564796430/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-link-footer"
+                >
+                  <FaFacebook />
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/company/prrahi-agarbatti/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-link-footer"
+                >
                   <IoLogoLinkedin />
-                </Link>
-                <Link to="/" className="social-link-footer">
-                  <FaYoutube />
-                </Link>
+                </a>
+               
               </div>
             </div>
           </div>

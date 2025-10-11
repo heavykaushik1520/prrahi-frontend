@@ -7,6 +7,12 @@ import launch1 from "../../assets/images/news/launch-1.jpg";
 import launch2 from "../../assets/images/news/launch-2.jpg";
 import launch3 from "../../assets/images/news/launch-3.jpg";
 import launch4 from "../../assets/images/news/launch-4.jpg";
+import ad1 from "../../assets/images/news/ad-1.jpeg";
+import ad2 from "../../assets/images/news/ad-2.jpeg";
+import ad3 from "../../assets/images/news/ad-3.jpeg";
+import ad4 from "../../assets/images/news/ad-4.jpg";
+import ad5 from "../../assets/images/news/ad-5.jpeg";
+
 import NewsBanner from "./NewsBanner";
 
 function News() {
@@ -142,6 +148,67 @@ function News() {
                   className="d-block w-100 carousel-image img-fluid"
                   src={launch4}
                   alt="Launch slide 4"
+                />
+              </div>
+            </div>
+          </Carousel>
+        </div>
+
+
+        <div className="container mt-5">
+          <Carousel
+            responsive={responsive}
+            infinite={true}
+            autoPlay={true}
+            autoPlaySpeed={3000}
+            keyBoardControl={true}
+            transitionDuration={500}
+            containerClass="carousel-container"
+            itemClass="carousel-item-padding-40-px"
+          >
+            {/* Each of these divs is a carousel item */}
+            <div className="px-2">
+              <div className="carousel-image-container">
+                <img
+                  className="d-block w-100 carousel-image img-fluid"
+                  src={ad1}
+                  alt="Ad slide 1"
+                />
+              </div>
+            </div>
+            <div className="px-2">
+              <div className="carousel-image-container">
+                <img
+                  className="d-block w-100 carousel-image img-fluid"
+                  src={ad2}
+                  alt="Ad slide 2"
+                />
+              </div>
+            </div>
+            <div className="px-2">
+              <div className="carousel-image-container">
+                <img
+                  className="d-block w-100 carousel-image img-fluid"
+                  src={ad3}
+                  alt="Ad slide 3"
+                />
+              </div>
+            </div>
+            <div className="px-2">
+              <div className="carousel-image-container">
+                <img
+                  className="d-block w-100 carousel-image img-fluid"
+                  src={ad4}
+                  alt="Ad slide 4"
+                />
+              </div>
+            </div>
+            <div className="px-2">
+              <div className="carousel-image-container">
+                <img
+                  className="d-block w-100 carousel-image img-fluid"
+                  src={ad5}
+                  alt="Ad slide 5"
                 />
               </div>
             </div>

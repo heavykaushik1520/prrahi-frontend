@@ -41,6 +41,7 @@ const MyOrders = () => {
   }
 
   return (
+    <>
     <div className="orders-page-container">
       <h2 className="orders-title">MY ORDERS</h2>
       <div className="orders-container">
@@ -67,8 +68,8 @@ const MyOrders = () => {
                     <img
                       src={
                         item.product?.images?.[0]?.imageUrl
-                          ? `https://artiststation.co.in/prrahi-api${item.product.images[0].imageUrl}`
-                          // ? `http://localhost:3000${item.product.images[0].imageUrl}`
+                         ? `https://artiststation.co.in/prrahi-api${item.product.images[0].imageUrl}`
+                          //   ? `http://localhost:3000${item.product.images[0].imageUrl}`
                           : "https://placehold.co/80x80/cccccc/000000?text=No+Image" // Replace with your default image path
                       }
                       alt={item.product?.name || "Product image"}
@@ -88,13 +89,21 @@ const MyOrders = () => {
                   </div>
                 ))}
               </div>
+               <hr></hr>
             </div>
+           
           ))
-        ) : (
+          
+        ) 
+        
+        : (
           <p className="no-orders-message">You have no orders yet.</p>
         )}
+        
       </div>
+      
     </div>
+    </>
   );
 };
 

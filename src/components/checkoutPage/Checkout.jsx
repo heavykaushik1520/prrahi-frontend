@@ -226,15 +226,19 @@ const Checkout = () => {
                   src={
                     item.images?.[0]?.imageUrl
                       ? `https://artiststation.co.in/prrahi-api${item.images[0].imageUrl}`
-                      : //  ? `http://localhost:3000${item.images[0].imageUrl}`
+                      //    ? `http://localhost:3000${item.images[0].imageUrl}`
+                         :
                         "https://placehold.co/80x80/cccccc/000000?text=No+Image"
                   }
                   alt={item.name}
                   className="item-image"
                 />
                 <div className="item-details">
+                  <p className="item-category">{item.category}'s</p>
                   <p className="item-name">{item.name}</p>
-                  <p className="item-price">₹{item.price}</p>
+                  <p className="item-price">₹{item.price}{' '}<span className="product-label-price">
+                      ₹{item.labelPrice}
+                    </span></p>
                   <p className="item-quantity">
                     Quantity: {item.cartItem.quantity}
                   </p>
@@ -309,7 +313,8 @@ const Checkout = () => {
               </div>
 
               <div className="form-group full-width">
-                <label>House No / Name *</label>
+                
+                <label>Address Line 2(Apartment /  Building , House No)*</label>
                 <input
                   type="text"
                   name="address"
@@ -323,7 +328,7 @@ const Checkout = () => {
                 )}
               </div>
               <div className="form-group full-width">
-                <label>Full Address *</label>
+                <label>Address Line 1(Street . P.O Box)*</label>
                 <input
                   type="text"
                   name="fullAddress"

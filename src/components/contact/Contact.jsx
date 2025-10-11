@@ -97,14 +97,11 @@ const ContactForm = () => {
           <div className="col-lg-6 col-md-12">
             <div className="h-100 shadow rounded overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d795.963930175866!2d91.77929982892584!3d26.155294228154055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDA5JzE5LjMiTiA5McKwNDYnNDcuOSJF!5e1!3m2!1sen!2sin!4v1755588418804!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.858076568063!2d91.7805757!3d26.155505800000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a59d9621d8b4f%3A0x31046760a01f939e!2sPrRaHi%20Agarbatti!5e1!3m2!1sen!2sin!4v1759910261722!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
-                style={{ border: 0, minHeight: "300px" }}
-                allowFullScreen=""
+                style={{border:0 , minHeight : "300px"}}
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Google Map"
               ></iframe>
             </div>
           </div>

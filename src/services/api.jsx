@@ -13,8 +13,8 @@ const onRefreshed = (newToken) => {
 
 // 🔁 Refresh token function
 export const refreshToken = async () => {
-  const res = await fetch("https://artiststation.co.in/prrahi-api/api/auth/user/refresh-token", {
-  //  const res = await fetch("http://localhost:3000/api/auth/user/refresh-token", {
+ // const res = await fetch("https://artiststation.co.in/prrahi-api/api/auth/user/refresh-token", {
+     const res = await fetch("http://localhost:3000/api/auth/user/refresh-token", {
     method: "POST",
     credentials: "include", // Ensures cookies are sent
   });
@@ -49,8 +49,8 @@ const api = async (endpoint, method = "GET", data = null, auth = false) => {
   const makeRequest = async () => {
     // console.log("endpoint", endpoint)
     const response = await fetch(
-      `https://artiststation.co.in/prrahi-api/api${endpoint}`,
-      // `http://localhost:3000/api${endpoint}`,
+       `https://artiststation.co.in/prrahi-api/api${endpoint}`,
+     // `http://localhost:3000/api${endpoint}`,
       options
     );
     const contentType = response.headers.get("content-type");

@@ -138,10 +138,10 @@ const Cart = () => {
                 <div className="item-details-wrapper">
                   {item.images && item.images.length > 0 ? (
                     <img
-                      src={`https://artiststation.co.in/prrahi-api${item.images[0].imageUrl}`}
-                      // src={`http://localhost:3000${item.images[0].imageUrl}`}
+                       src={`https://artiststation.co.in/prrahi-api${item.images[0].imageUrl}`}
+                        //src={`http://localhost:3000${item.images[0].imageUrl}`}
                       alt={item.name}
-                      className="item-image"
+                      className="item-image-cart"
                       onError={(e) => {
                         e.target.onerror = null;
                         e.target.src =
@@ -152,12 +152,37 @@ const Cart = () => {
                     <img
                       src="https://placehold.co/80x80/cccccc/000000?text=No+Image"
                       alt={item.name}
-                      className="item-image"
+                      className="item-image-cart"
                     />
                   )}
                   <div className="item-info">
+                    <h6 className="item-category">{item.category}'s</h6>
                     <h6 className="item-name">{item.name}</h6>
-                    <p className="item-price">₹{item.price}</p>
+                    <p className="item-price">₹{item.price}{' '} <span className="product-label-price">
+                      ₹{item.labelPrice}
+                    </span>
+                    <br></br>
+                    <span className="product-tax-text"> (INCL. OF ALL TAXES)</span></p>
+                    <table className="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Size</th>
+                        <td scope="col"> {item.size}</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="col">Burning Time </th>
+                        <td> {item.burningTime}</td>
+                      </tr>
+                    </tbody>
+                    <tbody>
+                      <tr>
+                        <th scope="col">Weight </th>
+                        <td> {item.weight}gms</td>
+                      </tr>
+                    </tbody>
+                  </table>
                     <div className="quantity-control">
                       <button
                         className="quantity-button"
@@ -211,7 +236,7 @@ const Cart = () => {
                 onClick={handleProceedToCheckout}
                 className="checkout-button"
               >
-                Proceed to Checkout
+                PLACE ORDER
               </button>
             </div>
           </div>
