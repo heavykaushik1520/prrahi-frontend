@@ -1,6 +1,6 @@
 // src/components/ProductDetail.jsx
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation, useNavigate, Link } from "react-router-dom";
 import api from "../../services/api";
 import { updateCart } from "../../services/cartServices";
 import { useAuth } from "../../context/AuthContext";
@@ -12,6 +12,9 @@ function ProductDetails() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const fromPage = location.state?.page || 1;
   const { user } = useAuth();
   const { fetchCart } = useCart();
   const [zoomState, setZoomState] = useState({
@@ -95,9 +98,9 @@ function ProductDetails() {
   }
 
   const imageUrl = product.images[0]
-      ? `https://artiststation.co.in/prrahi-api${product.images[0].imageUrl}`
-    // ?  `http://localhost:3000${product.images[0].imageUrl}`
-    : "https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here";
+    ? `https://prrahi.in/api${product.images[0].imageUrl}`
+    : // ?  `http://localhost:3000${product.images[0].imageUrl}`
+      "https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here";
 
   return (
     <>
@@ -130,12 +133,19 @@ function ProductDetails() {
             </div>
             <div className="col-md-6">
               <h3 className="product-title">
-                {product.category}'s {product.name}
+                {product.category} {product.name}
               </h3>
               {/* <h3 className="product-category-title">{product.category}</h3> */}
-              <p className="product-caption" id="boxcount-12">
+              {/* <p className="product-caption" id="boxcount-12">
                 {product.caption}
-              </p>
+              </p> */}
+              {product.caption && (
+                <div
+                  className="product-caption"
+                  id="boxcount-12"
+                  dangerouslySetInnerHTML={{ __html: product.caption }}
+                />
+              )}
               <p>
                 <span className="product-price">₹{product.price}</span>{" "}
                 <span className="product-label-price">
@@ -145,7 +155,11 @@ function ProductDetails() {
                 <span className="product-tax-text"> (INCL. OF ALL TAXES)</span>
               </p>
 
-              <p className="product-description">{product.description}</p>
+              <div
+                className="product-description"
+                dangerouslySetInnerHTML={{ __html: product.description }}
+              />
+
               <table className="table">
                 <thead>
                   <tr>
@@ -162,17 +176,34 @@ function ProductDetails() {
                 <tbody>
                   <tr>
                     <th scope="col">Weight </th>
-                    <td> {product.weight}gm</td>
+                    <td>
+                      {product.weight && parseFloat(product.weight) > 0
+                        ? `${parseFloat(product.weight)} gm`
+                        : "-"}
+                    </td>
                   </tr>
                 </tbody>
               </table>
+              <div className="cart-and-back-btn">
+                <button
+                  className="btn btn-primary read-more-btn"
+                  onClick={handleAddToCart}
+                >
+                  Add To Cart
+                </button>
 
-              <button
-                className="btn btn-primary read-more-btn"
-                onClick={handleAddToCart}
-              >
-                Add To Cart
-              </button>
+                <button
+                  className="btn btn-primary read-more-btn"
+                  onClick={() => navigate(`/collection?page=${fromPage}`)}
+                >
+                  Back
+                </button>
+              </div>
+              <Link to={"/shipping-policy"}>
+                <p className="my-3 read-our-shipping-policy">
+                  Read our shipping policy
+                </p>
+              </Link>
             </div>
           </div>
         </div>

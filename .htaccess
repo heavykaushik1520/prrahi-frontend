@@ -1,8 +1,8 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /prrahi-frontend/
+  RewriteBase /
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /prrahi-frontend/index.html [L]
+  RewriteRule . /index.html [L]
 </IfModule>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import api from "../../services/api";
 import { updateCart } from "../../services/cartServices";
 import { useAuth } from "../../context/AuthContext";
@@ -9,12 +9,15 @@ import TopBanner from "../top/TopBanner";
 import ShoppingTopBanner from "../top/ShoppingTopBanner";
 
 function Collection() {
+  const [searchParams] = useSearchParams();
+  const initialPage = Number(searchParams.get("page")) || 1;
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { user } = useAuth();
   const { fetchCart } = useCart();
-  const [page, setPage] = useState(1);
+  // const [page, setPage] = useState(1);
+  const [page, setPage] = useState(initialPage);
   const [totalPages, setTotalPages] = useState(1);
   const limit = 6;
   const navigate = useNavigate();
@@ -59,7 +62,9 @@ function Collection() {
   };
 
   const handleReadMore = (productId) => {
-    navigate(`/collection/${productId}`);
+    navigate(`/collection/${productId}`, {
+      state: { page },
+    });
   };
 
   const renderPagination = () => {
@@ -94,7 +99,11 @@ function Collection() {
               >
                 <button
                   className="page-link"
-                  onClick={() => setPage(index + 1)}
+                  onClick={() => {
+                    // setPage(index + 1)
+                    navigate(`/collection?page=${index + 1}`);
+                    setPage(index + 1);
+                  }}
                 >
                   {index + 1}
                 </button>
@@ -147,9 +156,9 @@ function Collection() {
                   <img
                     src={
                       product.images[0]
-                          ? `https://artiststation.co.in/prrahi-api${product.images[0].imageUrl}`
-                        // ?  `http://localhost:3000${product.images[0].imageUrl}`
-                        : "https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here"
+                        ? `https://prrahi.in/api${product.images[0].imageUrl}`
+                        : // ?  `http://localhost:3000${product.images[0].imageUrl}`
+                          "https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here"
                     }
                     alt={product.name}
                     className=" img-fluid " //product-image
@@ -157,12 +166,19 @@ function Collection() {
                 </div>
                 <div className="product-info-card">
                   <h3 className="product-title-card">
-                    {product.category}'s <br></br>  {product.name}
+                    {product.category}
+                    <br></br> {product.name}
                   </h3>
                   {/* <h3 className="product-category-title">{product.category}</h3> */}
-                  <p className="product-caption-card">
+                  {/* <p className="product-caption-card">
                     {product.caption}
-                  </p>
+                  </p> */}
+                  {product.caption && (
+                    <div
+                      className="product-caption-card"
+                      dangerouslySetInnerHTML={{ __html: product.caption }}
+                    />
+                  )}
                   <p>
                     <span className="product-price">₹{product.price}</span>{" "}
                     <span className="product-label-price">
@@ -174,22 +190,6 @@ function Collection() {
                       (INCL. OF ALL TAXES)
                     </span>
                   </p>
-
-                  {/* <p className="product-description">{product.description}</p> */}
-                  {/* <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Size</th>
-                        <td scope="col">: {product.size}</td>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="col">Burning Time </th>
-                        <td>: {product.burningTime}</td>
-                      </tr>
-                    </tbody>
-                  </table> */}
                 </div>
                 <div className="product-actions" id="product-act-buttons">
                   <button

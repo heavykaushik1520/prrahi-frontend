@@ -26,6 +26,9 @@ const Checkout = () => {
   const [loading, setLoading] = useState(false); // For form submission
   const [cartLoading, setCartLoading] = useState(true); // For cart fetching
 
+  // NEW: state to show loader while verifying payment after Razorpay returns success
+  const [verifying, setVerifying] = useState(false);
+
   const checkLoginStatus = () => {
     return !!localStorage.getItem("jwtToken");
   };
@@ -145,8 +148,13 @@ const Checkout = () => {
         name: "PrRaHi Agarbatti", // replace with your store/brand
         description: "Complete your purchase",
         order_id: razorpayOrder.razorpayOrderId, // Razorpay orderId
+
+        // UPDATED handler: show verifying loader while verifying on backend
         handler: async function (response) {
           try {
+            // show verifying overlay
+            setVerifying(true);
+
             // Step 4: Verify Payment
             const verifyResponse = await api(
               "/payment/verify-payment",
@@ -160,12 +168,19 @@ const Checkout = () => {
               true
             );
 
+            // hide verifying overlay (even if verifyResponse is falsy)
+            setVerifying(false);
+
             if (verifyResponse) {
               alert("Payment successful and order confirmed!");
               navigate("/my-orders");
+            } else {
+              // server responded but verification failed
+              alert("Payment verification failed. Please contact support.");
             }
           } catch (err) {
             console.error("Payment verification failed:", err);
+            setVerifying(false);
             alert("Payment verification failed. Please contact support.");
           }
         },
@@ -216,6 +231,68 @@ const Checkout = () => {
   // ... (Your JSX rendering logic for the checkout page)
   return (
     <div className="checkout-container">
+      {/* NEW: verifying overlay shown while server verifies Razorpay payment */}
+      {verifying && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: "rgba(0,0,0,0.55)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 9999,
+            flexDirection: "column",
+            gap: 12,
+            color: "#fff",
+            padding: 16,
+          }}
+        >
+          {/* SVG spinner (no external CSS required) */}
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 40 40"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <g transform="translate(0,0)">
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="16"
+                  stroke="#ffffff"
+                  strokeWidth="4"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeDasharray="80"
+                  strokeDashoffset="60"
+                />
+                <animateTransform
+                  attributeType="xml"
+                  attributeName="transform"
+                  type="rotate"
+                  from="0 20 20"
+                  to="360 20 20"
+                  dur="1s"
+                  repeatCount="indefinite"
+                />
+              </g>
+            </svg>
+            <div style={{ fontSize: 18, fontWeight: 600 }}>
+              Verifying payment...
+            </div>
+          </div>
+          <div style={{ fontSize: 13, opacity: 0.9 }}>
+            Please don't close this window.
+          </div>
+        </div>
+      )}
+
       <div className="checkout-content">
         <div className="checkout-left">
           <h3 className="section-title">Order Summary</h3>
@@ -225,10 +302,9 @@ const Checkout = () => {
                 <img
                   src={
                     item.images?.[0]?.imageUrl
-                      ? `https://artiststation.co.in/prrahi-api${item.images[0].imageUrl}`
+                      ? `https://prrahi.in/api${item.images[0].imageUrl}`
                       //    ? `http://localhost:3000${item.images[0].imageUrl}`
-                         :
-                        "https://placehold.co/80x80/cccccc/000000?text=No+Image"
+                      : "https://placehold.co/80x80/cccccc/000000?text=No+Image"
                   }
                   alt={item.name}
                   className="item-image"
@@ -236,9 +312,12 @@ const Checkout = () => {
                 <div className="item-details">
                   <p className="item-category">{item.category}'s</p>
                   <p className="item-name">{item.name}</p>
-                  <p className="item-price">₹{item.price}{' '}<span className="product-label-price">
+                  <p className="item-price">
+                    ₹{item.price}{" "}
+                    <span className="product-label-price">
                       ₹{item.labelPrice}
-                    </span></p>
+                    </span>
+                  </p>
                   <p className="item-quantity">
                     Quantity: {item.cartItem.quantity}
                   </p>
@@ -313,14 +392,13 @@ const Checkout = () => {
               </div>
 
               <div className="form-group full-width">
-                
-                <label>Address Line 2(Apartment /  Building , House No)*</label>
+                <label>Address Line 1(Apartment /  Building , House No)*</label>
                 <input
                   type="text"
                   name="address"
                   value={formData.address}
                   onChange={handleChange}
-                  placeholder="Address"
+                  placeholder="Apartment /  Building , House No"
                   required
                 />
                 {errors.address && (
@@ -328,13 +406,13 @@ const Checkout = () => {
                 )}
               </div>
               <div className="form-group full-width">
-                <label>Address Line 1(Street . P.O Box)*</label>
+                <label>Address Line 2(Street . P.O Box)*</label>
                 <input
                   type="text"
                   name="fullAddress"
                   value={formData.fullAddress}
                   onChange={handleChange}
-                  placeholder="Full Address"
+                  placeholder="Street . P.O Box"
                   required
                 />
                 {errors.fullAddress && (

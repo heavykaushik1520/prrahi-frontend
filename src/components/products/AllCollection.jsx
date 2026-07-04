@@ -112,9 +112,9 @@ function Collection() {
                   <img
                     src={
                       product.images[0]
-                         ? `https://artiststation.co.in/prrahi-api${product.images[0].imageUrl}`
-                        //  ? `http://localhost:3000${product.images[0].imageUrl}`
-                        : "https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here"
+                        ? `https://prrahi.in/api${product.images[0].imageUrl}`
+                        : //  ? `http://localhost:3000${product.images[0].imageUrl}`
+                          "https://placehold.co/800x600/E5E7EB/4B5563?text=Your+Image+Here"
                     }
                     alt={product.name}
                     className=" img-fluid " //product-image
@@ -122,10 +122,17 @@ function Collection() {
                 </div>
                 <div className="product-info-card">
                   <h3 className="product-title-card">
-                    {product.category}'s <br></br> {product.name}
+                    {product.category}
+                    <br></br> {product.name}
                   </h3>
                   {/* <h3 className="product-category-title">{product.category}</h3> */}
-                  <p className="product-caption-card">{product.caption}</p>
+                  {/* <p className="product-caption-card">{product.caption}</p> */}
+                  {product.caption && (
+                    <div
+                      className="product-caption-card"
+                      dangerouslySetInnerHTML={{ __html: product.caption }}
+                    />
+                  )}
                   <p>
                     <span className="product-price">₹{product.price}</span>{" "}
                     <span className="product-label-price">

@@ -29,13 +29,13 @@ function Team() {
                   />
                   <div className="team-image-overlay">
                     <div className="team-social-links">
-                      <a href="#" className="social-link">
+                      <a href="https://www.linkedin.com/in/debojo-rajeev-aa832517/" target="blank" className="social-link">
                         <IoLogoLinkedin/>
                       </a>
-                      <a href="#" className="social-link">
-                        <FaTwitter/>
+                      <a href="https://www.facebook.com/debojo.rajeev.7" target="blank" className="social-link">
+                        <FaFacebook/>
                       </a>
-                      <a href="#" className="social-link">
+                      <a href="https://www.instagram.com/debojorajeev/" target="blank" className="social-link">
                         <FaInstagram/>
                       </a>
                     </div>
@@ -88,13 +88,14 @@ function Team() {
                   />
                   <div className="team-image-overlay">
                      <div className="team-social-links">
-                      <a href="#" className="social-link">
+                      <a href="https://www.linkedin.com/in/hiranya-bora-bb127a339/" target="blank"  className="social-link">
                         <IoLogoLinkedin/>
                       </a>
-                      <a href="#" className="social-link">
-                        <FaTwitter/>
+                      <a href="https://www.facebook.com/hiranya.bora.77" target="blank" className="social-link">
+                        <FaFacebook />
+
                       </a>
-                      <a href="#" className="social-link">
+                      <a href="https://www.instagram.com/94353h/" target="blank" className="social-link">
                         <FaInstagram/>
                       </a>
                     </div>
@@ -221,9 +222,7 @@ function Team() {
               >
                 Close
               </button>
-              <a href="#" className="btn btn-primary">
-                Connect on LinkedIn
-              </a>
+              
             </div>
           </div>
         </div>
@@ -319,9 +318,7 @@ function Team() {
               >
                 Close
               </button>
-              <a href="#" className="btn btn-primary">
-                Connect on LinkedIn
-              </a>
+              
             </div>
           </div>
         </div>

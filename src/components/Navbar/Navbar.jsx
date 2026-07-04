@@ -40,17 +40,17 @@ function Navbar() {
 
           <nav className={`navbar-links ${isMobileMenuOpen ? "active" : ""}`}>
             <ul>
-              <li>
+              <li className="navbar-list">
                 <NavLink  to="/" onClick={() => setIsMobileMenuOpen(false)}>
                   Home
                 </NavLink >
               </li>
-              <li >
+              <li className="navbar-list" >
                 <NavLink  className="nav-about" to="/about" onClick={() => setIsMobileMenuOpen(false)}>
                   Hello!<p className="navbar-links-text">I am PrRahi</p>
                 </NavLink >
               </li>
-              <li>
+              <li className="navbar-list">
                 <NavLink 
                   to="/collection"
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -58,12 +58,12 @@ function Navbar() {
                   Shopping<p className="navbar-links-text">Collection</p>
                 </NavLink >
               </li>
-              <li>
+              <li className="navbar-list">
                 <NavLink  to="/team" onClick={() => setIsMobileMenuOpen(false)}>
                   The Backbone <p className="navbar-links-text">Founders Team</p>
                 </NavLink >
               </li>
-               <li>
+               <li className="navbar-list">
                 <NavLink 
                   to="/news"
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -71,7 +71,15 @@ function Navbar() {
                  What's up <p className="navbar-links-text">News & Happenings</p>
                 </NavLink >
               </li>
-              <li>
+               <li className="navbar-list">
+                <NavLink 
+                  to="/career"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                 Careers<p className="navbar-links-text">Winning Team</p>
+                </NavLink >
+              </li>
+              <li className="navbar-list">
                 <NavLink 
                   to="/contact-us"
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -104,7 +112,7 @@ function Navbar() {
                 </div>
               </li>
 
-              <li>
+              <li className="navbar-list">
                 <NavLink 
                   to="/cart"
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -113,7 +121,8 @@ function Navbar() {
                   <RiShoppingCart2Line
                     style={{ fontSize: "30px", position: "relative" , color : "black" }}
                   />
-                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  <span className="cart-counter position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                  >
                     {cartCount || 0}
                     <span className="visually-hidden">unread messages</span>
                   </span>

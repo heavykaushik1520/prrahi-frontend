@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { FiEye, FiEyeOff } from 'react-icons/fi';
+import { FiEye, FiEyeOff } from "react-icons/fi";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import api from "../../services/api";
-import toast from "react-hot-toast";
-
+import { toast } from "react-toastify";
 
 const ResetPassword = () => {
   const [searchParams] = useSearchParams();
@@ -24,14 +23,18 @@ const ResetPassword = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await api("/auth/user/reset-password", "POST", {
+      const response = await api("/auth/user/reset-password", "POST", {
         token,
         newPassword,
       });
-      toast.success("Password reset successfully!");
+      toast.success(response?.data?.message || "Password reset successfully!");
       navigate("/sign-in");
     } catch (error) {
-      toast.error(error.message || "Password reset failed.");
+      toast.error(
+        error?.response?.data?.message ||
+          error?.message ||
+          "Password reset failed."
+      );
     } finally {
       setLoading(false);
     }
@@ -40,15 +43,10 @@ const ResetPassword = () => {
   return (
     <div className="reset-password-page">
       <div className="reset-password-container">
-        <h2 className="reset-password-title">
-          Reset Password
-        </h2>
+        <h2 className="reset-password-title">Reset Password</h2>
         <form onSubmit={handleSubmit} className="reset-password-form">
           <div>
-            <label
-              htmlFor="newPassword"
-              className="reset-pass-form-label"
-            >
+            <label htmlFor="newPassword" className="reset-pass-form-label">
               New Password
             </label>
             <div className="password-input-wrapper">
@@ -69,11 +67,7 @@ const ResetPassword = () => {
               </span>
             </div>
           </div>
-          <button
-            type="submit"
-            className="btn-submit"
-            disabled={loading}
-          >
+          <button type="submit" className="btn-submit" disabled={loading}>
             {loading ? "Resetting..." : "Reset Password"}
           </button>
         </form>

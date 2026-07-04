@@ -68,7 +68,7 @@ const MyOrders = () => {
                     <img
                       src={
                         item.product?.images?.[0]?.imageUrl
-                         ? `https://artiststation.co.in/prrahi-api${item.product.images[0].imageUrl}`
+                         ? `https://prrahi.in/api${item.product.images[0].imageUrl}`
                           //   ? `http://localhost:3000${item.product.images[0].imageUrl}`
                           : "https://placehold.co/80x80/cccccc/000000?text=No+Image" // Replace with your default image path
                       }

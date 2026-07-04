@@ -138,7 +138,7 @@ const Cart = () => {
                 <div className="item-details-wrapper">
                   {item.images && item.images.length > 0 ? (
                     <img
-                       src={`https://artiststation.co.in/prrahi-api${item.images[0].imageUrl}`}
+                       src={`https://prrahi.in/api${item.images[0].imageUrl}`}
                         //src={`http://localhost:3000${item.images[0].imageUrl}`}
                       alt={item.name}
                       className="item-image-cart"
@@ -156,7 +156,7 @@ const Cart = () => {
                     />
                   )}
                   <div className="item-info">
-                    <h6 className="item-category">{item.category}'s</h6>
+                    <h6 className="item-category">{item.category}</h6>
                     <h6 className="item-name">{item.name}</h6>
                     <p className="item-price">₹{item.price}{' '} <span className="product-label-price">
                       ₹{item.labelPrice}
@@ -179,7 +179,7 @@ const Cart = () => {
                     <tbody>
                       <tr>
                         <th scope="col">Weight </th>
-                        <td> {item.weight}gms</td>
+                        <td> {item.weight} gm</td>
                       </tr>
                     </tbody>
                   </table>

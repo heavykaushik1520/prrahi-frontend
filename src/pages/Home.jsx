@@ -6,13 +6,13 @@ import WavesAnimation from "../components/waves/WavesAnimation";
 import bannerVideo from "../assets/videos/banner-video.mp4";
 import bannerVideo2 from "../assets/videos/banner-video-2.mp4";
 import bannerVideoMobile from "../assets/videos/mobile-view-banner-video.mp4";
-import prrahiBanner1 from "../assets/images/banner/premium-banner.webp";
-import prarthana from "../assets/images/banner/prarthana-banner.webp";
-import prrahiBanner4 from "../assets/images/banner/aaradhya-banner.webp";
+import prrahiBanner1 from "../assets/images/banner/dbjsir/prem.png";
+import prarthana from "../assets/images/banner/dbjsir/prarth.png";
+import prrahiBanner4 from "../assets/images/banner/dbjsir/aaradhyaa.png";
 import team1 from "../assets/images/team/rajeev.png";
 import team2 from "../assets/images/team/hiranya.png";
 import aboutImg from "../assets/images/about/1.jpeg";
-import { FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { IoLogoLinkedin } from "react-icons/io5";
 import { FaTwitter } from "react-icons/fa";
 import Waves from "../components/waves/Waves";
@@ -477,13 +477,13 @@ function Main() {
                   <img src={team1} alt="Team Member 1" className="team-image" />
                   <div className="team-image-overlay">
                     <div className="team-social-links">
-                      <a href="#" className="social-link">
+                      <a href="https://www.linkedin.com/in/debojo-rajeev-aa832517/" target="blank" className="social-link">
                         <IoLogoLinkedin />
                       </a>
-                      <a href="#" className="social-link">
-                        <FaTwitter />
+                      <a href="https://www.facebook.com/debojo.rajeev.7" target="blank" className="social-link">
+                        <FaFacebook />
                       </a>
-                      <a href="#" className="social-link">
+                      <a href="https://www.instagram.com/debojorajeev/" target="blank" className="social-link">
                         <FaInstagram />
                       </a>
                     </div>
@@ -533,13 +533,13 @@ function Main() {
                   <img src={team2} alt="Team Member 2" className="team-image" />
                   <div className="team-image-overlay">
                     <div className="team-social-links">
-                      <a href="#" className="social-link">
+                      <a href="https://www.linkedin.com/in/hiranya-bora-bb127a339/" target="blank" className="social-link">
                         <IoLogoLinkedin />
                       </a>
-                      <a href="#" className="social-link">
-                        <FaTwitter />
+                      <a href="https://www.facebook.com/hiranya.bora.77" target="blank" className="social-link">
+                        <FaFacebook />
                       </a>
-                      <a href="#" className="social-link">
+                      <a href="https://www.instagram.com/94353h/" target="blank" className="social-link">
                         <FaInstagram />
                       </a>
                     </div>
@@ -662,9 +662,7 @@ function Main() {
               >
                 Close
               </button>
-              <a href="#" className="btn btn-primary">
-                Connect on LinkedIn
-              </a>
+              
             </div>
           </div>
         </div>
@@ -756,9 +754,7 @@ function Main() {
               >
                 Close
               </button>
-              <a href="#" className="btn btn-primary">
-                Connect on LinkedIn
-              </a>
+              
             </div>
           </div>
         </div>

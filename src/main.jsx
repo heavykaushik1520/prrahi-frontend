@@ -13,10 +13,10 @@ import { AuthProvider } from "./context/AuthContext.jsx";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <BrowserRouter basename="/prrahi-frontend">
+
+    <BrowserRouter >
       <App />
     </BrowserRouter>
-  </StrictMode>
+
 );
 

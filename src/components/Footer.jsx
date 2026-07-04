@@ -81,14 +81,18 @@ function Footer() {
                   <Link to="/privacy-policy">Privacy Policy</Link>
                 </li>
                 <li>
-                  <Link to="/refund-and-cancellation">
-                    Refund & Cancellation
+                  <Link to="/shipping-policy">Shipping Policy</Link>
+                </li>
+                <li>
+                  <Link to="/return-and-refund">
+                    Return & Refund Policy
                   </Link>
                 </li>
                 {/* terms-of-service */}
                 <li>
                   <Link to="/terms-of-service">Terms Of Service</Link>
                 </li>
+                 
               </ul>
             </div>
           </div>

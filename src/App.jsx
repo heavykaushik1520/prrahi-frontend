@@ -1,4 +1,6 @@
 import React from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Navbar from "./components/Navbar/Navbar";
 import Main from "./pages/Home";
 import Footer from "./components/Footer";
@@ -29,6 +31,8 @@ import News from "./components/news/News";
 import Cloud from "./components/cloud/Cloud";
 import ProductDetails from "./components/products/ProductDetails";
 import CloudComponent from "./components/cloud/CloudComponent";
+import CareerPage from "./pages/CareerPage";
+import ShippingPolicy from "./pages/ShippingPolicy";
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -49,6 +53,7 @@ function AppContent() {
         <Route path="/collection" element={<Collection />} />
         <Route path="/collection/:id" element={<ProductDetails />} />
         <Route path="/team" element={<Team />} />
+        <Route path="/career" element={<CareerPage/>}/>
         <Route path="/cart" element={<Cart />} />
         {/* <Route path="checkout" element={<Checkout />} /> */}
         <Route path="/sign-in" element={<Signin />} />
@@ -59,10 +64,11 @@ function AppContent() {
         <Route path="/contact-us" element={<ContactPage />} />
         <Route path="/news" element={<News/>}/>
         {/* <Route path="/waves" element={<WavesAnimation/>}/> */}
-        <Route path="/refund-and-cancellation" element={<RefundCancellationPolicy/>}/>
+        <Route path="/return-and-refund" element={<RefundCancellationPolicy/>}/>
         <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
         <Route path="/terms-of-service" element={<TermsOfService/>}/>
         <Route path="/disclaimer" element={<DisclaimerPage/>}/>
+        <Route path="/shipping-policy" element={<ShippingPolicy/>}/>
         <Route path="/cloud" element={<Cloud/>}/>
        
 
@@ -104,6 +110,15 @@ function AppContent() {
 function App() {
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="colored"
+      />
       <AuthProvider>
         <CartProvider>
           <AppContent />

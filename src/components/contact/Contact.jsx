@@ -20,35 +20,36 @@ const ContactForm = () => {
     const { name, value } = e.target;
 
     if (name === "phone") {
-      if (value.length > 10) {
-        setContactError("Contact number cannot exceed 10 digits.");
-      } else {
-        setContactError("");
-      }
+      // allow only numbers
+      const numericValue = value.replace(/\D/g, "");
+
+      if (numericValue.length > 10) return; // 🚫 block >10 digits
+
+      setFormData((prev) => ({
+        ...prev,
+        phone: numericValue,
+      }));
+
+      setContactError("");
+      return;
     }
 
-    setFormData((prevData) => ({
-      ...prevData,
+    setFormData((prev) => ({
+      ...prev,
       [name]: value,
     }));
   };
 
   const validateForm = () => {
-    let isValid = true;
     const contactRegex = /^\d{10}$/;
-    if (!formData.contact || !contactRegex.test(formData.contact)) {
+
+    if (!contactRegex.test(formData.phone)) {
       setContactError("Please enter a valid 10-digit contact number.");
-      isValid = false;
-    } else {
-      setContactError("");
+      return false;
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email || !emailRegex.test(formData.email)) {
-      isValid = false;
-    }
-
-    return isValid;
+    setContactError("");
+    return true;
   };
 
   const handleSubmit = async (e) => {
@@ -100,7 +101,7 @@ const ContactForm = () => {
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.858076568063!2d91.7805757!3d26.155505800000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a59d9621d8b4f%3A0x31046760a01f939e!2sPrRaHi%20Agarbatti!5e1!3m2!1sen!2sin!4v1759910261722!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
-                style={{border:0 , minHeight : "300px"}}
+                style={{ border: 0, minHeight: "300px" }}
                 loading="lazy"
               ></iframe>
             </div>
@@ -131,16 +132,18 @@ const ContactForm = () => {
                     Your Contact <span className="text-danger">*</span>
                   </label>
                   <input
-                    type="number"
+                    type="text"
                     className={`form-control ${
                       contactError ? "is-invalid" : ""
                     }`}
-                    id="contact"
-                    name="contact"
-                    value={formData.contact}
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
                     onChange={handleInputChange}
                     required
                     placeholder="Contact Number"
+                    inputMode="numeric" // 📱 mobile numeric keypad
+                    pattern="[0-9]*"
                   />
                   {contactError && (
                     <div className="invalid-feedback">{contactError}</div>

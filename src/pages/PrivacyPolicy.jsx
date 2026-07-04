@@ -194,36 +194,60 @@ const PrivacyPolicy = () => {
 
             <section className="policy-section" id="section-7">
               <h2 className="section-heading">
-                SECTION 7 – AUTHENTICATION and COOKIES
+                SECTION 7 – AUTHENTICATION AND COOKIES
               </h2>
+
               <p>
-                Our website/application uses token-based authentication to
-                securely identify users after login. Instead of traditional
-                session cookies, a temporary token is issued when you sign in.
+                Our website/application uses modern JSON Web Token (JWT)–based
+                authentication to securely verify users after login. Instead of
+                traditional session-based authentication, a short-lived access
+                token is issued when you sign in.
               </p>
+
               <ul>
                 <li>
-                  <strong>Authentication Token</strong>: A unique, encrypted
-                  token is generated upon login and is required to access your
-                  account. This token may be stored in your browser’s{" "}
-                  <code>localStorage</code> or <code>sessionStorage</code>,
-                  depending on your settings.
+                  <strong>JWT Access Token</strong>: A digitally signed token is
+                  generated upon login. This token is required to access
+                  protected features, APIs, and account-related data.
                 </li>
+
                 <li>
-                  The token does not contain your personal information directly
-                  but serves as a secure key to verify your session.
+                  <strong>Secure Storage</strong>: Depending on the
+                  application’s configuration, the JWT may be stored in your
+                  browser’s
+                  <code>localStorage</code>, <code>sessionStorage</code>, or
+                  inside a secure
+                  <strong>HTTP-only cookie</strong> to prevent unauthorized
+                  access via scripts.
                 </li>
+
                 <li>
-                  Tokens are automatically invalidated after expiration or upon
-                  logout.
+                  <strong>No Sensitive Data Inside Token</strong>: The JWT does
+                  not contain your password or other sensitive personal
+                  information. It only includes basic claims such as your user
+                  ID, role, and token expiration time.
+                </li>
+
+                <li>
+                  <strong>Automatic Expiration</strong>: Tokens automatically
+                  expire after a predefined duration. Once expired, the system
+                  will require re-authentication to maintain security.
+                </li>
+
+                <li>
+                  <strong>Logout & Token Revocation</strong>: Logging out
+                  immediately invalidates your active token. In some cases, we
+                  may use server-side checks or token blacklisting to prevent
+                  misuse.
                 </li>
               </ul>
+
               <p>
-                Apart from authentication, we may use cookies for other purposes
-                such as analytics, improving website performance, and
-                remembering your preferences. You may choose to disable cookies
-                in your browser settings, but this may affect some features of
-                our site.
+                Apart from authentication, cookies may also be used for
+                essential functionality, analytics, performance improvements,
+                and remembering your preferences. You may choose to disable
+                cookies in your browser settings; however, doing so may impact
+                certain features or functionalities of our website/application.
               </p>
             </section>
 
